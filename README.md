@@ -1,5 +1,5 @@
 <h1 align="center">
-  <code>Just TUI it!</code>
+  Just TUI it!
 </h1>
 
 A community-curated collection of terminal user interface (TUI) applications. A TUI runs in your terminal and offers some level of interactivity. Commands listed here should not wrap other interactive commands (e.g. `fzf`) and should be actively maintained.
