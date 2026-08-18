@@ -1,0 +1,34 @@
+{
+  "name": "justtuiit",
+  "version": "0.1.0",
+  "description": "Just TUI it! - a colorful TUI launcher and maintenance tool for terminal apps",
+  "type": "module",
+  "bin": {
+    "justtuiit": "bin/justtuiit"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "bin/justtuiit",
+    "dev": "bun run src/index.tsx"
+  },
+  "keywords": [
+    "tui",
+    "terminal",
+    "launcher",
+    "opentui",
+    "cli",
+    "justtuiit"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@opentui/core": "^0.5.4",
+    "@opentui/react": "^0.5.4",
+    "react": "^19.2.0"
+  }
+}
