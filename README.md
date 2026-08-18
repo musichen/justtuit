@@ -460,6 +460,8 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [nocterm](https://github.com/Norbert515/nocterm) A Flutter-like TUI framework for **Dart** with hot reload, 45+ components, and declarative UI patterns.
 - [OpenTUI](https://github.com/sst/opentui) A **TypeScript** library for building terminal user interfaces (TUIs)
 - [php-tui](https://github.com/php-tui/php-tui) comprehensive TUI library for **PHP** based heavily on Ratatui.
+- [@pierre/diffs](https://diffs.com) An open source **TypeScript** diff and code rendering library built on Shiki
+- [@pierre/trees](https://trees.software) An open source **TypeScript** file tree rendering library
 - [termbox2](https://github.com/termbox/termbox2) A terminal rendering library for creating TUIs.
 - [TermGL](https://github.com/wojciech-graj/TermGL) A terminal-based graphics library for 2D and 3D graphics.
 - [Thermage](https://github.com/thermage/thermage) Thermage is a **PHP** library that provides a fluent and incredibly powerful, object-oriented interface for customizing CLI output text color, background, formatting, theming and more.
@@ -787,6 +789,7 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [CatenaVetus](https://github.com/jimbob88/CatenaVetus) A TUI for reading the Church Fathers
 - [Chawan](https://chawan.net) A TUI web (and (S)FTP, Gopher, Gemini) browser with CSS, inline image and JavaScript support.
 - [cloudflare-speed-cli](https://github.com/kavehtehrani/cloudflare-speed-cli) Internet speed test via Cloudflare
+- [DiffsHub](https://diffshub.com) View code changes from any public GitHub diff (PRs, commits, and comparisons) with a fast virtualized interface by replacing github.com with diffshub.com
 - [eilmeldung](https://github.com/christo-auer/eilmeldung) RSS reader, supporting many RSS providers, bulk-operations and configuration options.
 - [elinks](https://github.com/rkd77/elinks) ELinks (HTTP/FTP/..) brower with mujs javascript support.
 - [hackernews-TUI](https://github.com/aome510/hackernews-TUI) A Terminal UI to browse Hacker News
