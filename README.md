@@ -750,6 +750,7 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [tuiserial](https://github.com/Horldsence/tuiserial) TUI Serial Port Tool for Edge Computing Devices
 - [tvterm](https://github.com/magiblot/tvterm) A terminal emulator that runs in your terminal
 - [Visidata](https://github.com/saulpw/visidata) A terminal spreadsheet multitool for discovering and arranging data
+- [Walker](https://github.com/abenz1267/walker) A fast, extensible application launcher with plugin support
 - [zellij](https://github.com/zellij-org/zellij) A terminal workspace with batteries included
 - [zeit](https://github.com/mrusme/zeit) A command line tool for tracking time spent on activities.
 - [Toney](https://github.com/SourcewareLab/Toney) a fast, lightweight, terminal-based note-taking app for the modern developer.
