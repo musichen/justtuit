@@ -71,7 +71,7 @@ if (!bun) {
 // the caller's current working directory (npm global bin, npx cache, etc.).
 const entry = path.join(__dirname, "..", "src", "index.tsx");
 
-const child = spawn(bun, [entry], { stdio: "inherit" });
+const child = spawn(bun, [entry, ...process.argv.slice(2)], { stdio: "inherit" });
 
 child.on("error", (err) => {
   console.error(`failed to start justtuit: ${err.message}`);

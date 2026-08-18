@@ -56,7 +56,7 @@ for (const rawLine of lines) {
   // Category header: <details open><summary><h2>Name</h2></summary>
   const catMatch = line.match(/<details[^>]*><summary><h2>(.*?)<\/h2><\/summary>/);
   if (catMatch) {
-    const name = catMatch[1].trim();
+    const name = catMatch[1]!.trim();
     const id = slug(name);
     currentCategory = id;
     currentSubcategory = null;
@@ -78,7 +78,7 @@ for (const rawLine of lines) {
   // Subcategory header (Libraries): <h3>Python</h3>
   const subMatch = line.match(/<h3>(.*?)<\/h3>/);
   if (subMatch) {
-    currentSubcategory = subMatch[1].trim().toLowerCase();
+    currentSubcategory = subMatch[1]!.trim().toLowerCase();
     lastTool = null;
     continue;
   }
@@ -86,9 +86,9 @@ for (const rawLine of lines) {
   // Tool entry: - [Name](url) description
   const entryMatch = line.match(/^- \[(.*?)\]\((.*?)\)\s*(.*)$/);
   if (entryMatch && currentCategory) {
-    const name = entryMatch[1].trim();
-    const url = entryMatch[2].trim();
-    const description = entryMatch[3]
+    const name = entryMatch[1]!.trim();
+    const url = entryMatch[2]!.trim();
+    const description = entryMatch[3]!
       .trim()
       .replace(/\*\*/g, "")
       .replace(/\s+/g, " ")
