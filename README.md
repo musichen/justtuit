@@ -153,6 +153,7 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [harlequin](https://github.com/tconbeer/harlequin) The SQL IDE for Your Terminal
 - [hcom](https://github.com/aannoo/hcom) CLI and TUI for real-time messaging, observation, and orchestration between AI coding agents (Claude Code, Antigravity, Codex, OpenCode, Kilo, Cursor) across terminals
 - [heretek](https://github.com/wcampbell0x2a/heretek) GDB TUI Dashboard
+- [hunk](https://github.com/modem-dev/hunk) A review-first terminal diff viewer for agent-authored changesets, built on OpenTUI and Pierre diffs
 - [jqp](https://github.com/noahgorstein/jqp) A TUI playground to experiment with jq
 - [kagan](https://github.com/kagan-sh/kagan) AI-powered Kanban TUI for autonomous development workflows
 - [lazygit](https://github.com/jesseduffield/lazygit) Simple terminal UI for git commands
@@ -724,6 +725,7 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [productivity-timer](https://github.com/h-sifat/productivity-timer) A command line time tracker application with a sleek TUI.
 - [sc-im](https://github.com/andmarti1424/sc-im) An ncurses spreadsheet program for terminal. Reignited version of sc
 - [SheetsUI](https://github.com/zaphar/sheetsui) A console based spreadsheet application
+- [shiki](https://github.com/sazardev/shiki) A TUI note-taking app in Rust with Yazi-style navigation, notebooks as git repos, and per-note version history
 - [slides](https://github.com/maaslalani/slides) A terminal based presentation tool, supporting markdown syntax.
 - [sshm](https://github.com/gu1llaum-3/sshm) SSH made easy and fast: browse, connect, and control from your terminal with a modern TUI
 - [ssh-slides](https://github.com/ivantsepp/ssh-slides) Terminal-based presentations over SSH
@@ -747,6 +749,7 @@ Plenty of the projects listed here are maintained by people with no affiliation 
 - [TUIOS](https://github.com/Gaurav-Gosain/tuios) A TUI window manager for managing multiple terminal sessions
 - [tui-slides](https://github.com/Chleba/tui-slides) A terminal presentation tool capable of rendering images and many other widgets.
 - [tuihub](https://github.com/ashis0013/tuihub) A utility hub/dashboard for personal use
+- [tuimux](https://github.com/shuv1337/tuimux) A terminal multiplexer for running multiple TUI apps in embedded terminal windows, built with OpenTUI and libghostty
 - [tuiserial](https://github.com/Horldsence/tuiserial) TUI Serial Port Tool for Edge Computing Devices
 - [tvterm](https://github.com/magiblot/tvterm) A terminal emulator that runs in your terminal
 - [Visidata](https://github.com/saulpw/visidata) A terminal spreadsheet multitool for discovering and arranging data
