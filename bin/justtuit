@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 /**
- * justtuiit launcher.
+ * justtuit launcher.
  *
  * OpenTUI's native core only runs under Bun (its FFI is not available under
  * Node yet), so this thin Node shim locates Bun and delegates to it. This lets
- * the package work with `npm i -g justtuiit` and `npx justtuiit` without the
+ * the package work with `npm i -g justtuit` and `npx justtuit` without the
  * user having to manually prefix every invocation with `bun`.
  */
 import { spawn, spawnSync } from "node:child_process";
@@ -59,7 +59,7 @@ const bun = findBun();
 
 if (!bun) {
   console.error("");
-  console.error("  justtuiit needs Bun to run (OpenTUI's native core requires it).");
+  console.error("  justtuit needs Bun to run (OpenTUI's native core requires it).");
   console.error("");
   console.error("  Install Bun with:");
   console.error(`    curl -fsSL ${BUN_INSTALL_URL} | bash`);
@@ -74,7 +74,7 @@ const entry = path.join(__dirname, "..", "src", "index.tsx");
 const child = spawn(bun, [entry], { stdio: "inherit" });
 
 child.on("error", (err) => {
-  console.error(`failed to start justtuiit: ${err.message}`);
+  console.error(`failed to start justtuit: ${err.message}`);
   process.exit(1);
 });
 

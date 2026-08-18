@@ -1,10 +1,10 @@
 {
-  "name": "justtuiit",
+  "name": "justtuit",
   "version": "0.1.0",
   "description": "Just TUI it! - a colorful TUI launcher and maintenance tool for terminal apps",
   "type": "module",
   "bin": {
-    "justtuiit": "bin/justtuiit"
+    "justtuit": "bin/justtuit"
   },
   "files": [
     "bin",
@@ -14,7 +14,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "bin/justtuiit",
+    "start": "bin/justtuit",
     "dev": "bun run src/index.tsx"
   },
   "keywords": [
@@ -23,7 +23,7 @@
     "launcher",
     "opentui",
     "cli",
-    "justtuiit"
+    "justtuit"
   ],
   "license": "MIT",
   "dependencies": {

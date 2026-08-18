@@ -6,9 +6,9 @@
 ## Install
 
 ```bash
-npm install -g justtuiit
+npm install -g justtuit
 # or, without installing:
-npx justtuiit
+npx justtuit
 ```
 
 Just TUI it! is built on [OpenTUI](https://github.com/anomalyco/opentui) + React.
@@ -22,7 +22,7 @@ curl -fsSL https://bun.sh/install | bash
 ## Run
 
 ```bash
-justtuiit
+justtuit
 ```
 
 Keys (current skeleton):
@@ -39,7 +39,7 @@ This is an early skeleton. Upcoming pieces:
 4. Fuzzy search
 5. Favourites quick-launch bar
 6. Shiki themes and polish
-7. `justtuiit.github.io` site
+7. `justtuit.github.io` site
 
 ## License
 
