@@ -4,7 +4,7 @@
 
 A community-curated collection of terminal user interface (TUI) applications. A TUI runs in your terminal and offers some level of interactivity. Commands listed here should not wrap other interactive commands (e.g. `fzf`) and should be actively maintained.
 
-Plenty of the projects listed here are maintained by people with no affiliation to this list. Use them at your own discretion. Found a cool tool worth sharing? [Open a pull request](https://github.com/musichen/alltui/pulls).
+Plenty of the projects listed here are maintained by people with no affiliation to this list. Use them at your own discretion. Found a cool tool worth sharing? [Open a pull request](https://github.com/musichen/justtuiit/pulls).
 
 ## Table of Contents
 
