@@ -53,13 +53,13 @@ Resolved via decision tickets (see `issues/` for detail):
   `musichen/justtuit` (package in a subfolder, site in `site/`).
 - [Maintenance action keybindings and command verbs](issues/08-maintenance-actions-and-command-verbs.md) —
   `e`/`u`/`x`/`r` keys; `Verb`-aware command builder (install/update/remove per manager).
+- [Fuzzy search algorithm](issues/09-fuzzy-search-algorithm.md) — fzy-style
+  subsequence matcher with scoring, no hard threshold, name/id/binary fields.
 
 ## Not yet specified
 
 Fog that is in scope but not yet sharp enough to ticket:
 
-- **Fuzzy-search scoring details** — exact fnf-style algorithm and threshold;
-  sits between "substring filter" (done) and a ticket once P5 is reached.
 - **Publish CI specifics** — exact GitHub Actions jobs for npm publish and the
   GitHub Pages deploy (depends on the monorepo structure from the repo-layout
   decision, now settled).

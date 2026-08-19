@@ -7,6 +7,7 @@ import type { Tool, Platform } from "./registry/types.js";
 import { bestInstallCommand, bestCommand, installCommands, detectPlatform } from "./install.js";
 import type { InstallCommand } from "./install.js";
 import { runInTerminal } from "./execute.js";
+import { scoreTool } from "./fuzzy.js";
 import { detectInstalled } from "./detect.js";
 import type { DetectResult } from "./detect.js";
 import { exec } from "node:child_process";
@@ -180,7 +181,7 @@ function Header(props: { search: string; searchMode: boolean }) {
         <input
           flexGrow={1}
           value={props.search}
-          placeholder="search tools (name, description, binary)"
+          placeholder="search tools (fuzzy)"
           textColor={C.fg}
           backgroundColor={props.searchMode ? "#1e293b" : C.bg}
           placeholderColor={C.muted}
@@ -451,17 +452,18 @@ function App() {
   const activeCategoryId = sidebar[catSel]?.id ?? null;
 
   const filtered = useMemo(() => {
-    const q = search.trim().toLowerCase();
-    return tools.filter((t) => {
-      if (activeCategoryId !== null && t.category !== activeCategoryId) return false;
-      if (!q) return true;
-      return (
-        t.name.toLowerCase().includes(q) ||
-        t.description.toLowerCase().includes(q) ||
-        t.id.toLowerCase().includes(q) ||
-        t.binaries.some((b) => b.toLowerCase().includes(q))
-      );
-    });
+    const q = search.trim();
+    const scoped =
+      activeCategoryId === null ? tools : tools.filter((t) => t.category === activeCategoryId);
+    if (!q) return scoped;
+
+    const scored: Array<{ tool: Tool; score: number }> = [];
+    for (const t of scoped) {
+      const m = scoreTool(q, t.name, t.id, t.binaries);
+      if (m) scored.push({ tool: t, score: m.score });
+    }
+    scored.sort((a, b) => b.score - a.score || a.tool.name.localeCompare(b.tool.name));
+    return scored.map((s) => s.tool);
   }, [search, activeCategoryId]);
 
   const selectedTool = filtered[toolSel];
