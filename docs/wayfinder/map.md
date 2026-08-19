@@ -51,6 +51,8 @@ Resolved via decision tickets (see `issues/` for detail):
   GitHub Pages, Actions export → gh-pages from a `site/` folder.
 - [Repo layout](issues/07-repo-layout-package-and-site.md) — monorepo at
   `musichen/justtuit` (package in a subfolder, site in `site/`).
+- [Maintenance action keybindings and command verbs](issues/08-maintenance-actions-and-command-verbs.md) —
+  `e`/`u`/`x`/`r` keys; `Verb`-aware command builder (install/update/remove per manager).
 
 ## Not yet specified
 
