@@ -6,7 +6,7 @@ import { categories, tools } from "./registry/tools.js";
 import type { Tool, Platform } from "./registry/types.js";
 import { bestInstallCommand, bestCommand, installCommands, detectPlatform } from "./install.js";
 import type { InstallCommand } from "./install.js";
-import { runInTerminal } from "./execute.js";
+import { runInTerminal, binaryExists } from "./execute.js";
 import { scoreTool } from "./fuzzy.js";
 import { loadFavourites, saveFavourites } from "./favourites.js";
 import { detectInstalled } from "./detect.js";
@@ -628,12 +628,17 @@ function App() {
       return;
     }
     setBusy(true);
-    setStatus(`${verb} ${name}...`);
     runInTerminal(renderer, command).then((outcome) => {
       setBusy(false);
-      if (outcome.ok) setStatus(`${verb} ${name} done (exit 0)`);
-      else if (outcome.error) setStatus(`${verb} failed: ${outcome.error}`);
-      else setStatus(`${verb} ${name} failed (exit ${outcome.code ?? outcome.signal ?? "?"})`);
+      if (outcome.ok) {
+        setStatus(verb === "launch" ? `returned from ${name} (exit 0)` : `${verb} ${name} done (exit 0)`);
+      } else if (verb === "launch" && outcome.code === 127) {
+        setStatus(`${name} is not installed — press i to install it`);
+      } else if (outcome.error) {
+        setStatus(`${verb} failed: ${outcome.error}`);
+      } else {
+        setStatus(`${verb} ${name} failed (exit ${outcome.code ?? outcome.signal ?? "?"})`);
+      }
     });
   };
 
@@ -799,7 +804,12 @@ function App() {
           setStatus(`No binary to launch for ${t.name}`);
           break;
         }
-        runAction("launch", bin, t.name);
+        // Pre-check PATH so we don't flash a "command not found" when the tool
+        // is not installed; offer install instead.
+        binaryExists(bin).then((ok) => {
+          if (!ok) setStatus(`${t.name} is not installed — press i to install it`);
+          else runAction("launch", bin, t.name);
+        });
         break;
       }
       case "escape":

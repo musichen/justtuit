@@ -8,8 +8,22 @@
  * report the outcome.
  */
 
-import { spawn } from "node:child_process";
+import { spawn, execFile } from "node:child_process";
+import { promisify } from "node:util";
 import type { CliRenderer } from "@opentui/core";
+
+const execFileAsync = promisify(execFile);
+
+/** Quick PATH probe for a binary name (used to avoid a "command not found" flash). */
+export async function binaryExists(bin: string): Promise<boolean> {
+  const cmd = process.platform === "win32" ? "where" : "which";
+  try {
+    await execFileAsync(cmd, [bin], { timeout: 4000, windowsHide: true });
+    return true;
+  } catch {
+    return false;
+  }
+}
 
 export interface ExecOutcome {
   /** True when the child exited 0 without a signal or spawn error. */

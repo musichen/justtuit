@@ -3180,7 +3180,7 @@ export const tools: Tool[] = [
     "description": "Pretty fancy and modern terminal file manager.",
     "category": "file-managers",
     "binaries": [
-      "superfile"
+      "spf"
     ],
     "managers": {
       "brew": "yorukot/superfile/superfile",

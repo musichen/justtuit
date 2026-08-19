@@ -9,6 +9,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { curated } from "../src/registry/curated.js";
 import { catalog } from "../src/registry/catalog.js";
+import { bins } from "../src/registry/bins.js";
 import type { Category, Tool } from "../src/registry/types.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -96,7 +97,7 @@ for (const rawLine of lines) {
       .trim();
 
     const id = uniqueSlug(slug(name));
-    const binaries = currentCategory === "libraries" ? [] : [id];
+    const binaries = currentCategory === "libraries" ? [] : bins[normalizeName(name)] ?? [id];
 
     const managers = { ...catalog[normalizeName(name)], ...curated[normalizeName(name)] };
 
