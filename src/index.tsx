@@ -418,11 +418,11 @@ function Footer(props: { status: string }) {
         <text content="? help" fg={C.muted} />
       </box>
       <box flexDirection="row" gap={2}>
-        <text content="e install" fg={C.muted} />
+        <text content="i install" fg={C.muted} />
         <text content="u update" fg={C.muted} />
         <text content="x remove" fg={C.muted} />
         <text content="r run" fg={C.muted} />
-        <text content="i all cmds" fg={C.muted} />
+        <text content="a cmds" fg={C.muted} />
       </box>
     </box>
   );
@@ -441,11 +441,11 @@ function HelpOverlay() {
     ["Esc", "clear search"],
     ["Enter", "copy install command"],
     ["o", "open URL"],
-    ["i", "toggle all install commands"],
-    ["e", "install (execute)"],
+    ["i", "install (execute)"],
     ["u", "update (execute)"],
     ["x", "remove (execute)"],
     ["r", "run / launch binary"],
+    ["a", "toggle all install commands"],
     ["?", "close this help"],
   ];
   return (
@@ -667,10 +667,10 @@ function App() {
         setStatus(`Opening ${t.url}`);
         break;
       }
-      case "i":
+      case "a":
         setShowAllInstall((s) => !s);
         break;
-      case "e": {
+      case "i": {
         const t = filtered[toolSel];
         if (!t) {
           setStatus("No tool selected");

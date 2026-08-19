@@ -11,13 +11,18 @@ not the exact keys, nor how update/remove commands are derived per manager.
 
 ## Answer
 
-Keys (bound when not in search mode; shown in the footer and `?` help):
+Keys (single letters; shown in the footer and `?` help):
 
-- `e` install - execute the best install command
+- `i` install - execute the best install command
 - `u` update - execute the best update command
 - `x` remove - execute the best remove command
 - `r` run / launch - launch the tool's first binary
+- `a` toggle all install commands (moved from `i`)
 - `Enter` stays copy-to-clipboard (secondary affordance, per ticket 02)
+
+`i` was chosen for install (more intuitive than `e`). Note: while search mode is
+active (after `/`), single letters type into the search box; `Esc`/`Enter` returns
+to command mode where the letters act as shortcuts.
 
 Verbs: `src/install.ts` gains `type Verb = "install" | "update" | "remove"` and
 per-manager builders, exposed as `commandsFor(tool, verb)` and
