@@ -55,6 +55,8 @@ Resolved via decision tickets (see `issues/` for detail):
   `e`/`u`/`x`/`r` keys; `Verb`-aware command builder (install/update/remove per manager).
 - [Fuzzy search algorithm](issues/09-fuzzy-search-algorithm.md) — fzy-style
   subsequence matcher with scoring, no hard threshold, name/id/binary fields.
+- [Session management backend](issues/10-session-management.md) — tmux as the
+  session backend: `r` launch+attach, `S` sessions view, detach/reattach/kill.
 
 ## Not yet specified
 

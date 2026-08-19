@@ -9,6 +9,8 @@ import type { InstallCommand } from "./install.js";
 import { runInTerminal, binaryExists } from "./execute.js";
 import { scoreTool } from "./fuzzy.js";
 import { loadFavourites, saveFavourites } from "./favourites.js";
+import { listSessions, launchSession, killSession, attachCommand } from "./sessions.js";
+import type { SessionInfo } from "./sessions.js";
 import { detectInstalled } from "./detect.js";
 import type { DetectResult } from "./detect.js";
 import { exec } from "node:child_process";
@@ -445,6 +447,40 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
   );
 }
 
+function SessionsOverlay(props: {
+  sessions: SessionInfo[];
+  sel: number;
+  onSelect: (i: number) => void;
+  onClose: () => void;
+}) {
+  return (
+    <box flexGrow={1} flexDirection="column" alignItems="center" justifyContent="center">
+      <box flexDirection="column" border={true} borderColor={C.border} paddingX={2} paddingY={1} minWidth={52}>
+        <text content=" Sessions - running apps" fg={C.header} attributes={TextAttributes.BOLD} />
+        <text content=" " fg={C.fg} />
+        {props.sessions.length === 0 ? (
+          <text content="  (no running sessions)" fg={C.muted} />
+        ) : (
+          props.sessions.map((s, i) => {
+            const isSel = i === props.sel;
+            return (
+              <text
+                key={s.name}
+                content={`${isSel ? ">" : " "} ${s.toolName}`.padEnd(42)}
+                fg={isSel ? C.selFg : C.fg}
+                bg={isSel ? C.selBg : undefined}
+                onMouseDown={() => props.onSelect(i)}
+              />
+            );
+          })
+        )}
+        <text content=" " fg={C.fg} />
+        <text content=" Enter attach · x kill · Esc back" fg={C.muted} />
+      </box>
+    </box>
+  );
+}
+
 function Footer(props: { status: string }) {
   return (
     <box
@@ -466,13 +502,14 @@ function Footer(props: { status: string }) {
         <text content="Enter copy" fg={C.muted} />
         <text content="o open" fg={C.muted} />
         <text content="t theme" fg={C.muted} />
+        <text content="S sessions" fg={C.muted} />
         <text content="? help" fg={C.muted} />
       </box>
       <box flexDirection="row" gap={2}>
         <text content="i install" fg={C.muted} />
         <text content="u update" fg={C.muted} />
         <text content="x remove" fg={C.muted} />
-        <text content="r run" fg={C.muted} />
+        <text content="r session" fg={C.muted} />
         <text content="f fav" fg={C.muted} />
         <text content="a cmds" fg={C.muted} />
       </box>
@@ -496,7 +533,8 @@ function HelpOverlay() {
     ["i", "install (execute)"],
     ["u", "update (execute)"],
     ["x", "remove (execute)"],
-    ["r", "run / launch binary"],
+    ["r", "run in session (detach C-b d)"],
+    ["S", "sessions (running apps)"],
     ["f", "toggle favourite"],
     ["t", "cycle theme (dark/colorful/light)"],
     ["a", "toggle all install commands"],
@@ -540,6 +578,9 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [favourites, setFavourites] = useState<string[]>([]);
   const [theme, setTheme] = useState<ThemeName>("dark");
+  const [showSessions, setShowSessions] = useState(false);
+  const [sessions, setSessions] = useState<SessionInfo[]>([]);
+  const [sessionSel, setSessionSel] = useState(0);
 
   const platform = useMemo(() => detectPlatform(), []);
   const favSet = useMemo(() => new Set(favourites), [favourites]);
@@ -548,6 +589,15 @@ function App() {
   useEffect(() => {
     setFavourites(loadFavourites());
   }, []);
+
+  // Refresh the session list whenever the sessions view opens.
+  useEffect(() => {
+    if (!showSessions) return;
+    listSessions().then((s) => {
+      setSessions(s);
+      setSessionSel(0);
+    });
+  }, [showSessions]);
 
   const sidebar = useMemo<SideEntry[]>(() => {
     const counts = new Map<string, number>();
@@ -682,6 +732,48 @@ function App() {
       return;
     }
 
+    // Sessions view: list running apps, attach / kill / back.
+    if (showSessions) {
+      switch (e.name) {
+        case "escape":
+        case "S":
+          setShowSessions(false);
+          break;
+        case "j":
+        case "down":
+          setSessionSel((s) => clamp(s + 1, 0, Math.max(0, sessions.length - 1)));
+          break;
+        case "k":
+        case "up":
+          setSessionSel((s) => clamp(s - 1, 0, Math.max(0, sessions.length - 1)));
+          break;
+        case "enter": {
+          const s = sessions[sessionSel];
+          if (s) {
+            setShowSessions(false);
+            setBusy(true);
+            runInTerminal(renderer, attachCommand(s.name)).then(() => {
+              setBusy(false);
+              listSessions().then((list) => setSessions(list));
+            });
+          }
+          break;
+        }
+        case "x": {
+          const s = sessions[sessionSel];
+          if (s) {
+            setStatus(`Killed ${s.toolName}`);
+            killSession(s.name).then(() => listSessions()).then((list) => {
+              setSessions(list);
+              setSessionSel(0);
+            });
+          }
+          break;
+        }
+      }
+      return;
+    }
+
     switch (e.name) {
       case "/":
         setSearchMode(true);
@@ -763,6 +855,9 @@ function App() {
         setStatus(`Theme: ${next}`);
         break;
       }
+      case "S":
+        setShowSessions(true);
+        break;
       case "a":
         setShowAllInstall((s) => !s);
         break;
@@ -804,11 +899,22 @@ function App() {
           setStatus(`No binary to launch for ${t.name}`);
           break;
         }
-        // Pre-check PATH so we don't flash a "command not found" when the tool
-        // is not installed; offer install instead.
-        binaryExists(bin).then((ok) => {
-          if (!ok) setStatus(`${t.name} is not installed — press i to install it`);
-          else runAction("launch", bin, t.name);
+        binaryExists(bin).then(async (ok) => {
+          if (!ok) {
+            setStatus(`${t.name} is not installed — press i to install it`);
+            return;
+          }
+          setBusy(true);
+          try {
+            const name = await launchSession(t, bin);
+            setStatus(`Launched ${t.name} — detach with C-b d`);
+            await runInTerminal(renderer, attachCommand(name));
+            setStatus(`Detached — ${t.name} still running`);
+          } catch (err) {
+            setStatus(`Failed to launch ${t.name}: ${err instanceof Error ? err.message : String(err)}`);
+          } finally {
+            setBusy(false);
+          }
         });
         break;
       }
@@ -825,6 +931,13 @@ function App() {
       <Header search={search} searchMode={searchMode} />
       {showHelp ? (
         <HelpOverlay />
+      ) : showSessions ? (
+        <SessionsOverlay
+          sessions={sessions}
+          sel={sessionSel}
+          onSelect={setSessionSel}
+          onClose={() => setShowSessions(false)}
+        />
       ) : (
         <box flexDirection="row" flexGrow={1}>
           <Sidebar entries={sidebar} sel={catSel} active={pane === 0} window={listWindow} onSelect={(i) => { setCatSel(i); setPane(0); }} onScroll={(d) => setCatSel((c) => clamp(c + d, 0, sidebar.length - 1))} />
