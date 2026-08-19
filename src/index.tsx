@@ -8,6 +8,7 @@ import { bestInstallCommand, bestCommand, installCommands, detectPlatform } from
 import type { InstallCommand } from "./install.js";
 import { runInTerminal } from "./execute.js";
 import { scoreTool } from "./fuzzy.js";
+import { loadFavourites, saveFavourites } from "./favourites.js";
 import { detectInstalled } from "./detect.js";
 import type { DetectResult } from "./detect.js";
 import { exec } from "node:child_process";
@@ -269,6 +270,7 @@ function ToolList(props: {
   total: number;
   onSelect: (idx: number) => void;
   onScroll: (delta: number) => void;
+  favSet: Set<string>;
 }) {
   const { start, end } = computeWindow(props.items.length, props.sel, props.window);
   const visible = props.items.slice(start, end);
@@ -304,7 +306,7 @@ function ToolList(props: {
               return (
                 <text
                   key={t.id}
-                  content={`${isSel ? ">" : " "} ${t.name}`.padEnd(32)}
+                  content={`${isSel ? ">" : " "}${props.favSet.has(t.id) ? "★" : " "} ${t.name}`.padEnd(32)}
                   fg={isSel ? C.selFg : C.fg}
                   bg={isSel ? C.selBg : undefined}
                   attributes={isSel ? TextAttributes.BOLD : TextAttributes.NONE}
@@ -320,7 +322,7 @@ function ToolList(props: {
   );
 }
 
-function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform; detect: DetectResult | null; onFocus: () => void }) {
+function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform; detect: DetectResult | null; onFocus: () => void; fav: boolean }) {
   const paneProps: {
     flexGrow: number;
     flexDirection: "column";
@@ -352,7 +354,7 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
   return (
     <box {...paneProps} onMouseDown={() => props.onFocus()}>
       <text content=" Details" fg={C.header} attributes={TextAttributes.BOLD} />
-      <text content={t.name} fg={C.accent} attributes={TextAttributes.BOLD} />
+      <text content={`${props.fav ? "★ " : ""}${t.name}`} fg={C.accent} attributes={TextAttributes.BOLD} />
       <text content={t.url} fg={C.header} />
       <text
         content={`${catName(t.category)}${t.subcategory ? " / " + t.subcategory : ""}`}
@@ -422,6 +424,7 @@ function Footer(props: { status: string }) {
         <text content="u update" fg={C.muted} />
         <text content="x remove" fg={C.muted} />
         <text content="r run" fg={C.muted} />
+        <text content="f fav" fg={C.muted} />
         <text content="a cmds" fg={C.muted} />
       </box>
     </box>
@@ -445,6 +448,7 @@ function HelpOverlay() {
     ["u", "update (execute)"],
     ["x", "remove (execute)"],
     ["r", "run / launch binary"],
+    ["f", "toggle favourite"],
     ["a", "toggle all install commands"],
     ["?", "close this help"],
   ];
@@ -484,8 +488,15 @@ function App() {
   const [status, setStatus] = useState("");
   const [detect, setDetect] = useState<DetectResult | null>(null);
   const [busy, setBusy] = useState(false);
+  const [favourites, setFavourites] = useState<string[]>([]);
 
   const platform = useMemo(() => detectPlatform(), []);
+  const favSet = useMemo(() => new Set(favourites), [favourites]);
+
+  // Load favourites once at startup.
+  useEffect(() => {
+    setFavourites(loadFavourites());
+  }, []);
 
   const sidebar = useMemo<SideEntry[]>(() => {
     const counts = new Map<string, number>();
@@ -495,15 +506,21 @@ function App() {
       name: c.name,
       count: counts.get(c.id) ?? 0,
     }));
-    return [{ id: null, name: "All", count: tools.length }, ...entries];
-  }, []);
+    return [
+      { id: null, name: "All", count: tools.length },
+      { id: "__favourites__", name: "★ Favourites", count: favourites.length },
+      ...entries,
+    ];
+  }, [favourites]);
 
   const activeCategoryId = sidebar[catSel]?.id ?? null;
 
   const filtered = useMemo(() => {
     const q = search.trim();
-    const scoped =
-      activeCategoryId === null ? tools : tools.filter((t) => t.category === activeCategoryId);
+    let scoped: Tool[];
+    if (activeCategoryId === "__favourites__") scoped = tools.filter((t) => favSet.has(t.id));
+    else if (activeCategoryId === null) scoped = tools;
+    else scoped = tools.filter((t) => t.category === activeCategoryId);
     if (!q) return scoped;
 
     const scored: Array<{ tool: Tool; score: number }> = [];
@@ -513,7 +530,7 @@ function App() {
     }
     scored.sort((a, b) => b.score - a.score || a.tool.name.localeCompare(b.tool.name));
     return scored.map((s) => s.tool);
-  }, [search, activeCategoryId]);
+  }, [search, activeCategoryId, favSet]);
 
   const selectedTool = filtered[toolSel];
 
@@ -667,6 +684,21 @@ function App() {
         setStatus(`Opening ${t.url}`);
         break;
       }
+      case "f": {
+        const t = filtered[toolSel];
+        if (!t) {
+          setStatus("No tool selected");
+          break;
+        }
+        const isFav = favSet.has(t.id);
+        setFavourites((prev) => {
+          const next = isFav ? prev.filter((x) => x !== t.id) : [...prev, t.id];
+          saveFavourites(next);
+          return next;
+        });
+        setStatus(isFav ? `Removed ${t.name} from favourites` : `★ ${t.name} favourited`);
+        break;
+      }
       case "a":
         setShowAllInstall((s) => !s);
         break;
@@ -735,8 +767,9 @@ function App() {
             total={tools.length}
             onSelect={(i) => { setToolSel(i); setPane(1); }}
             onScroll={(d) => setToolSel((t) => clamp(t + d, 0, filtered.length - 1))}
+            favSet={favSet}
           />
-          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} detect={detect} onFocus={() => setPane(2)} />
+          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} detect={detect} onFocus={() => setPane(2)} fav={selectedTool ? favSet.has(selectedTool.id) : false} />
         </box>
       )}
       <Footer status={status} />
