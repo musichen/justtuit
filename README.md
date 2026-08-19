@@ -6,6 +6,24 @@ A community-curated collection of terminal user interface (TUI) applications. A 
 
 Plenty of the projects listed here are maintained by people with no affiliation to this list. Use them at your own discretion. Found a cool tool worth sharing? [Open a pull request](https://github.com/musichen/justtuit/pulls).
 
+## Use it
+
+**Browse the catalog online:** [musichen.github.io/justtuit](https://musichen.github.io/justtuit/)
+
+**Install the TUI launcher:**
+
+```bash
+npm install -g justtuit
+```
+
+[![npm version](https://img.shields.io/npm/v/justtuit)](https://www.npmjs.com/package/justtuit)
+[![CI](https://github.com/musichen/justtuit/actions/workflows/ci.yml/badge.svg)](https://github.com/musichen/justtuit/actions/workflows/ci.yml)
+[![Pages](https://github.com/musichen/justtuit/actions/workflows/pages.yml/badge.svg)](https://github.com/musichen/justtuit/actions/workflows/pages.yml)
+
+- [npm package](https://www.npmjs.com/package/justtuit) · [@webboxes/justtuit alias](https://www.npmjs.com/package/@webboxes/justtuit) · [TUI app source](./app) · [website source](./site)
+
+---
+
 ## Table of Contents
 
 - [Dashboards](#dashboards)
