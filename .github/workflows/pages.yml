@@ -23,7 +23,9 @@ jobs:
         with:
           bun-version: latest
       - run: bun install --frozen-lockfile
+        working-directory: app
       - run: bun scripts/export-site.ts
+        working-directory: app
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

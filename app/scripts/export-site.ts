@@ -5,7 +5,7 @@
  * Output:    site/data/tools.json
  */
 
-import { writeFileSync, mkdirSync } from "node:fs";
+import { writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { categories, tools } from "../src/registry/tools.js";
@@ -13,7 +13,10 @@ import { installCommands } from "../src/install.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
-const outDir = path.join(root, "site", "data");
+// In the monorepo the site lives at the monorepo root (../site); standalone it
+// lives inside the package (site/). Prefer the monorepo layout when present.
+const monorepoSite = path.join(root, "..", "site");
+const outDir = existsSync(monorepoSite) ? path.join(monorepoSite, "data") : path.join(root, "site", "data");
 
 const data = {
   generatedAt: new Date().toISOString(),
