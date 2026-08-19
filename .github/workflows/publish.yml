@@ -20,14 +20,14 @@ jobs:
         working-directory: app
       - run: npx tsc --noEmit
         working-directory: app
-      - name: Publish justtuit
+      - name: Publish justtuit (unscoped - owned by webboxescom)
         run: npm publish --access public
         working-directory: app
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - name: Publish @webboxes/justtuit alias
+          NODE_AUTH_TOKEN: ${{ secrets.NPMTOKEN_WEBBOXES }}
+      - name: Publish @webboxes/justtuit alias (org - musichen is a member)
         run: npm publish --access public
         working-directory: app/packages/webboxes-justtuit
         continue-on-error: true
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPMTOKEN_MUSICHEN }}
