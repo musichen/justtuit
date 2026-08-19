@@ -16,9 +16,12 @@ browse, search, and get install commands for every tool in the
 - `src/registry/types.ts` - `Tool`, `Category`, `Managers`, `Platform` types.
 - `src/registry/tools.ts` - auto-generated: `categories` (13) + `tools` (672).
 - `src/registry/curated.ts` - `curated: Record<string, Managers>` keyed by
-  lowercased display name (77 entries). Regenerate tools.ts with:
+  lowercased display name (197 entries). Regenerate tools.ts with:
   `bun scripts/parse-list.ts`.
-- `src/index.tsx` - CLI introspection mode + placeholder TUI.
+- `src/install.ts` - command builder (`detectPlatform`, `installCommands`,
+  `bestInstallCommand`, `commandsByManager`).
+- `src/index.tsx` - CLI introspection mode + three-pane TUI (category sidebar /
+  tool list / detail).
 - `bin/justtuit` - Node -> Bun launcher.
 
 ## Contracts
@@ -106,7 +109,7 @@ OpenTUI React facts:
 
 ### 3. Registry enrichment (`src/registry/curated.ts`)
 
-Grow curated install managers toward ~150-200 well-known tools (currently 77).
+Grow curated install managers toward ~150-200 well-known tools (currently 197).
 Keys are lowercased display names and MUST match a tool name in
 `src/registry/tools.ts` exactly. After editing run `bun scripts/parse-list.ts`
 to regenerate tools.ts; fix any new "did not match" warnings. Only add managers
