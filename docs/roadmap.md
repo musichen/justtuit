@@ -27,8 +27,8 @@ tickets.
 | 5 | Fuzzy search (fnf-style matcher) | ✅ | fzy-style subsequence matcher (`src/fuzzy.ts`), score-sorted, no hard threshold |
 | 6 | Favourites quick-launch bar | ⬜ | Persist to `~/.justtuit/favourites.json` + pinned bar |
 | 7 | Theming + visual polish | ⬜ | OpenTUI built-in themes (dark/colorful/light); Shiki later |
-| 8 | Static site (GitHub Pages) | ⬜ | Alpine.js + Tailwind (CDN), served from a `site/` folder |
-| 9 | Publish to npm + CI | ⬜ | `npm i justtuit -g` + `@webboxes/justtuit` alias |
+| 8 | Static site (GitHub Pages) | ✅ | `site/` + export script + deploy workflow (Alpine.js + Tailwind CDN) |
+| 9 | Publish to npm + CI | ✅ | package.json + publish workflow + `@webboxes/justtuit` alias (publish needs npm creds + monorepo push) |
 
 All decisions for P4-P9 are resolved (tickets 01-07). Remaining work is
 implementation, not decision-making.

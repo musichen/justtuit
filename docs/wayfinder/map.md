@@ -60,10 +60,6 @@ Resolved via decision tickets (see `issues/` for detail):
 
 Fog that is in scope but not yet sharp enough to ticket:
 
-- **Publish CI specifics** — exact GitHub Actions jobs for npm publish and the
-  GitHub Pages deploy (depends on the monorepo structure from the repo-layout
-  decision, now settled).
-
 ## Out of scope
 
 - **Native single-binary packaging** (`bun build --compile`) — ruled out in
