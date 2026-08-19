@@ -1,0 +1,52 @@
+{
+  "name": "justtuit",
+  "version": "0.1.0",
+  "description": "Just TUI it! - a colorful TUI launcher and maintenance tool for terminal apps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/musichen/justtuit.git"
+  },
+  "homepage": "https://justtuit.github.io",
+  "bugs": {
+    "url": "https://github.com/musichen/justtuit/issues"
+  },
+  "type": "module",
+  "bin": {
+    "justtuit": "bin/justtuit"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "bin/justtuit",
+    "dev": "bun run src/index.tsx",
+    "typecheck": "tsc --noEmit",
+    "parse": "bun scripts/parse-list.ts",
+    "export:site": "bun scripts/export-site.ts",
+    "prepublishOnly": "bun scripts/parse-list.ts && bun scripts/export-site.ts"
+  },
+  "keywords": [
+    "tui",
+    "terminal",
+    "launcher",
+    "opentui",
+    "cli",
+    "justtuit"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@opentui/core": "^0.5.4",
+    "@opentui/react": "^0.5.4",
+    "react": "^19.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,1037 @@
+# Dashboards / AdGuardian-Term — Docker
+docker run -it lissy93/adguardian
+
+# Dashboards / below — DNF
+sudo dnf install below
+
+# Dashboards / binsider — Cargo
+cargo install binsider
+
+# Dashboards / bmon — source build (Debian/Ubuntu)
+git clone https://github.com/tgraf/bmon.git && cd bmon && apt-get install build-essential make libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev pkg-config dh-autoreconf && ./autogen.sh && ./configure && make && make install
+
+# Dashboards / bottom — Cargo
+cargo install bottom --locked
+
+# Dashboards / bpytop — PyPI
+pip3 install bpytop --upgrade
+
+# Dashboards / bullmq-dash — Homebrew
+brew install quanghuynt14/tap/bullmq-dash
+
+# Dashboards / cheatshh — PyPI
+pip install cheatshh
+
+# Dashboards / claws — Homebrew cask
+brew install --cask clawscli/tap/claws
+
+# Dashboards / dashbrew — Go
+go install github.com/rasjonell/dashbrew/cmd/dashbrew@latest
+
+# Dashboards / dolphie — PyPI
+pip install dolphie
+
+# Dashboards / fubar — Cargo
+cargo install fubar-cli
+
+# Dashboards / Glances — venv + PyPI
+cd ~ && python3 -m venv ~/.venv && . ~/.venv/bin/activate && pip install glances
+
+# Dashboards / Goaccess — source tarball
+wget https://tar.goaccess.io/goaccess-1.11.tar.gz && tar -xzvf goaccess-1.11.tar.gz && cd goaccess-1.11/ && ./configure --enable-utf8 --enable-geoip=mmdb && make && make install
+
+# Dashboards / gobang — Homebrew
+brew install tako8ki/tap/gobang
+
+# Dashboards / gonzo — Go
+go install github.com/control-theory/gonzo/cmd/gonzo@latest
+
+# Dashboards / gotop — AUR helper
+yay -S gotop-bin
+
+# Dashboards / gping — Homebrew
+brew install gping
+
+# Dashboards / hwatch — release tarball
+curl -LO https://github.com/blacknon/hwatch/releases/latest/download/hwatch-<VERSION>.<TARGET>.tar.gz && tar xf hwatch-<VERSION>.<TARGET>.tar.gz && sudo install -m 0755 bin/hwatch /usr/local/bin/hwatch
+
+# Dashboards / hwinfo-tui — winget
+winget install hwinfo-tui
+
+# Dashboards / ID-Spoofer — release binary via curl
+curl -sL https://github.com/NubleX/ID-Spoofer/releases/latest/download/idspoof_linux_amd64 -o idspoof && chmod +x idspoof && sudo mv idspoof /usr/local/bin/
+
+# Dashboards / kaskade — Homebrew
+brew install kaskade
+
+# Dashboards / kmon — Cargo
+cargo install kmon
+
+# Dashboards / psmux — winget
+winget install psmux
+
+# Dashboards / psnet — Cargo
+cargo install psnet
+
+# Dashboards / pstop — winget
+winget install marlocarlo.pstop
+
+# Dashboards / Puffin — Homebrew
+brew install siddhantac/puffin/puffin
+
+# Dashboards / Raijin — Cargo
+cargo install Raijin
+
+# Dashboards / rustnet — Homebrew
+brew install rustnet
+
+# Dashboards / s-tui — PyPI
+pip install s-tui --user
+
+# Dashboards / ServerHub — official install script
+curl -fsSL https://raw.githubusercontent.com/nickprotop/ServerHub/main/install.sh | bash
+
+# Dashboards / sysz — AUR helper
+paru -S sysz
+
+# Dashboards / tufw — Debian package
+sudo apt install tufw_0.1.0_linux_amd64.deb
+
+# Dashboards / tuicamp — just
+just install
+
+# Dashboards / updo — Homebrew
+brew install owloops/tap/updo
+
+# Dashboards / wander — Homebrew
+brew install robinovitch61/tap/wander
+
+# Dashboards / WTF — Homebrew
+brew install wtfutil
+
+# Development / act3 — Homebrew
+brew install dhth/tap/act3
+
+# Development / amtui — Homebrew
+brew tap pehlicd/tap && brew install amtui
+
+# Development / austin-tui — pipx
+pipx install austin-tui
+
+# Development / brows — Homebrew
+brew tap rubysolo/tools && brew install brows
+
+# Development / burf — uv
+uv tool install burf
+
+# Development / catalyst — Homebrew
+brew tap PraveenGongada/tap && brew install catalyst
+
+# Development / chiko — Homebrew
+brew install felangga/chiko/chiko
+
+# Development / Claude Code Usage Monitor — uv
+uv tool install claude-monitor
+
+# Development / codex — npm
+npm install -g @openai/codex
+
+# Development / crush — Homebrew
+brew install charmbracelet/tap/crush
+
+# Development / dblab — Homebrew cask
+brew install --cask danvergara/tools/dblab
+
+# Development / ddv — Cargo
+cargo install --locked ddv
+
+# Development / deputui — source build
+make all
+
+# Development / euporie — uv
+uv tool install euporie
+
+# Development / fast-resume — Homebrew
+brew tap angristan/tap && brew install fast-resume
+
+# Development / Feluda — Cargo
+cargo install feluda
+
+# Development / Froggit — official install script
+curl -s https://raw.githubusercontent.com/thewizardshell/froggit/master/scripts/install.sh | bash
+
+# Development / ggc — official install script
+curl -sSL https://raw.githubusercontent.com/bmf-san/ggc/main/install.sh | bash
+
+# Development / gitui — pacman
+pacman -S gitui
+
+# Development / gitv — Homebrew
+brew install jayanaxhf/taps/gitv
+
+# Development / git-crecord — setup.py
+./setup.py install
+
+# Development / git-scope — Homebrew
+brew tap Bharath-code/tap && brew install git-scope
+
+# Development / grv — release binary
+wget -O grv https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64 && chmod +x ./grv
+
+# Development / harlequin — uv
+curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install harlequin
+
+# Development / hcom — Homebrew
+brew install aannoo/hcom/hcom
+
+# Development / heretek — Cargo
+cargo install heretek --locked
+
+# Development / hunk — npm
+npm i -g hunkdiff
+
+# Development / jqp — Homebrew
+brew install jqp
+
+# Development / kagan — OpenCode plugin
+opencode plugin -g @kagan-sh/kagan
+
+# Development / lazymake — Homebrew
+brew install lazymake
+
+# Development / lazysql — Homebrew
+brew install lazysql
+
+# Development / logradar — Cargo/source
+cargo install --path .
+
+# Development / LogLens — Homebrew
+brew tap Caelrith/loglens && brew install loglens
+
+# Development / models — Homebrew
+brew install models
+
+# Development / nap — Go
+go install github.com/maaslalani/nap@main
+
+# Development / opencode — official install script
+curl -fsSL https://opencode.ai/install | bash
+
+# Development / opcilloscope — official install script
+curl -fsSL https://raw.githubusercontent.com/SquareWaveSystems/opcilloscope/main/install.sh | bash
+
+# Development / posting — uv
+curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install --python 3.13 posting
+
+# Development / pproftui — Go
+go install github.com/Oloruntobi1/pproftui@latest
+
+# Development / prs — Homebrew
+brew install dhth/tap/prs
+
+# Development / pyautogit — PyPI
+pip install pyautogit
+
+# Development / qo — Homebrew
+brew install kiki-ki/tap/qo
+
+# Development / regex-tui — Go
+go install github.com/vitor-mariano/regex-tui@latest
+
+# Development / resterm — Homebrew
+brew install resterm
+
+# Development / runme — Homebrew
+brew update && brew install runme
+
+# Development / scope — Cargo
+cargo install scope-monitor
+
+# Development / sabiql — Homebrew
+brew install riii111/sabiql/sabiql
+
+# Development / snips.sh — zero-install SSH
+ssh snips.sh
+
+# Development / stu — Cargo
+cargo install --locked stu
+
+# Development / termdbms — Go
+go install github.com/mathaou/termdbms@latest
+
+# Development / terraform-tui — Homebrew
+brew install idoavrah/homebrew/tftui
+
+# Development / Toad — official install script
+curl -fsSL batrachian.ai/install | sh
+
+# Development / toolui — .NET tool
+dotnet tool install ToolUI
+
+# Development / Twig — uv
+curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install twg
+
+# Development / serie — Cargo
+cargo install --locked serie
+
+# Development / soft-serve — Homebrew
+brew install charmbracelet/tap/soft-serve
+
+# Development / sot — official install script
+curl -fsSL https://raw.githubusercontent.com/anistark/sot/main/install.sh | bash
+
+# Development / sq — Go
+go install github.com/sheenazien8/sq@latest
+
+# Docker/LXC/K8s / Argonaut — official install script
+curl -sSL https://raw.githubusercontent.com/darksworm/argonaut/main/install.sh | sh
+
+# Docker/LXC/K8s / d4s — official install script
+curl -fsSL https://d4scli.io/install.sh | sh -s -- ~/.local/bin
+
+# Docker/LXC/K8s / dtop — Homebrew
+brew install dtop
+
+# Docker/LXC/K8s / dockly — npm
+npm install -g dockly
+
+# Docker/LXC/K8s / DockMate — Homebrew
+brew install shubh-io/tap/dockmate
+
+# Docker/LXC/K8s / docker-dash — Homebrew
+brew tap GustavoCaso/tap && brew install docker-dash
+
+# Docker/LXC/K8s / dprs — official install script
+curl -fsSL https://get.durableprogramming.com/dprs | sh
+
+# Docker/LXC/K8s / dry — official install script
+curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh && sudo chmod 755 /usr/local/bin/dry
+
+# Docker/LXC/K8s / ducker — Cargo
+cargo install --locked ducker
+
+# Docker/LXC/K8s / e1s — CloudShell install script
+curl -sL https://raw.githubusercontent.com/keidarcy/e1s-install/master/cloudshell-install.sh | bash
+
+# Docker/LXC/K8s / eks-node-viewer — Homebrew
+brew tap aws/tap && brew install eks-node-viewer
+
+# Docker/LXC/K8s / kdash — Homebrew
+brew tap kdash-rs/kdash && brew install kdash
+
+# Docker/LXC/K8s / ktop — krew
+kubectl krew install ktop
+
+# Docker/LXC/K8s / kubetui — Homebrew
+brew install kubetui
+
+# Docker/LXC/K8s / lazycontainer — Homebrew
+brew install lazycontainer
+
+# Docker/LXC/K8s / lazydocker — Homebrew
+brew install jesseduffield/lazydocker/lazydocker
+
+# Docker/LXC/K8s / lazytrivy — Homebrew cask
+brew tap owenrumney/tools && brew install --cask lazytrivy
+
+# Docker/LXC/K8s / oxker — Cargo
+cargo install oxker
+
+# Docker/LXC/K8s / Pocker — pipx
+pipx install pocker-tui
+
+# Docker/LXC/K8s / sen — PyPI + dependency
+pip3 install git+https://github.com/pazz/urwidtrees.git@9142c59d3e41421ff6230708d08b6a134e0a8eed#egg=urwidtrees-1.0.3.dev && pip3 install sen
+
+# Docker/LXC/K8s / SwarmCLI — Homebrew
+brew tap eldara-tech/tap && brew install swarmcli
+
+# Editors / Durdraw — source + pip
+git clone https://github.com/cmang/durdraw.git && cd durdraw && python3 -m pip install --upgrade .
+
+# Editors / frogmouth — pipx
+pipx install frogmouth
+
+# Editors / kakoune — source build
+make install
+
+# Editors / slap — official install script
+curl -sL https://raw.githubusercontent.com/slap-editor/slap/master/install.sh | sh
+
+# Editors / vis — source build
+./configure && make && sudo make install
+
+# Editors / zee — Cargo
+cargo install --locked zee
+
+# File Managers / adbtuifm — Go
+go get -u github.com/darkhz/adbtuifm
+
+# File Managers / deletor — Go
+go install github.com/pashkov256/deletor@latest
+
+# File Managers / fyzenor — official install script
+curl -fsSL https://raw.githubusercontent.com/Bimbok/fyzenor/main/install.sh | bash -s -- --stable
+
+# File Managers / lf — Go
+env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest
+
+# File Managers / rovr — uv
+uv tool install rovr
+
+# File Managers / sfm — source build
+git clone https://github.com/afify/sfm && cd sfm/ && make && make install
+
+# File Managers / superfile — official install script
+bash -c "$(curl -sLo- https://superfile.dev/install.sh)"
+
+# File Managers / TUIFIManager — PyPI
+sudo pip3 install tuifimanager --upgrade
+
+# File Managers / Vifm — apk
+apk add vifm
+
+# File Managers / ytreenova — source build
+git clone https://github.com/robkam/ytreenova.git && cd ytreenova && make && sudo make install
+
+# Games / tui-2048 — PyPI
+pip install tui-2048
+
+# Games / awkaster — dependency install + run
+brew update && brew install gawk
+
+# Games / chess-tui — Homebrew
+brew install thomas-mauran/tap/chess-tui
+
+# Games / clidle — zero-install SSH
+ssh clidle.duckdns.org -p 3000
+
+# Games / Gameboy Emulator — source + Composer
+git clone https://github.com/gabrielrcouto/php-terminal-gameboy-emulator.git && cd php-terminal-gameboy-emulator && composer install -o
+
+# Games / GitType — official install script
+curl -sSL https://raw.githubusercontent.com/unhappychoice/gittype/main/install.sh | bash
+
+# Games / go-life — release binary
+wget https://github.com/sachaos/go-life/releases/download/v0.4.0/go-life_darwin_amd64 -O /usr/local/bin/go-life && chmod +x /usr/local/bin/go-life
+
+# Games / Maze — Homebrew
+brew install itchyny/tap/maze
+
+# Games / nSnake — source build
+make && sudo make install
+
+# Games / nudoku — source build/run
+./configure && make && ./src/nudoku
+
+# Games / pokete — PyPI
+pip install pokete
+
+# Games / Rebels in the sky — zero-install SSH
+ssh frittura.org
+
+# Games / ssHattrick — zero-install SSH
+ssh frittura.org
+
+# Games / sshtron — zero-install SSH
+ssh sshtron.zachlatta.com
+
+# Games / sssnake — source build
+git clone https://github.com/AngelJumbo/sssnake.git && cd sssnake && make && sudo make install
+
+# Games / sweeper — Poetry
+pip install poetry && poetry install
+
+# Games / terminal-pong — source + Cargo run
+git clone https://github.com/IshmamR/terminal.pong.git && cd terminal.pong && cargo run --release
+
+# Games / termrex — source build
+git clone https://github.com/SATYADAHAL/termrex.git && cd termrex && make -j release && ./build/termrex
+
+# Games / typeinc — PyPI
+pip install typeinc
+
+# Games / typing-game-cli — npm
+npm install --global typing-game-cli
+
+# Libraries / Argenta — PyPI
+python -m pip install argenta
+
+# Libraries / py_cui — PyPI
+pip install py-cui
+
+# Libraries / Python Prompt Toolkit — PyPI
+pip install prompt_toolkit
+
+# Libraries / urwid — PyPI
+pip install urwid
+
+# Libraries / gocui — Go dependency
+go get github.com/jroimartin/gocui
+
+# Libraries / tui-go — Go dependency
+go get github.com/marcusolsson/tui-go
+
+# Libraries / FINAL CUT — source build
+git clone https://github.com/gansm/finalcut.git && cd finalcut && autoreconf --install --force && ./configure --prefix=/usr && make && su -c "make install"
+
+# Libraries / imtui — source build
+git clone https://github.com/ggerganov/imtui --recursive && cd imtui && mkdir build && cd build && cmake .. && make
+
+# Libraries / Elaris.UI — .NET package
+dotnet add package Ambystech.Elaris.UI
+
+# Libraries / Hex1b — .NET package
+dotnet add package Hex1b
+
+# Libraries / blessed (Node.js) — npm
+npm install blessed
+
+# Libraries / gum — Homebrew
+brew install gum
+
+# Libraries / ink — npm
+npm install ink react
+
+# Libraries / Melker — Deno
+deno install -g -A jsr:@melker/melker
+
+# Libraries / moulti — pipx
+pipx install moulti; pipx ensurepath
+
+# Messaging / basalt — Cargo
+cargo install basalt-tui
+
+# Messaging / instagram-cli — npm
+npm install -g @i7m/instagram-cli
+
+# Messaging / marchat — release archive
+wget https://github.com/Cod-e-Codes/marchat/releases/download/v1.3.4/marchat-v1.3.4-linux-amd64.zip && unzip marchat-v1.3.4-linux-amd64.zip && chmod +x marchat-*
+
+# Messaging / mastui — pipx
+pipx install mastui
+
+# Messaging / nomadnet — PyPI
+pip install nomadnet
+
+# Messaging / nostratui — source + Cargo
+git clone https://github.com/adamm-xyz/nostratui.git && cd nostratui && cargo build
+
+# Messaging / sclack — source + pip
+git clone https://github.com/haskellcamargo/sclack.git && cd sclack && pip3 install -r requirements.txt && chmod +x ./app.py
+
+# Messaging / SuperChat — official install script
+curl -fsSL https://raw.githubusercontent.com/aeolun/superchat/main/install.sh | sh
+
+# Messaging / tgt — Cargo
+cargo install tgt
+
+# Messaging / tuisky — Cargo
+cargo install tuisky
+
+# Messaging / zulip-terminal — PyPI
+pip3 install zulip-term
+
+# Miscellaneous / arttime — official installer
+zsh -c '{url="https://gist.githubusercontent.com/poetaman/bdc598ee607e9767fe33da50e993c650/raw/d0146d258a30daacb9aee51deca9410d106e4237/arttime_online_installer.sh"; zsh -c "$(curl -fsSL $url || wget -qO- $url)"}'
+
+# Miscellaneous / asciiMol — PyPI
+pip install asciimol
+
+# Miscellaneous / bluetui — Cargo
+cargo install bluetui
+
+# Miscellaneous / Captain's log — source install
+sudo make install
+
+# Miscellaneous / cava — source build
+make install
+
+# Miscellaneous / diary — Cargo
+cargo install diary
+
+# Miscellaneous / DigiSurf — Cargo
+cargo install digisurf
+
+# Miscellaneous / distrobox-tui — Go
+go install github.com/phanirithvij/distrobox-tui@main
+
+# Miscellaneous / ec2-instance-selector — Homebrew
+brew tap aws/tap && brew install ec2-instance-selector
+
+# Miscellaneous / flawz — Cargo
+cargo install --locked flawz
+
+# Miscellaneous / fzf — apk
+sudo apk add fzf
+
+# Miscellaneous / gdu — release tarball
+curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz && chmod +x gdu_linux_amd64 && mv gdu_linux_amd64 /usr/bin/gdu
+
+# Miscellaneous / gif-for-cli — PyPI
+pip3 install --user gif-for-cli
+
+# Miscellaneous / godap — source + Go
+git clone https://github.com/Macmod/godap && cd godap && go install .
+
+# Miscellaneous / golazo — Homebrew
+brew install 0xjuanma/tap/golazo
+
+# Miscellaneous / gpg-tui — Cargo
+cargo install gpg-tui
+
+# Miscellaneous / HumBLE Explorer — PyPI
+pip install humble-explorer
+
+# Miscellaneous / keydex — official install script
+curl -s https://shikaan.github.io/sup/install | REPO=shikaan/keydex sh -
+
+# Miscellaneous / lazynginx — release tarball
+LAZYNGINX_VERSION=$(curl -s "https://api.github.com/repos/giacomomasseron/lazynginx/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*') && curl -Lo lazynginx.tar.gz "https://github.com/giacomomasseron/lazynginx/releases/download/v${LAZYNGINX_VERSION}/lazynginx_${LAZYNGINX_VERSION}_linux_amd64.tar.gz" && tar xf lazynginx.tar.gz lazynginx && sudo install lazynginx -D -t /usr/local/bin/
+
+# Miscellaneous / mac-cleanup-go — Homebrew
+brew install mac-cleanup-go
+
+# Miscellaneous / mapscii — zero-install telnet
+telnet mapscii.me
+
+# Miscellaneous / mqttui — apk
+apk add mqttui
+
+# Miscellaneous / moribito — official install script
+curl -sSL https://raw.githubusercontent.com/ericschmar/moribito/main/scripts/install.sh | bash
+
+# Miscellaneous / neoss — npm
+npm install -g neoss
+
+# Miscellaneous / oha — Cargo
+cargo install oha
+
+# Miscellaneous / packemon — source + Go
+git clone git@github.com:ddddddO/packemon.git && cd packemon && cd tc_program/ && go generate && cd - && go build -o packemon cmd/packemon/*.go && mv packemon /usr/local/bin/
+
+# Miscellaneous / pass-cli — Homebrew
+brew tap reyamira/homebrew-tap && brew install pass-cli
+
+# Miscellaneous / PesterExplorer — PowerShell Gallery
+Install-Module PesterExplorer -Scope CurrentUser
+
+# Miscellaneous / pug — Go
+go install github.com/leg100/pug@latest
+
+# Miscellaneous / physics-TUI — PyPI/git
+pip install git+https://github.com/ClaudioRMalvino/physics_tui.git
+
+# Miscellaneous / redu — Cargo
+cargo install redu --locked
+
+# Miscellaneous / nemu — apk
+apk add nemu
+
+# Miscellaneous / recoverpy — uv tool
+uv tool install recoverpy
+
+# Miscellaneous / rocket.term — setup.py
+./setup.py install --user
+
+# Miscellaneous / smassh — PyPI
+pip install smassh
+
+# Miscellaneous / Systemd-manager-tui — Debian package
+sudo dpkg -i ./systemd-manager-tui_x.x.x-x_amd64.deb
+
+# Miscellaneous / tcpterm — Go
+go install github.com/sachaos/tcpterm
+
+# Miscellaneous / tab-pal — pipx
+pipx install tab-pal
+
+# Miscellaneous / terminalperiodictable — source build
+sudo make install
+
+# Miscellaneous / tweakcc — npm global
+npm install -g tweakcc
+
+# Miscellaneous / typtea — AUR helper
+yay -S typtea
+
+# Miscellaneous / try-rs — source + Cargo
+git clone https://github.com/tassiovirginio/try-rs.git && cd try-rs && cargo install --path . --bin try-rs
+
+# Miscellaneous / vortix — Homebrew
+brew install Harry-kp/tap/vortix
+
+# Miscellaneous / wb — project installer
+chmod 755 INSTALL.sh && ./INSTALL.sh
+
+# Miscellaneous / wego — Go
+go install github.com/schachmat/wego@latest
+
+# Miscellaneous / wavemon — source build
+./configure && make && sudo make install
+
+# Miscellaneous / WifUI — winget
+winget install wifui
+
+# Miscellaneous / xplr — Nixpkgs
+nix-env -f https://github.com/NixOS/nixpkgs/tarball/master -iA xplr
+
+# Miscellaneous / x-cmd — official install script
+eval "$(curl https://get.x-cmd.com)"
+
+# Multimedia / ani-l — Cargo
+cargo install ani-l
+
+# Multimedia / asak — Cargo
+cargo install asak
+
+# Multimedia / bookokrat — Homebrew
+brew install bookokrat
+
+# Multimedia / cmdpxl — PyPI
+pip install cmdpxl
+
+# Multimedia / cmus — apt
+sudo apt-get install cmus
+
+# Multimedia / draw — Go
+go install github.com/maaslalani/draw@latest
+
+# Multimedia / favicon-editor — Go
+go install github.com/xyproto/favicon-editor@latest
+
+# Multimedia / gadacz — source + Cargo
+git clone https://github.com/rareitems/gadacz && cd gadacz && cargo install --path .
+
+# Multimedia / GopherTube — official install script
+curl -sSL https://raw.githubusercontent.com/KrishnaSSH/GopherTube/main/install.sh | bash
+
+# Multimedia / image-sorter — Cargo
+cargo install image-sorter
+
+# Multimedia / jellyfin-tui — source + Cargo
+git clone https://github.com/dhonus/jellyfin-tui && cd jellyfin-tui && cargo install --path .
+
+# Multimedia / MAL-Cli — AUR helper
+yay -S mal-cli
+
+# Multimedia / managarr — Cargo
+cargo install managarr
+
+# Multimedia / manga-tui — Cargo
+cargo install manga-tui --locked
+
+# Multimedia / marstui-audio — source + Cargo
+sudo apt install libdbus-1-dev pkg-config && git clone https://github.com/schooldanlp6/marstui-rustio && cd marstui-rustio && cargo build --release && cd target/release && chmod +x marstui-audio && sudo cp marstui-audio /bin/marstui-audio
+
+# Multimedia / mps-youtube — PyPI (current yewtube)
+pip install yewtube
+
+# Multimedia / pipe-viewer — Perl build
+perl Build.PL && sudo ./Build installdeps && sudo ./Build install
+
+# Multimedia / Relax-player — Cargo
+cargo install relax-player
+
+# Multimedia / sonicradio — Go
+go install github.com/dancnb/sonicradio/cmd/sonicradio@latest
+
+# Multimedia / soundcloud2000 — macOS deps + gem
+xcode-select --install && brew install portaudio && brew install mpg123 && gem install soundcloud2000
+
+# Multimedia / spotatui — Homebrew
+brew tap LargeModGames/spotatui && brew install spotatui
+
+# Multimedia / spotui — PyPI
+pip install spotui
+
+# Multimedia / tdf — Cargo/git
+cargo install --git https://github.com/itsjunetime/tdf.git
+
+# Multimedia / termusic — Cargo
+cargo install termusic termusic-server --locked
+
+# Multimedia / textual-paint — pipx
+pip install --upgrade pipx && pipx install textual-paint
+
+# Multimedia / timg — apt
+sudo apt install timg
+
+# Multimedia / tizonia-openmax-il — official install script
+curl -kL https://github.com/tizonia/tizonia-openmax-il/raw/master/tools/install.sh | bash
+
+# Multimedia / upiano — PyPI
+pip install upiano
+
+# Multimedia / wiremix — Cargo
+cargo install wiremix
+
+# Multimedia / ytui-music — source + Cargo
+git clone git@github.com:sudipghimire533/ytui-music && cd ytui-music && git submodule init && MPV_BUILD=mpv-build/ cargo build --all --release --features build_libmpv
+
+# Multimedia / ytfzf — source build
+git clone https://github.com/pystardust/ytfzf && cd ytfzf && sudo make install doc
+
+# Multimedia / viu — source + Cargo
+git clone https://github.com/atanunq/viu.git && cd viu && cargo install --path .
+
+# Productivity / agent-deck — official install script
+curl -fsSL https://raw.githubusercontent.com/asheshgoplani/agent-deck/main/install.sh | bash
+
+# Productivity / awsui — uv
+uv tool install --python 3.13 awsui
+
+# Productivity / Bagels — uv
+curl -LsSf https://astral.sh/uv/install.sh | sh && source "$HOME/.local/bin/env" && uv tool install --python 3.13 bagels
+
+# Productivity / Brief — Homebrew
+brew install williamagh/tap/brief
+
+# Productivity / calcure — pipx
+pipx install calcure
+
+# Productivity / clipse — Nix
+nix-env -iA nixpkgs.clipse
+
+# Productivity / Desktop-TUI — Cargo
+cargo install desktop-tui
+
+# Productivity / doxx — Homebrew
+brew install bgreenwell/tap/doxx
+
+# Productivity / drako — Go
+go install github.com/lucky7xz/drako@latest
+
+# Productivity / dvtm — source build
+make && sudo make install
+
+# Productivity / ekphos — Cargo
+cargo install ekphos
+
+# Productivity / elia — pipx
+pipx install --python 3.11 elia-chat
+
+# Productivity / fjira — Homebrew
+brew install fjira
+
+# Productivity / GeekCalendar — source + Bun
+bun install && bun run build && mkdir -p ~/.local/bin && mv ./geekcalendar ~/.local/bin/
+
+# Productivity / Glow — Homebrew
+brew install glow
+
+# Productivity / gocheat — source + Go
+git clone https://github.com/Achno/gocheat && cd gocheat && go build && sudo cp gocheat /usr/local/bin/
+
+# Productivity / helm — Homebrew
+brew install 0xjuanma/tap/helm
+
+# Productivity / h-m-m — official install script
+wget -q -O - https://raw.githubusercontent.com/nadrad/h-m-m/main/install.sh | sh
+
+# Productivity / hnjobs — Go
+go install github.com/mwinters0/hnjobs@latest
+
+# Productivity / hygg — Cargo
+cargo install --locked hygg
+
+# Productivity / HydroToDo — source checkout
+git clone https://github.com/Henriquehnnm/HydroToDo.git && cd HydroToDo
+
+# Productivity / HydroFetch — official install script
+curl -sSL https://raw.githubusercontent.com/Henriquehnnm/HydroFetch/main/install.fish | fish
+
+# Productivity / jiratui — uv
+uv tool install jiratui
+
+# Productivity / Judo — Cargo
+cargo install judo
+
+# Productivity / kabmat — source build
+git clone https://github.com/PlankCipher/kabmat.git && cd kabmat && make && sudo make install
+
+# Productivity / kanban — Cargo
+cargo install kanban-cli
+
+# Productivity / kanban-python — PyPI
+python -m pip install kanban-python
+
+# Productivity / khal — apt
+apt install khal
+
+# Productivity / LazySSH — Homebrew
+brew install Adembc/homebrew-tap/lazyssh
+
+# Productivity / longbridge-terminal — Homebrew cask
+brew install --cask longbridge/tap/longbridge-terminal
+
+# Productivity / lssh — Homebrew
+brew install blacknon/lssh/lssh
+
+# Productivity / mcfly — Homebrew
+brew install mcfly
+
+# Productivity / mynav — official install script
+curl -fsSL https://raw.githubusercontent.com/GianlucaP106/mynav/main/install.bash | bash
+
+# Productivity / multranslate — npm
+npm install -g multranslate
+
+# Productivity / nless — pipx
+pipx install nothing-less
+
+# Productivity / numr — Homebrew
+brew tap nasedkinpv/tap && brew install numr
+
+# Productivity / openmux — official install script
+curl -fsSL https://raw.githubusercontent.com/monotykamary/openmux/main/scripts/install.sh | bash
+
+# Productivity / pagerduty-tui — source build
+cargo build
+
+# Productivity / patat — Cabal
+cabal install patat
+
+# Productivity / pdiary — PyPI wheel
+pip install https://github.com/manipuladordedados/pdiary/releases/download/1.65/pdiary-1.65-py3-none-any.whl
+
+# Productivity / pomo — Homebrew cask
+brew install --cask bahaaio/pomo/pomo
+
+# Productivity / portfolio_rs — Nix shell
+nix-shell -p portfolio_rs
+
+# Productivity / procmux — pipx
+pipx install procmux
+
+# Productivity / productivity-timer — npm
+npm i -g productivity-timer
+
+# Productivity / sc-im — source build
+make -C src && make -C src install
+
+# Productivity / SheetsUI — Nix profile
+nix profile install github:zaphar/sheetsui
+
+# Productivity / slides — Homebrew
+brew install slides
+
+# Productivity / sshm — Homebrew
+brew install Gu1llaum-3/sshm/sshm
+
+# Productivity / Tabiew — official install script
+curl -sS https://raw.githubusercontent.com/shshemi/tabiew/main/install.sh | sh
+
+# Productivity / taskline — Yarn
+yarn global add @perryrh0dan/taskline
+
+# Productivity / television — official install script
+curl -fsSL https://alexpasmantier.github.io/television/install.sh | bash
+
+# Productivity / termscp — official install script
+curl --proto '=https' --tlsv1.2 -sSLf https://termscp.rs/install.sh | sh
+
+# Productivity / tiki — official install script
+curl -fsSL https://raw.githubusercontent.com/boolean-maybe/tiki/main/install.sh | bash
+
+# Productivity / tmux — source build
+./configure && make && sudo make install
+
+# Productivity / tododo — Homebrew
+brew install bmarse/tap/tododo
+
+# Productivity / topydo — PyPI
+pip3 install topydo
+
+# Productivity / ttm — Homebrew
+brew install vst93/tap/ttm
+
+# Productivity / trx — official install script
+curl -fsSL https://trx.pidev.tech/install.sh | sh
+
+# Productivity / ttyplot — Snap
+snap install ttyplot
+
+# Productivity / TUI_ProjectManager — Cargo
+cargo install project_manager
+
+# Productivity / tuidict — Cargo
+cargo install tuidict
+
+# Productivity / TUIOS — Homebrew
+brew install tuios
+
+# Productivity / tui-slides — Cargo
+cargo install tui-slides
+
+# Productivity / tuimux — zero-install Bun
+bunx tuimux
+
+# Productivity / tuiserial — Cargo
+cargo install tuiserial
+
+# Productivity / tvterm — source build
+cmake . -B ./build -DCMAKE_BUILD_TYPE=Release && cmake --build ./build
+
+# Productivity / Visidata — PyPI
+pip3 install visidata
+
+# Productivity / Walker — source + Cargo
+git clone https://github.com/abenz1267/walker.git && cd walker && cargo build --release
+
+# Productivity / Tock — Homebrew
+brew install tock
+
+# Screensavers / astroterm — DNF
+sudo dnf install astroterm
+
+# Screensavers / gitlogue — official install script
+curl -fsSL https://raw.githubusercontent.com/unhappychoice/gitlogue/main/install.sh | bash
+
+# Screensavers / neo — source tarball
+tar xzf neo-<VERSION>.tar.gz && cd neo-<VERSION> && ./configure && make && sudo make install
+
+# Screensavers / rxpipes — Cargo
+cargo install rxpipes
+
+# Screensavers / weathr — official install script
+curl -fsSL https://raw.githubusercontent.com/Veirt/weathr/main/install.sh | sh
+
+# Web / bombadillo — source build
+git clone https://tildegit.org/sloum/bombadillo && cd bombadillo && sudo make install
+
+# Web / carbonyl — zero-install Docker
+docker run --rm -ti fathyb/carbonyl https://youtube.com
+
+# Web / castero — PyPI
+pip3 install castero
+
+# Web / CatenaVetus — venv + editable install
+python -m venv venv && source ./venv/bin/activate && pip install -e .
+
+# Web / cloudflare-speed-cli — Cargo
+cargo install cloudflare-speed-cli
+
+# Web / eilmeldung — Homebrew
+brew tap christo-auer/eilmeldung https://github.com/christo-auer/eilmeldung && brew install eilmeldung
+
+# Web / haxor-news — PyPI
+pip install haxor-news
+
+# Web / podliner — official install script
+bash <(curl -fsSL https://github.com/timkicker/podliner/releases/latest/download/install.sh)
+
+# Web / nyaa — Cargo
+cargo install nyaa
+
+# Web / omaro — Cargo
+cargo install omaro --locked
+
+# Web / searxngr — uv
+uv tool install https://github.com/scross01/searxngr.git
+
+# Web / tblogs — Homebrew
+brew tap ezeoleaf/tap && brew install tblogs
+
+# Web / textual-web — pipx
+pipx install textual-web

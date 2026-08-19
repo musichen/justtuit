@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Just TUI it! — a catalog of terminal UI tools</title>
+  <meta name="description" content="A curated catalog of 672 terminal user interface (TUI) applications with install commands." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+</head>
+<body class="h-full bg-slate-950 text-slate-200 antialiased">
+  <div x-data="catalog()" x-init="init()" class="flex h-screen flex-col">
+    <!-- Header -->
+    <header class="border-b border-slate-800 px-5 py-3 flex items-center gap-4">
+      <h1 class="text-lg font-bold text-sky-400">Just TUI it!</h1>
+      <span class="text-sm text-slate-500">a TUI for TUI tools</span>
+      <div class="ml-auto flex items-center gap-2">
+        <input
+          x-model="search"
+          placeholder="search tools (fuzzy)…"
+          class="w-72 rounded-md border border-slate-700 bg-slate-900 px-3 py-1.5 text-sm text-slate-100 placeholder-slate-500 focus:border-sky-500 focus:outline-none"
+        />
+        <span x-text="filtered().length + ' / ' + tools.length" class="text-xs text-slate-500 tabular-nums"></span>
+      </div>
+    </header>
+
+    <div class="flex flex-1 overflow-hidden">
+      <!-- Sidebar -->
+      <aside class="w-64 shrink-0 overflow-y-auto border-r border-slate-800 py-2">
+        <button
+          @click="category = null"
+          :class="category === null ? 'bg-slate-800 text-white' : 'text-slate-300 hover:bg-slate-900'"
+          class="flex w-full items-center justify-between px-4 py-1.5 text-left text-sm"
+        >
+          <span>All</span>
+          <span class="text-xs text-slate-500 tabular-nums" x-text="tools.length"></span>
+        </button>
+        <template x-for="c in categories" :key="c.id">
+          <button
+            @click="selectCategory(c.id)"
+            :class="category === c.id ? 'bg-slate-800 text-white' : 'text-slate-300 hover:bg-slate-900'"
+            class="flex w-full items-center justify-between px-4 py-1.5 text-left text-sm"
+          >
+            <span x-text="c.name"></span>
+            <span class="text-xs text-slate-500 tabular-nums" x-text="c.count"></span>
+          </button>
+        </template>
+      </aside>
+
+      <!-- Tool list -->
+      <main class="flex-1 overflow-y-auto border-r border-slate-800">
+        <template x-if="filtered().length === 0">
+          <div class="p-6 text-sm text-slate-500">No matches.</div>
+        </template>
+        <template x-for="t in filtered()" :key="t.id">
+          <button
+            @click="selectTool(t)"
+            :class="selected && selected.id === t.id ? 'bg-slate-800' : 'hover:bg-slate-900'"
+            class="flex w-full items-center gap-2 px-4 py-2 text-left text-sm"
+          >
+            <span class="font-medium text-slate-100" x-text="t.name"></span>
+            <span class="truncate text-xs text-slate-500" x-text="t.description"></span>
+          </button>
+        </template>
+      </main>
+
+      <!-- Detail -->
+      <section class="w-96 shrink-0 overflow-y-auto p-5">
+        <template x-if="!selected">
+          <p class="text-sm text-slate-500">Select a tool to see details.</p>
+        </template>
+        <template x-if="selected">
+          <div>
+            <h2 class="text-xl font-bold text-sky-400" x-text="selected.name"></h2>
+            <a :href="selected.url" target="_blank" rel="noopener" class="block truncate text-sm text-sky-500 hover:underline" x-text="selected.url"></a>
+            <p class="mt-3 text-sm text-slate-300" x-text="selected.description"></p>
+
+            <h3 class="mt-5 text-sm font-semibold uppercase tracking-wide text-slate-500">Install</h3>
+            <template x-if="selected.install.length === 0">
+              <p class="mt-2 text-sm text-slate-500">No one-line installer recorded.</p>
+            </template>
+            <div class="mt-2 space-y-2">
+              <template x-for="c in selected.install" :key="c.command">
+                <div class="rounded-md border border-slate-800 bg-slate-900 p-2">
+                  <div class="text-xs text-slate-500" x-text="c.manager"></div>
+                  <code class="block text-xs text-emerald-300" x-text="c.command"></code>
+                </div>
+              </template>
+            </div>
+          </div>
+        </template>
+      </section>
+    </div>
+
+    <footer class="border-t border-slate-800 px-5 py-2 text-xs text-slate-600">
+      <a href="https://github.com/musichen/justtuit" class="hover:text-slate-400">github.com/musichen/justtuit</a>
+      · generated from the curated list · built with OpenTUI + React
+    </footer>
+  </div>
+
+  <script>
+    function catalog() {
+      return {
+        tools: [],
+        categories: [],
+        search: "",
+        category: null,
+        selected: null,
+
+        async init() {
+          const res = await fetch("data/tools.json");
+          const data = await res.json();
+          this.tools = data.tools;
+          this.categories = data.categories;
+        },
+
+        selectCategory(id) {
+          this.category = id;
+          this.selected = null;
+        },
+
+        selectTool(t) {
+          this.selected = t;
+        },
+
+        filtered() {
+          const q = this.search.trim().toLowerCase();
+          let list = this.category === null
+            ? this.tools
+            : this.tools.filter((t) => t.category === this.category);
+          if (!q) return list;
+          // Simple subsequence (fuzzy) match on name / id / binaries.
+          const fuzzy = (needle, hay) => {
+            let i = 0;
+            for (const ch of hay.toLowerCase()) if (ch === needle[i]) i++;
+            return i === needle.length;
+          };
+          return list.filter((t) => fuzzy(q, t.name) || fuzzy(q, t.id));
+        },
+      };
+    }
+  </script>
+</body>
+</html>
