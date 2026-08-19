@@ -191,37 +191,72 @@ function Header(props: { search: string; searchMode: boolean }) {
   );
 }
 
-function Sidebar(props: { entries: SideEntry[]; sel: number; active: boolean; window: number }) {
+function Scrollbar(props: { total: number; cursor: number; height: number }) {
+  const { total, cursor, height } = props;
+  if (height <= 0 || total <= 0) return null;
+  const thumb = Math.max(1, Math.floor((height * height) / total));
+  const pos = total <= height ? 0 : Math.round((cursor * (height - thumb)) / Math.max(1, total - 1));
+  const rows: string[] = [];
+  for (let r = 0; r < height; r++) rows.push(r >= pos && r < pos + thumb ? "█" : "│");
+  return (
+    <box width={1} flexDirection="column" paddingX={0} paddingY={0}>
+      {rows.map((ch, i) => (
+        <text key={i} content={ch} fg={C.border} />
+      ))}
+    </box>
+  );
+}
+
+function Sidebar(props: {
+  entries: SideEntry[];
+  sel: number;
+  active: boolean;
+  window: number;
+  onSelect: (idx: number) => void;
+  onScroll: (delta: number) => void;
+}) {
   const { start, end } = computeWindow(props.entries.length, props.sel, props.window);
   const visible = props.entries.slice(start, end);
   return (
     <box
-      width={26}
+      width={27}
       flexDirection="column"
       border={["right"]}
       borderColor={C.border}
       paddingX={0}
       paddingY={0}
       backgroundColor={C.paneBg}
+      onMouseScroll={(e) => {
+        const s = e.scroll;
+        if (!s) return;
+        const d = Math.max(1, s.delta);
+        props.onScroll(s.direction === "up" ? -d : d);
+      }}
     >
       <text
         content=" Categories"
         fg={props.active ? C.accent : C.header}
         attributes={TextAttributes.BOLD}
       />
-      {visible.map((entry, i) => {
-        const idx = start + i;
-        const isSel = idx === props.sel;
-        const marker = isSel ? ">" : " ";
-        return (
-          <text
-            key={entry.id ?? "__all__"}
-            content={`${marker}${entry.name.padEnd(22)}${String(entry.count).padStart(3)}`}
-            fg={isSel ? C.selFg : C.fg}
-            bg={isSel ? C.selBg : undefined}
-          />
-        );
-      })}
+      <box flexDirection="row" flexGrow={1}>
+        <box flexDirection="column" flexGrow={1}>
+          {visible.map((entry, i) => {
+            const idx = start + i;
+            const isSel = idx === props.sel;
+            const marker = isSel ? ">" : " ";
+            return (
+              <text
+                key={entry.id ?? "__all__"}
+                content={`${marker}${entry.name.padEnd(22)}${String(entry.count).padStart(3)}`}
+                fg={isSel ? C.selFg : C.fg}
+                bg={isSel ? C.selBg : undefined}
+                onMouseDown={() => props.onSelect(idx)}
+              />
+            );
+          })}
+        </box>
+        <Scrollbar total={props.entries.length} cursor={props.sel} height={props.window} />
+      </box>
     </box>
   );
 }
@@ -232,46 +267,60 @@ function ToolList(props: {
   active: boolean;
   window: number;
   total: number;
+  onSelect: (idx: number) => void;
+  onScroll: (delta: number) => void;
 }) {
   const { start, end } = computeWindow(props.items.length, props.sel, props.window);
   const visible = props.items.slice(start, end);
   return (
     <box
-      width={34}
+      width={35}
       flexDirection="column"
       border={["right"]}
       borderColor={C.border}
       paddingX={0}
       paddingY={0}
       backgroundColor={C.paneBg}
+      onMouseScroll={(e) => {
+        const s = e.scroll;
+        if (!s) return;
+        const d = Math.max(1, s.delta);
+        props.onScroll(s.direction === "up" ? -d : d);
+      }}
     >
       <text
         content={` Tools ${props.items.length}/${props.total}`}
         fg={props.active ? C.accent : C.header}
         attributes={TextAttributes.BOLD}
       />
-      {props.items.length === 0 ? (
-        <text content="  (no matches)" fg={C.muted} />
-      ) : (
-        visible.map((t, i) => {
-          const idx = start + i;
-          const isSel = idx === props.sel;
-          return (
-            <text
-              key={t.id}
-              content={`${isSel ? ">" : " "} ${t.name}`.padEnd(32)}
-              fg={isSel ? C.selFg : C.fg}
-              bg={isSel ? C.selBg : undefined}
-              attributes={isSel ? TextAttributes.BOLD : TextAttributes.NONE}
-            />
-          );
-        })
-      )}
+      <box flexDirection="row" flexGrow={1}>
+        <box flexDirection="column" flexGrow={1}>
+          {props.items.length === 0 ? (
+            <text content="  (no matches)" fg={C.muted} />
+          ) : (
+            visible.map((t, i) => {
+              const idx = start + i;
+              const isSel = idx === props.sel;
+              return (
+                <text
+                  key={t.id}
+                  content={`${isSel ? ">" : " "} ${t.name}`.padEnd(32)}
+                  fg={isSel ? C.selFg : C.fg}
+                  bg={isSel ? C.selBg : undefined}
+                  attributes={isSel ? TextAttributes.BOLD : TextAttributes.NONE}
+                  onMouseDown={() => props.onSelect(idx)}
+                />
+              );
+            })
+          )}
+        </box>
+        <Scrollbar total={props.items.length} cursor={props.sel} height={props.window} />
+      </box>
     </box>
   );
 }
 
-function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform; detect: DetectResult | null }) {
+function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform; detect: DetectResult | null; onFocus: () => void }) {
   const paneProps: {
     flexGrow: number;
     flexDirection: "column";
@@ -289,7 +338,7 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
   };
   if (!props.tool) {
     return (
-      <box {...paneProps}>
+      <box {...paneProps} onMouseDown={() => props.onFocus()}>
         <text content=" Details" fg={C.header} attributes={TextAttributes.BOLD} />
         <box flexGrow={1} alignItems="center" justifyContent="center">
           <text content="No tool selected" fg={C.muted} />
@@ -301,7 +350,7 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
   const cmds: InstallCommand[] = installCommands(t);
   const best = bestInstallCommand(t, props.platform);
   return (
-    <box {...paneProps}>
+    <box {...paneProps} onMouseDown={() => props.onFocus()}>
       <text content=" Details" fg={C.header} attributes={TextAttributes.BOLD} />
       <text content={t.name} fg={C.accent} attributes={TextAttributes.BOLD} />
       <text content={t.url} fg={C.header} />
@@ -677,15 +726,17 @@ function App() {
         <HelpOverlay />
       ) : (
         <box flexDirection="row" flexGrow={1}>
-          <Sidebar entries={sidebar} sel={catSel} active={pane === 0} window={listWindow} />
+          <Sidebar entries={sidebar} sel={catSel} active={pane === 0} window={listWindow} onSelect={(i) => { setCatSel(i); setPane(0); }} onScroll={(d) => setCatSel((c) => clamp(c + d, 0, sidebar.length - 1))} />
           <ToolList
             items={filtered}
             sel={toolSel}
             active={pane === 1}
             window={listWindow}
             total={tools.length}
+            onSelect={(i) => { setToolSel(i); setPane(1); }}
+            onScroll={(d) => setToolSel((t) => clamp(t + d, 0, filtered.length - 1))}
           />
-          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} detect={detect} />
+          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} detect={detect} onFocus={() => setPane(2)} />
         </box>
       )}
       <Footer status={status} />
