@@ -6,6 +6,8 @@ import { categories, tools } from "./registry/tools.js";
 import type { Tool, Platform } from "./registry/types.js";
 import { bestInstallCommand, installCommands, detectPlatform } from "./install.js";
 import type { InstallCommand } from "./install.js";
+import { detectInstalled } from "./detect.js";
+import type { DetectResult } from "./detect.js";
 import { exec } from "node:child_process";
 
 // ── Non-interactive CLI (registry introspection) ──────────────────────────
@@ -267,7 +269,7 @@ function ToolList(props: {
   );
 }
 
-function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform }) {
+function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform: Platform; detect: DetectResult | null }) {
   const paneProps: {
     flexGrow: number;
     flexDirection: "column";
@@ -305,6 +307,13 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
         content={`${catName(t.category)}${t.subcategory ? " / " + t.subcategory : ""}`}
         fg={C.dim}
       />
+      {props.detect === null ? (
+        <text content="  checking installed..." fg={C.dim} />
+      ) : props.detect.installed ? (
+        <text content={`  installed: yes (${props.detect.source})`} fg={C.green} />
+      ) : (
+        <text content={`  installed: no (${props.detect.source})`} fg={C.muted} />
+      )}
       <text content=" " fg={C.fg} />
       <text content={t.description} fg={C.fg} />
       {t.binaries.length > 0 ? (
@@ -413,6 +422,7 @@ function App() {
   const [showAllInstall, setShowAllInstall] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const [status, setStatus] = useState("");
+  const [detect, setDetect] = useState<DetectResult | null>(null);
 
   const platform = useMemo(() => detectPlatform(), []);
 
@@ -449,6 +459,27 @@ function App() {
   useEffect(() => {
     setToolSel(0);
   }, [search, activeCategoryId]);
+
+  // Detect installed state for the selected tool.
+  useEffect(() => {
+    let cancelled = false;
+    const t = selectedTool;
+    if (!t) {
+      setDetect(null);
+      return;
+    }
+    setDetect(null);
+    detectInstalled(t, platform)
+      .then((r) => {
+        if (!cancelled) setDetect(r);
+      })
+      .catch(() => {
+        if (!cancelled) setDetect({ installed: false, source: "error", command: "" });
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedTool?.id, platform]);
 
   // Transient status message.
   useEffect(() => {
@@ -584,7 +615,7 @@ function App() {
             window={listWindow}
             total={tools.length}
           />
-          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} />
+          <DetailPane tool={selectedTool} showAll={showAllInstall} platform={platform} detect={detect} />
         </box>
       )}
       <Footer status={status} />

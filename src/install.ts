@@ -16,7 +16,7 @@ export interface InstallCommand {
   platform: Platform;
 }
 
-type ManagerField = keyof Tool["managers"];
+export type ManagerField = keyof Tool["managers"];
 
 interface ManagerSpec {
   field: ManagerField;
@@ -83,14 +83,28 @@ export function commandsByManager(tool: Tool): InstallCommand[] {
   return listCommands(tool);
 }
 
-/** Best install command for the given platform (or the detected one). */
-export function bestInstallCommand(tool: Tool, platform: Platform = detectPlatform()): InstallCommand | null {
+/** Best install method (field + identifier) for a platform, or null. */
+export interface InstallMethod {
+  field: ManagerField;
+  label: string;
+  id: string;
+}
+
+export function bestInstallMethod(tool: Tool, platform: Platform = detectPlatform()): InstallMethod | null {
   for (const field of PREFERENCE[platform]) {
     const spec = SPEC_BY_FIELD.get(field);
     if (!spec) continue;
     const id = tool.managers[field];
     if (id === undefined || id === "") continue;
-    return { manager: spec.label, command: spec.build(id), platform };
+    return { field, label: spec.label, id };
   }
   return null;
+}
+
+/** Best install command for the given platform (or the detected one). */
+export function bestInstallCommand(tool: Tool, platform: Platform = detectPlatform()): InstallCommand | null {
+  const method = bestInstallMethod(tool, platform);
+  if (!method) return null;
+  const spec = SPEC_BY_FIELD.get(method.field)!;
+  return { manager: method.label, command: spec.build(method.id), platform };
 }

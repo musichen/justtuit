@@ -23,7 +23,7 @@ tickets.
 | 1 | Skeleton + launcher | ✅ | `package.json`, `bin/justtuit`, shell TUI |
 | 2 | Registry (types, parser, curated install map) | ✅ | `src/registry/*`, 672 tools / 13 categories, **197** curated |
 | 3 | Three-pane TUI + install command builder + CLI | ✅ | `src/index.tsx`, `src/install.ts`, `--count/--list/...` |
-| 4 | Maintenance: detect + execute install/update/remove + launch | ⬜ | Execute (spawn + suspend/restore); detect via first offered manager |
+| 4 | Maintenance: detect + execute install/update/remove + launch | 🚧 | 4a detection done (`src/detect.ts`); 4b execute + 4c launch next |
 | 5 | Fuzzy search (fnf-style matcher) | ⬜ | Upgrade substring filter to scored fuzzy match |
 | 6 | Favourites quick-launch bar | ⬜ | Persist to `~/.justtuit/favourites.json` + pinned bar |
 | 7 | Theming + visual polish | ⬜ | OpenTUI built-in themes (dark/colorful/light); Shiki later |
