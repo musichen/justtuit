@@ -1,12 +1,12 @@
 {
   "name": "@webboxes/justtuit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "web-boxes.com alias of justtuit — a TUI for TUI tools",
   "license": "MIT",
   "bin": {
     "justtuit": "bin/justtuit"
   },
   "dependencies": {
-    "justtuit": "^0.1.0"
+    "justtuit": "^0.1.1"
   }
 }
