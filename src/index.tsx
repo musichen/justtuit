@@ -58,19 +58,67 @@ if (flag === "--list") {
 
 // ── Interactive TUI ────────────────────────────────────────────────────────
 
-const C = {
-  bg: "#0f172a",
-  paneBg: "#0b1220",
-  border: "#334155",
-  header: "#38bdf8",
-  accent: "#22d3ee",
-  fg: "#e2e8f0",
-  muted: "#64748b",
-  dim: "#94a3b8",
-  selBg: "#1e293b",
-  selFg: "#f8fafc",
-  green: "#4ade80",
+type ThemeName = "dark" | "colorful" | "light";
+
+interface ThemeColors {
+  bg: string;
+  paneBg: string;
+  border: string;
+  header: string;
+  accent: string;
+  fg: string;
+  muted: string;
+  dim: string;
+  selBg: string;
+  selFg: string;
+  green: string;
+}
+
+const THEMES: Record<ThemeName, ThemeColors> = {
+  dark: {
+    bg: "#0f172a",
+    paneBg: "#0b1220",
+    border: "#334155",
+    header: "#38bdf8",
+    accent: "#22d3ee",
+    fg: "#e2e8f0",
+    muted: "#64748b",
+    dim: "#94a3b8",
+    selBg: "#1e293b",
+    selFg: "#f8fafc",
+    green: "#4ade80",
+  },
+  colorful: {
+    bg: "#1a1025",
+    paneBg: "#120b1c",
+    border: "#6d28d9",
+    header: "#f472b6",
+    accent: "#fbbf24",
+    fg: "#fdf4ff",
+    muted: "#a78bfa",
+    dim: "#c4b5fd",
+    selBg: "#7c3aed",
+    selFg: "#ffffff",
+    green: "#34d399",
+  },
+  light: {
+    bg: "#f8fafc",
+    paneBg: "#f1f5f9",
+    border: "#cbd5e1",
+    header: "#0369a1",
+    accent: "#0891b2",
+    fg: "#0f172a",
+    muted: "#64748b",
+    dim: "#475569",
+    selBg: "#e2e8f0",
+    selFg: "#0f172a",
+    green: "#16a34a",
+  },
 };
+
+// Active palette. Reassigned when the theme changes; components read it during
+// render, so a theme switch re-renders everything with the new colours.
+let C: ThemeColors = THEMES.dark;
 
 const CATEGORY_NAMES = new Map<string, string>(categories.map((c) => [c.id, c.name]));
 
@@ -417,6 +465,7 @@ function Footer(props: { status: string }) {
         <text content="Tab panes" fg={C.muted} />
         <text content="Enter copy" fg={C.muted} />
         <text content="o open" fg={C.muted} />
+        <text content="t theme" fg={C.muted} />
         <text content="? help" fg={C.muted} />
       </box>
       <box flexDirection="row" gap={2}>
@@ -449,6 +498,7 @@ function HelpOverlay() {
     ["x", "remove (execute)"],
     ["r", "run / launch binary"],
     ["f", "toggle favourite"],
+    ["t", "cycle theme (dark/colorful/light)"],
     ["a", "toggle all install commands"],
     ["?", "close this help"],
   ];
@@ -489,6 +539,7 @@ function App() {
   const [detect, setDetect] = useState<DetectResult | null>(null);
   const [busy, setBusy] = useState(false);
   const [favourites, setFavourites] = useState<string[]>([]);
+  const [theme, setTheme] = useState<ThemeName>("dark");
 
   const platform = useMemo(() => detectPlatform(), []);
   const favSet = useMemo(() => new Set(favourites), [favourites]);
@@ -697,6 +748,14 @@ function App() {
           return next;
         });
         setStatus(isFav ? `Removed ${t.name} from favourites` : `★ ${t.name} favourited`);
+        break;
+      }
+      case "t": {
+        const order: ThemeName[] = ["dark", "colorful", "light"];
+        const next = order[(order.indexOf(theme) + 1) % order.length]!;
+        C = THEMES[next];
+        setTheme(next);
+        setStatus(`Theme: ${next}`);
         break;
       }
       case "a":
