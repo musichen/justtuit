@@ -1,0 +1,12 @@
+{
+  "name": "@musichen/justtuit",
+  "version": "0.1.1",
+  "description": "GitHub Packages mirror of justtuit - a TUI for TUI tools",
+  "license": "MIT",
+  "bin": {
+    "justtuit": "bin/justtuit"
+  },
+  "dependencies": {
+    "justtuit": "^0.1.1"
+  }
+}

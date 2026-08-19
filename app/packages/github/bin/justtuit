@@ -1,0 +1,15 @@
+#!/usr/bin/env node
+// Delegate to the real `justtuit` binary provided by the dependency.
+import { execFileSync } from "node:child_process";
+import { createRequire } from "node:module";
+import path from "node:path";
+
+const require = createRequire(import.meta.url);
+const pkgJson = require.resolve("justtuit/package.json");
+const bin = path.join(path.dirname(pkgJson), "bin", "justtuit");
+
+try {
+  execFileSync(process.execPath, [bin, ...process.argv.slice(2)], { stdio: "inherit" });
+} catch (err) {
+  process.exit(err?.status ?? 1);
+}
