@@ -27,6 +27,7 @@
     "typecheck": "tsc --noEmit",
     "parse": "bun scripts/parse-list.ts",
     "export:site": "bun scripts/export-site.ts",
+    "release": "bash scripts/release.sh",
     "prepublishOnly": "bun scripts/parse-list.ts && bun scripts/export-site.ts"
   },
   "keywords": [

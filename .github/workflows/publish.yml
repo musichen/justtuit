@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Release to npm
 
 on:
   push:
@@ -7,9 +7,6 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: app
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
@@ -20,7 +17,17 @@ jobs:
           node-version: 22
           registry-url: https://registry.npmjs.org
       - run: bun install --frozen-lockfile
-      - run: npm run typecheck
-      - run: npm publish --access public
+        working-directory: app
+      - run: npx tsc --noEmit
+        working-directory: app
+      - name: Publish justtuit
+        run: npm publish --access public
+        working-directory: app
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: Publish @webboxes/justtuit alias
+        run: npm publish --access public
+        working-directory: app/packages/webboxes-justtuit
+        continue-on-error: true
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
