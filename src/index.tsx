@@ -1,11 +1,12 @@
 import { createCliRenderer, TextAttributes } from "@opentui/core";
 import type { KeyEvent } from "@opentui/core";
-import { createRoot, useKeyboard, useTerminalDimensions } from "@opentui/react";
+import { createRoot, useKeyboard, useTerminalDimensions, useRenderer } from "@opentui/react";
 import { useState, useEffect, useMemo } from "react";
 import { categories, tools } from "./registry/tools.js";
 import type { Tool, Platform } from "./registry/types.js";
-import { bestInstallCommand, installCommands, detectPlatform } from "./install.js";
+import { bestInstallCommand, bestCommand, installCommands, detectPlatform } from "./install.js";
 import type { InstallCommand } from "./install.js";
+import { runInTerminal } from "./execute.js";
 import { detectInstalled } from "./detect.js";
 import type { DetectResult } from "./detect.js";
 import { exec } from "node:child_process";
@@ -361,13 +362,17 @@ function Footer(props: { status: string }) {
         <text content="q quit" fg={C.muted} />
         <text content="/ search" fg={C.muted} />
         <text content="j/k move" fg={C.muted} />
-        <text content="g/G first/last" fg={C.muted} />
         <text content="Tab panes" fg={C.muted} />
-        <text content="h/l switch" fg={C.muted} />
         <text content="Enter copy" fg={C.muted} />
         <text content="o open" fg={C.muted} />
-        <text content="i cmds" fg={C.muted} />
         <text content="? help" fg={C.muted} />
+      </box>
+      <box flexDirection="row" gap={2}>
+        <text content="e install" fg={C.muted} />
+        <text content="u update" fg={C.muted} />
+        <text content="x remove" fg={C.muted} />
+        <text content="r run" fg={C.muted} />
+        <text content="i all cmds" fg={C.muted} />
       </box>
     </box>
   );
@@ -387,6 +392,10 @@ function HelpOverlay() {
     ["Enter", "copy install command"],
     ["o", "open URL"],
     ["i", "toggle all install commands"],
+    ["e", "install (execute)"],
+    ["u", "update (execute)"],
+    ["x", "remove (execute)"],
+    ["r", "run / launch binary"],
     ["?", "close this help"],
   ];
   return (
@@ -413,6 +422,7 @@ function HelpOverlay() {
 function App() {
   const { height } = useTerminalDimensions();
   const termHeight = height > 0 ? height : 24;
+  const renderer = useRenderer();
 
   const [search, setSearch] = useState("");
   const [searchMode, setSearchMode] = useState(false);
@@ -423,6 +433,7 @@ function App() {
   const [showHelp, setShowHelp] = useState(false);
   const [status, setStatus] = useState("");
   const [detect, setDetect] = useState<DetectResult | null>(null);
+  const [busy, setBusy] = useState(false);
 
   const platform = useMemo(() => detectPlatform(), []);
 
@@ -488,8 +499,24 @@ function App() {
     return () => clearTimeout(id);
   }, [status]);
 
-  // Row budget for the windowed lists (header 3 + footer 3 + pane title 1).
-  const listWindow = Math.max(1, termHeight - 7);
+  // Row budget for the windowed lists (header 3 + footer 4 + pane title 1).
+  const listWindow = Math.max(1, termHeight - 8);
+
+  const runAction = (verb: string, command: string | undefined, name: string) => {
+    if (busy) return;
+    if (!command) {
+      setStatus(`No ${verb} command for ${name}`);
+      return;
+    }
+    setBusy(true);
+    setStatus(`${verb} ${name}...`);
+    runInTerminal(renderer, command).then((outcome) => {
+      setBusy(false);
+      if (outcome.ok) setStatus(`${verb} ${name} done (exit 0)`);
+      else if (outcome.error) setStatus(`${verb} failed: ${outcome.error}`);
+      else setStatus(`${verb} ${name} failed (exit ${outcome.code ?? outcome.signal ?? "?"})`);
+    });
+  };
 
   useKeyboard((e) => {
     if (e.name === "c" && e.ctrl) {
@@ -592,6 +619,47 @@ function App() {
       case "i":
         setShowAllInstall((s) => !s);
         break;
+      case "e": {
+        const t = filtered[toolSel];
+        if (!t) {
+          setStatus("No tool selected");
+          break;
+        }
+        runAction("install", bestCommand(t, "install", platform)?.command, t.name);
+        break;
+      }
+      case "u": {
+        const t = filtered[toolSel];
+        if (!t) {
+          setStatus("No tool selected");
+          break;
+        }
+        runAction("update", bestCommand(t, "update", platform)?.command, t.name);
+        break;
+      }
+      case "x": {
+        const t = filtered[toolSel];
+        if (!t) {
+          setStatus("No tool selected");
+          break;
+        }
+        runAction("remove", bestCommand(t, "remove", platform)?.command, t.name);
+        break;
+      }
+      case "r": {
+        const t = filtered[toolSel];
+        if (!t) {
+          setStatus("No tool selected");
+          break;
+        }
+        const bin = t.binaries[0];
+        if (!bin) {
+          setStatus(`No binary to launch for ${t.name}`);
+          break;
+        }
+        runAction("launch", bin, t.name);
+        break;
+      }
       case "escape":
         setSearch("");
         break;

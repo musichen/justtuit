@@ -1,6 +1,6 @@
 /**
  * Installer: turns a tool's package-manager identifiers (tool.managers) into
- * concrete shell install commands.
+ * concrete shell commands for the install / update / remove verbs.
  *
  * Pure TypeScript: no OpenTUI import, no Bun-only FFI. Runs on Node and Bun.
  */
@@ -18,54 +18,141 @@ export interface InstallCommand {
 
 export type ManagerField = keyof Tool["managers"];
 
+/** Maintenance verb. */
+export type Verb = "install" | "update" | "remove";
+
 interface ManagerSpec {
   field: ManagerField;
   label: string;
-  build: (id: string) => string;
+  /** Per-verb command builder. A verb is unsupported when absent. */
+  verbs: Partial<Record<Verb, (id: string) => string>>;
   platforms: readonly Platform[];
 }
 
-// Canonical order (matches the registry field order). installCommands and
-// commandsByManager emit entries in this order, independent of any platform.
+// Canonical order (matches the registry field order).
 const MANAGERS: readonly ManagerSpec[] = [
-  { field: "brew", label: "Homebrew", build: (id) => `brew install ${id}`, platforms: ["macos", "linux"] },
-  { field: "apt", label: "APT", build: (id) => `sudo apt install ${id}`, platforms: ["linux"] },
-  { field: "dnf", label: "DNF", build: (id) => `sudo dnf install ${id}`, platforms: ["linux"] },
-  { field: "pacman", label: "pacman", build: (id) => `sudo pacman -S ${id}`, platforms: ["linux"] },
-  { field: "cargo", label: "cargo", build: (id) => `cargo install ${id}`, platforms: ["macos", "linux", "windows"] },
-  { field: "go", label: "go", build: (id) => `go install ${id}@latest`, platforms: ["macos", "linux", "windows"] },
-  { field: "npm", label: "npm", build: (id) => `npm install -g ${id}`, platforms: ["macos", "linux", "windows"] },
-  { field: "pip", label: "pipx", build: (id) => `pipx install ${id}`, platforms: ["macos", "linux", "windows"] },
-  { field: "scoop", label: "Scoop", build: (id) => `scoop install ${id}`, platforms: ["windows"] },
-  { field: "winget", label: "Winget", build: (id) => `winget install ${id}`, platforms: ["windows"] },
-  { field: "choco", label: "Chocolatey", build: (id) => `choco install ${id}`, platforms: ["windows"] },
+  {
+    field: "brew",
+    label: "Homebrew",
+    platforms: ["macos", "linux"],
+    verbs: {
+      install: (id) => `brew install ${id}`,
+      update: (id) => `brew upgrade ${id}`,
+      remove: (id) => `brew uninstall ${id}`,
+    },
+  },
+  {
+    field: "apt",
+    label: "APT",
+    platforms: ["linux"],
+    verbs: {
+      install: (id) => `sudo apt install ${id}`,
+      update: (id) => `sudo apt install --only-upgrade ${id}`,
+      remove: (id) => `sudo apt remove ${id}`,
+    },
+  },
+  {
+    field: "dnf",
+    label: "DNF",
+    platforms: ["linux"],
+    verbs: {
+      install: (id) => `sudo dnf install ${id}`,
+      update: (id) => `sudo dnf upgrade ${id}`,
+      remove: (id) => `sudo dnf remove ${id}`,
+    },
+  },
+  {
+    field: "pacman",
+    label: "pacman",
+    platforms: ["linux"],
+    verbs: {
+      install: (id) => `sudo pacman -S ${id}`,
+      update: (id) => `sudo pacman -S ${id}`,
+      remove: (id) => `sudo pacman -R ${id}`,
+    },
+  },
+  {
+    field: "cargo",
+    label: "cargo",
+    platforms: ["macos", "linux", "windows"],
+    verbs: {
+      install: (id) => `cargo install ${id}`,
+      update: (id) => `cargo install ${id} --force`,
+      remove: (id) => `cargo uninstall ${id}`,
+    },
+  },
+  {
+    field: "go",
+    label: "go",
+    platforms: ["macos", "linux", "windows"],
+    verbs: {
+      install: (id) => `go install ${id}@latest`,
+      update: (id) => `go install ${id}@latest`,
+      // remove: go does not track installed binaries, so no remove command.
+    },
+  },
+  {
+    field: "npm",
+    label: "npm",
+    platforms: ["macos", "linux", "windows"],
+    verbs: {
+      install: (id) => `npm install -g ${id}`,
+      update: (id) => `npm update -g ${id}`,
+      remove: (id) => `npm uninstall -g ${id}`,
+    },
+  },
+  {
+    field: "pip",
+    label: "pipx",
+    platforms: ["macos", "linux", "windows"],
+    verbs: {
+      install: (id) => `pipx install ${id}`,
+      update: (id) => `pipx upgrade ${id}`,
+      remove: (id) => `pipx uninstall ${id}`,
+    },
+  },
+  {
+    field: "scoop",
+    label: "Scoop",
+    platforms: ["windows"],
+    verbs: {
+      install: (id) => `scoop install ${id}`,
+      update: (id) => `scoop update ${id}`,
+      remove: (id) => `scoop uninstall ${id}`,
+    },
+  },
+  {
+    field: "winget",
+    label: "Winget",
+    platforms: ["windows"],
+    verbs: {
+      install: (id) => `winget install ${id}`,
+      update: (id) => `winget upgrade ${id}`,
+      remove: (id) => `winget uninstall ${id}`,
+    },
+  },
+  {
+    field: "choco",
+    label: "Chocolatey",
+    platforms: ["windows"],
+    verbs: {
+      install: (id) => `choco install ${id}`,
+      update: (id) => `choco upgrade ${id}`,
+      remove: (id) => `choco uninstall ${id}`,
+    },
+  },
 ];
 
 const SPEC_BY_FIELD: ReadonlyMap<ManagerField, ManagerSpec> = new Map(
   MANAGERS.map((spec) => [spec.field, spec]),
 );
 
-// Per-platform preference order for bestInstallCommand.
+// Per-platform preference order for bestInstallCommand / bestCommand.
 const PREFERENCE: Record<Platform, readonly ManagerField[]> = {
   macos: ["brew", "cargo", "go", "npm", "pip"],
   linux: ["brew", "apt", "dnf", "pacman", "cargo", "go", "npm", "pip"],
   windows: ["winget", "scoop", "choco", "cargo", "go", "npm", "pip"],
 };
-
-function buildFor(tool: Tool, field: ManagerField, spec: ManagerSpec): InstallCommand[] {
-  const id = tool.managers[field];
-  if (id === undefined || id === "") return [];
-  const command = spec.build(id);
-  return spec.platforms.map((platform) => ({ manager: spec.label, command, platform }));
-}
-
-function listCommands(tool: Tool): InstallCommand[] {
-  const out: InstallCommand[] = [];
-  for (const spec of MANAGERS) {
-    out.push(...buildFor(tool, spec.field, spec));
-  }
-  return out;
-}
 
 export function detectPlatform(): Platform {
   if (process.platform === "darwin") return "macos";
@@ -73,14 +160,31 @@ export function detectPlatform(): Platform {
   return "linux";
 }
 
-/** All available install commands, sorted by canonical manager order. */
+/** Build the per-platform commands a manager offers for a single verb. */
+function buildFor(tool: Tool, spec: ManagerSpec, verb: Verb): InstallCommand[] {
+  const id = tool.managers[spec.field];
+  if (id === undefined || id === "") return [];
+  const build = spec.verbs[verb];
+  if (!build) return [];
+  const command = build(id);
+  return spec.platforms.map((platform) => ({ manager: spec.label, command, platform }));
+}
+
+/** All available commands for a verb, in canonical manager order. */
+export function commandsFor(tool: Tool, verb: Verb): InstallCommand[] {
+  const out: InstallCommand[] = [];
+  for (const spec of MANAGERS) out.push(...buildFor(tool, spec, verb));
+  return out;
+}
+
+/** All install commands (backward-compatible alias). */
 export function installCommands(tool: Tool): InstallCommand[] {
-  return listCommands(tool);
+  return commandsFor(tool, "install");
 }
 
 /** Same set of commands, grouped by manager (all platforms per manager). */
 export function commandsByManager(tool: Tool): InstallCommand[] {
-  return listCommands(tool);
+  return commandsFor(tool, "install");
 }
 
 /** Best install method (field + identifier) for a platform, or null. */
@@ -101,10 +205,25 @@ export function bestInstallMethod(tool: Tool, platform: Platform = detectPlatfor
   return null;
 }
 
-/** Best install command for the given platform (or the detected one). */
+/** Best command for a verb on the given platform (or the detected one). */
+export function bestCommand(
+  tool: Tool,
+  verb: Verb,
+  platform: Platform = detectPlatform(),
+): InstallCommand | null {
+  for (const field of PREFERENCE[platform]) {
+    const spec = SPEC_BY_FIELD.get(field);
+    if (!spec) continue;
+    const id = tool.managers[field];
+    if (id === undefined || id === "") continue;
+    const build = spec.verbs[verb];
+    if (!build) continue;
+    return { manager: spec.label, command: build(id), platform };
+  }
+  return null;
+}
+
+/** Best install command for the given platform (backward-compatible alias). */
 export function bestInstallCommand(tool: Tool, platform: Platform = detectPlatform()): InstallCommand | null {
-  const method = bestInstallMethod(tool, platform);
-  if (!method) return null;
-  const spec = SPEC_BY_FIELD.get(method.field)!;
-  return { manager: method.label, command: spec.build(method.id), platform };
+  return bestCommand(tool, "install", platform);
 }
