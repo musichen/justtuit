@@ -1,0 +1,729 @@
+# justtuit — all TUI entries + first official install method
+
+Source snapshot: `musichen/justtuit` current `main` README checked 2026-08-19.
+
+**Total entries extracted: 678**
+
+Status legend:
+- `VERIFIED_ONE_LINER` — exact first/current official command captured from upstream docs (or the first persistent install command where the README shows a zero-install run first and the row note says so).
+- `VERIFIED_NO_ONE_LINER` — upstream first method is manual download/source/declarative setup and does not provide a truthful single install command.
+- `NEEDS_FOLLOWUP` — source entry is included, but an exact first official command could not be safely captured from live upstream in this pass. Nothing is guessed.
+
+> Important: “first” means first method presented by the current upstream project documentation, not the package manager I personally prefer. Placeholder forms such as `<VERSION>` are retained when upstream itself uses them.
+
+## Dashboards
+
+- **AdGuardian-Term** — `VERIFIED_ONE_LINER` — Docker — `docker run -it lissy93/adguardian`
+- **apachetop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **atop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Backlog.md** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **bandwhich** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **bashtop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **below** — `VERIFIED_ONE_LINER` — DNF — `sudo dnf install below`
+- **binsider** — `VERIFIED_ONE_LINER` — Cargo — `cargo install binsider`
+- **bmon** — `VERIFIED_ONE_LINER` — source build (Debian/Ubuntu) — `git clone https://github.com/tgraf/bmon.git && cd bmon && apt-get install build-essential make libconfuse-dev libnl-3-dev libnl-route-3-dev libncurses-dev pkg-config dh-autoreconf && ./autogen.sh && ./configure && make && make install`
+- **bottom** — `VERIFIED_ONE_LINER` — Cargo — `cargo install bottom --locked`
+- **bpytop** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install bpytop --upgrade`
+- **btop++** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **bullmq-dash** — `VERIFIED_ONE_LINER` — Homebrew — `brew install quanghuynt14/tap/bullmq-dash`
+- **cgdb** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **chdig** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **cheatshh** — `VERIFIED_ONE_LINER` — PyPI — `pip install cheatshh`
+- **claws** — `VERIFIED_ONE_LINER` — Homebrew cask — `brew install --cask clawscli/tap/claws`
+- **cointop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **CoreFreq** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **csysdig** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **damon** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **dashbrew** — `VERIFIED_ONE_LINER` — Go — `go install github.com/rasjonell/dashbrew/cmd/dashbrew@latest`
+- **dolphie** — `VERIFIED_ONE_LINER` — PyPI — `pip install dolphie`
+- **framework-tool-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **fubar** — `VERIFIED_ONE_LINER` — Cargo — `cargo install fubar-cli`
+- **gh-dash** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Glances** — `VERIFIED_ONE_LINER` — venv + PyPI — `cd ~ && python3 -m venv ~/.venv && . ~/.venv/bin/activate && pip install glances`
+- **Goaccess** — `VERIFIED_ONE_LINER` — source tarball — `wget https://tar.goaccess.io/goaccess-1.11.tar.gz && tar -xzvf goaccess-1.11.tar.gz && cd goaccess-1.11/ && ./configure --enable-utf8 --enable-geoip=mmdb && make && make install`
+- **gobang** — `VERIFIED_ONE_LINER` — Homebrew — `brew install tako8ki/tap/gobang`
+- **gonzo** — `VERIFIED_ONE_LINER` — Go — `go install github.com/control-theory/gonzo/cmd/gonzo@latest`
+- **gotop** — `VERIFIED_ONE_LINER` — AUR helper — `yay -S gotop-bin`
+- **gping** — `VERIFIED_ONE_LINER` — Homebrew — `brew install gping`
+- **Grafterm** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **htop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **htui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **hwatch** — `VERIFIED_ONE_LINER` — release tarball — `curl -LO https://github.com/blacknon/hwatch/releases/latest/download/hwatch-<VERSION>.<TARGET>.tar.gz && tar xf hwatch-<VERSION>.<TARGET>.tar.gz && sudo install -m 0755 bin/hwatch /usr/local/bin/hwatch`
+- **hwinfo-tui** — `VERIFIED_ONE_LINER` — winget — `winget install hwinfo-tui`
+- **ID-Spoofer** — `VERIFIED_ONE_LINER` — release binary via curl — `curl -sL https://github.com/NubleX/ID-Spoofer/releases/latest/download/idspoof_linux_amd64 -o idspoof && chmod +x idspoof && sudo mv idspoof /usr/local/bin/`
+- **kaskade** — `VERIFIED_ONE_LINER` — Homebrew — `brew install kaskade`
+- **kmon** — `VERIFIED_ONE_LINER` — Cargo — `cargo install kmon`
+- **Kyanos** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **lazyslurm** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ls-horizons** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **macmon** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nerdlog** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nethogs** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **netscanner** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nvtop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **oryx** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **otel-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Planor** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **process-compose** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **psmux** — `VERIFIED_ONE_LINER` — winget — `winget install psmux`
+- **psnet** — `VERIFIED_ONE_LINER` — Cargo — `cargo install psnet`
+- **pstop** — `VERIFIED_ONE_LINER` — winget — `winget install marlocarlo.pstop`
+- **Puffin** — `VERIFIED_ONE_LINER` — Homebrew — `brew install siddhantac/puffin/puffin`
+- **Raijin** — `VERIFIED_ONE_LINER` — Cargo — `cargo install Raijin`
+- **rustnet** — `VERIFIED_ONE_LINER` — Homebrew — `brew install rustnet`
+- **s-tui** — `VERIFIED_ONE_LINER` — PyPI — `pip install s-tui --user`
+- **sacha** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **sockttop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ServerHub** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/nickprotop/ServerHub/main/install.sh | bash`
+- **Servonaut** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **sysz** — `VERIFIED_ONE_LINER` — AUR helper — `paru -S sysz`
+- **talos linux** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tdash** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **tegratop** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **TermUI** — `VERIFIED_NO_ONE_LINER` — library/source — `—` — No end-user one-line installer in the root docs.
+- **ticker** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **trek** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **trippy** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ttop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tufw** — `VERIFIED_ONE_LINER` — Debian package — `sudo apt install tufw_0.1.0_linux_amd64.deb`
+- **tuicamp** — `VERIFIED_ONE_LINER` — just — `just install`
+- **updo** — `VERIFIED_ONE_LINER` — Homebrew — `brew install owloops/tap/updo`
+- **tmd-top** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **wander** — `VERIFIED_ONE_LINER` — Homebrew — `brew install robinovitch61/tap/wander`
+- **WTF** — `VERIFIED_ONE_LINER` — Homebrew — `brew install wtfutil`
+- **Yozefu** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **zenith** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+
+## Development
+
+- **act3** — `VERIFIED_ONE_LINER` — Homebrew — `brew install dhth/tap/act3`
+- **amtui** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap pehlicd/tap && brew install amtui`
+- **amux** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ATAC** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **austin-tui** — `VERIFIED_ONE_LINER` — pipx — `pipx install austin-tui`
+- **blinkenlights** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **brows** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap rubysolo/tools && brew install brows`
+- **burf** — `VERIFIED_ONE_LINER` — uv — `uv tool install burf`
+- **cargo-seek** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **catalyst** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap PraveenGongada/tap && brew install catalyst`
+- **cnTUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **chiko** — `VERIFIED_ONE_LINER` — Homebrew — `brew install felangga/chiko/chiko`
+- **Claude Code Bridge** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Claude Code Usage Monitor** — `VERIFIED_ONE_LINER` — uv — `uv tool install claude-monitor`
+- **Close Mongo Ops Manager** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **codex** — `VERIFIED_ONE_LINER` — npm — `npm install -g @openai/codex` — Verified against official OpenAI help.
+- **csope** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **CuTE** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+- **crush** — `VERIFIED_ONE_LINER` — Homebrew — `brew install charmbracelet/tap/crush`
+- **dbee** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **dblab** — `VERIFIED_ONE_LINER` — Homebrew cask — `brew install --cask danvergara/tools/dblab`
+- **ddqa** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ddv** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked ddv`
+- **delta** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **deputui** — `VERIFIED_ONE_LINER` — source build — `make all`
+- **differ** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **euporie** — `VERIFIED_ONE_LINER` — uv — `uv tool install euporie`
+- **fast-resume** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap angristan/tap && brew install fast-resume`
+- **Feluda** — `VERIFIED_ONE_LINER` — Cargo — `cargo install feluda`
+- **Froggit** — `VERIFIED_ONE_LINER` — official install script — `curl -s https://raw.githubusercontent.com/thewizardshell/froggit/master/scripts/install.sh | bash`
+- **fx** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ggc** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/bmf-san/ggc/main/install.sh | bash`
+- **ghcup** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **gitui** — `VERIFIED_ONE_LINER` — pacman — `pacman -S gitui`
+- **gitwig** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **gitv** — `VERIFIED_ONE_LINER` — Homebrew — `brew install jayanaxhf/taps/gitv`
+- **git-crecord** — `VERIFIED_ONE_LINER` — setup.py — `./setup.py install`
+- **git-scope** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap Bharath-code/tap && brew install git-scope`
+- **grv** — `VERIFIED_ONE_LINER` — release binary — `wget -O grv https://github.com/rgburke/grv/releases/download/v0.3.2/grv_v0.3.2_linux64 && chmod +x ./grv`
+- **harlequin** — `VERIFIED_ONE_LINER` — uv — `curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install harlequin`
+- **hcom** — `VERIFIED_ONE_LINER` — Homebrew — `brew install aannoo/hcom/hcom`
+- **heretek** — `VERIFIED_ONE_LINER` — Cargo — `cargo install heretek --locked`
+- **hunk** — `VERIFIED_ONE_LINER` — npm — `npm i -g hunkdiff`
+- **jqp** — `VERIFIED_ONE_LINER` — Homebrew — `brew install jqp`
+- **kagan** — `VERIFIED_ONE_LINER` — OpenCode plugin — `opencode plugin -g @kagan-sh/kagan`
+- **lazygit** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **lazymake** — `VERIFIED_ONE_LINER` — Homebrew — `brew install lazymake`
+- **lazysql** — `VERIFIED_ONE_LINER` — Homebrew — `brew install lazysql`
+- **lazyjournal** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+- **lean-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **logradar** — `VERIFIED_ONE_LINER` — Cargo/source — `cargo install --path .`
+- **LogLens** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap Caelrith/loglens && brew install loglens`
+- **logshark** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **mitmproxy** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **models** — `VERIFIED_ONE_LINER` — Homebrew — `brew install models`
+- **nap** — `VERIFIED_ONE_LINER` — Go — `go install github.com/maaslalani/nap@main`
+- **nodebro** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **opencode** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://opencode.ai/install | bash`
+- **opcilloscope** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/SquareWaveSystems/opcilloscope/main/install.sh | bash`
+- **Quorum** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **play** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **posting** — `VERIFIED_ONE_LINER` — uv — `curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install --python 3.13 posting`
+- **pproftui** — `VERIFIED_ONE_LINER` — Go — `go install github.com/Oloruntobi1/pproftui@latest`
+- **proxymock** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **prs** — `VERIFIED_ONE_LINER` — Homebrew — `brew install dhth/tap/prs`
+- **pudb** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **pyautogit** — `VERIFIED_ONE_LINER` — PyPI — `pip install pyautogit`
+- **qo** — `VERIFIED_ONE_LINER` — Homebrew — `brew install kiki-ki/tap/qo`
+- **qrypad** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **rainfrog** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **regex-tui** — `VERIFIED_ONE_LINER` — Go — `go install github.com/vitor-mariano/regex-tui@latest`
+- **resterm** — `VERIFIED_ONE_LINER` — Homebrew — `brew install resterm`
+- **runme** — `VERIFIED_ONE_LINER` — Homebrew — `brew update && brew install runme`
+- **scope** — `VERIFIED_ONE_LINER` — Cargo — `cargo install scope-monitor`
+- **sabiql** — `VERIFIED_ONE_LINER` — Homebrew — `brew install riii111/sabiql/sabiql`
+- **sls-dev-tools** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **snips.sh** — `VERIFIED_ONE_LINER` — zero-install SSH — `ssh snips.sh`
+- **stu** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked stu`
+- **termdbms** — `VERIFIED_ONE_LINER` — Go — `go install github.com/mathaou/termdbms@latest`
+- **terraform-tui** — `VERIFIED_ONE_LINER` — Homebrew — `brew install idoavrah/homebrew/tftui`
+- **Toad** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL batrachian.ai/install | sh`
+- **toolui** — `VERIFIED_ONE_LINER` — .NET tool — `dotnet tool install ToolUI`
+- **tokui** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is precompiled binary/manual download.
+- **Twig** — `VERIFIED_ONE_LINER` — uv — `curl -LsSf https://astral.sh/uv/install.sh | sh && uv tool install twg`
+- **serie** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked serie`
+- **soft-serve** — `VERIFIED_ONE_LINER` — Homebrew — `brew install charmbracelet/tap/soft-serve`
+- **sot** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/anistark/sot/main/install.sh | bash`
+- **sqlit** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **sq** — `VERIFIED_ONE_LINER` — Go — `go install github.com/sheenazien8/sq@latest`
+- **tig** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **turbostream** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **vctui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **violet** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **VT Code** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Wikit** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ec** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## Docker/LXC/K8s
+
+- **Argonaut** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/darksworm/argonaut/main/install.sh | sh`
+- **cruise** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ctop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **d4s** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://d4scli.io/install.sh | sh -s -- ~/.local/bin`
+- **dtop** — `VERIFIED_ONE_LINER` — Homebrew — `brew install dtop`
+- **dive** — `VERIFIED_NO_ONE_LINER` — release package/manual — `—` — First official path is a downloaded distro package.
+- **dockly** — `VERIFIED_ONE_LINER` — npm — `npm install -g dockly`
+- **DockMate** — `VERIFIED_ONE_LINER` — Homebrew — `brew install shubh-io/tap/dockmate`
+- **docker-dash** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap GustavoCaso/tap && brew install docker-dash`
+- **dockup** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **dprs** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://get.durableprogramming.com/dprs | sh`
+- **dry** — `VERIFIED_ONE_LINER` — official install script — `curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh && sudo chmod 755 /usr/local/bin/dry`
+- **ducker** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked ducker`
+- **e1s** — `VERIFIED_ONE_LINER` — CloudShell install script — `curl -sL https://raw.githubusercontent.com/keidarcy/e1s-install/master/cloudshell-install.sh | bash`
+- **eks-node-viewer** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap aws/tap && brew install eks-node-viewer`
+- **etcd-walker** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **k9s** — `VERIFIED_NO_ONE_LINER` — release tarball — `—` — First official path is manual release tarball; Homebrew is shown later.
+- **k8s-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **kdash** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap kdash-rs/kdash && brew install kdash`
+- **kftui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ktop** — `VERIFIED_ONE_LINER` — krew — `kubectl krew install ktop`
+- **kubetui** — `VERIFIED_ONE_LINER` — Homebrew — `brew install kubetui`
+- **lazycontainer** — `VERIFIED_ONE_LINER` — Homebrew — `brew install lazycontainer`
+- **lazydocker** — `VERIFIED_ONE_LINER` — Homebrew — `brew install jesseduffield/lazydocker/lazydocker`
+- **lazytrivy** — `VERIFIED_ONE_LINER` — Homebrew cask — `brew tap owenrumney/tools && brew install --cask lazytrivy`
+- **oxker** — `VERIFIED_ONE_LINER` — Cargo — `cargo install oxker`
+- **Pocker** — `VERIFIED_ONE_LINER` — pipx — `pipx install pocker-tui`
+- **Podman-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **sen** — `VERIFIED_ONE_LINER` — PyPI + dependency — `pip3 install git+https://github.com/pazz/urwidtrees.git@9142c59d3e41421ff6230708d08b6a134e0a8eed#egg=urwidtrees-1.0.3.dev && pip3 install sen`
+- **SwarmCLI** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap eldara-tech/tap && brew install swarmcli`
+- **talos-pilot** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## Editors
+
+- **amp** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **C-Edit** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Durdraw** — `VERIFIED_ONE_LINER` — source + pip — `git clone https://github.com/cmang/durdraw.git && cd durdraw && python3 -m pip install --upgrade .`
+- **Edit** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **flow-control** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Fresh** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **helix** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **hexed** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **frogmouth** — `VERIFIED_ONE_LINER` — pipx — `pipx install frogmouth`
+- **kakoune** — `VERIFIED_ONE_LINER` — source build — `make install`
+- **kilo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **maki** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **markln** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **micro** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **microNeo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nino** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **orbiton** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **slap** — `VERIFIED_ONE_LINER` — official install script — `curl -sL https://raw.githubusercontent.com/slap-editor/slap/master/install.sh | sh`
+- **tilde** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **thymus** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **treemd** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **turbo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **vis** — `VERIFIED_ONE_LINER` — source build — `./configure && make && sudo make install`
+- **zee** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked zee`
+- **PNANA** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## File Managers
+
+- **adbtuifm** — `VERIFIED_ONE_LINER` — Go — `go get -u github.com/darkhz/adbtuifm`
+- **broot** — `VERIFIED_NO_ONE_LINER` — delegated official install guide — `—` — Root README delegates installation to official docs.
+- **deletor** — `VERIFIED_ONE_LINER` — Go — `go install github.com/pashkov256/deletor@latest`
+- **far2l** — `VERIFIED_NO_ONE_LINER` — platform/source build — `—` — No single first one-line install command in root README.
+- **fml** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **fyzenor** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/Bimbok/fyzenor/main/install.sh | bash -s -- --stable`
+- **goful** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **lf** — `VERIFIED_ONE_LINER` — Go — `env CGO_ENABLED=0 go install -trimpath -ldflags="-s -w" github.com/gokcehan/lf@latest`
+- **mc** — `VERIFIED_NO_ONE_LINER` — delegated INSTALL file — `—` — Root README delegates installation to INSTALL.
+- **nnn** — `VERIFIED_NO_ONE_LINER` — source/packages — `—` — No single first one-line installer in root README.
+- **ntc** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ranger** — `VERIFIED_NO_ONE_LINER` — source/packages — `—` — No single first one-line installer in root README.
+- **rovr** — `VERIFIED_ONE_LINER` — uv — `uv tool install rovr`
+- **s3duck-tui** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **sfm** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/afify/sfm && cd sfm/ && make && make install`
+- **superfile** — `VERIFIED_ONE_LINER` — official install script — `bash -c "$(curl -sLo- https://superfile.dev/install.sh)"`
+- **TUIFIManager** — `VERIFIED_ONE_LINER` — PyPI — `sudo pip3 install tuifimanager --upgrade`
+- **Vifm** — `VERIFIED_ONE_LINER` — apk — `apk add vifm`
+- **yazi** — `VERIFIED_NO_ONE_LINER` — delegated official install guide — `—` — Root README delegates install to official docs.
+- **ytreenova** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/robkam/ytreenova.git && cd ytreenova && make && sudo make install`
+
+## Games
+
+- **tui-2048** — `VERIFIED_ONE_LINER` — PyPI — `pip install tui-2048`
+- **awkaster** — `VERIFIED_ONE_LINER` — dependency install + run — `brew update && brew install gawk`
+- **balatrotui** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **bastet** — `VERIFIED_NO_ONE_LINER` — delegated INSTALL — `—` — Root README delegates installation to INSTALL.
+- **botany** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No one-line installer in root README.
+- **brickgame-4bit** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No one-line installer in root README.
+- **BrogueCE** — `VERIFIED_NO_ONE_LINER` — release/source — `—` — No one-line installer in root README.
+- **cbonsai** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **chess-tui** — `VERIFIED_ONE_LINER` — Homebrew — `brew install thomas-mauran/tap/chess-tui`
+- **clidle** — `VERIFIED_ONE_LINER` — zero-install SSH — `ssh clidle.duckdns.org -p 3000`
+- **csol** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **DOOM-ASCII** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Gameboy Emulator** — `VERIFIED_ONE_LINER` — source + Composer — `git clone https://github.com/gabrielrcouto/php-terminal-gameboy-emulator.git && cd php-terminal-gameboy-emulator && composer install -o`
+- **GitType** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/unhappychoice/gittype/main/install.sh | bash`
+- **go-life** — `VERIFIED_ONE_LINER` — release binary — `wget https://github.com/sachaos/go-life/releases/download/v0.4.0/go-life_darwin_amd64 -O /usr/local/bin/go-life && chmod +x /usr/local/bin/go-life`
+- **gokemon** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Greed** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Maze** — `VERIFIED_ONE_LINER` — Homebrew — `brew install itchyny/tap/maze`
+- **Maze TUI** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Micro Snake** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Micro Tetris** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **minesweep-rs** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **minesweeper_4d_rs** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **moon-buggy** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — Upstream points to build/install instructions, no single command.
+- **MyMan** — `VERIFIED_NO_ONE_LINER` — SourceForge/manual — `—` — No single official one-line installer found.
+- **nchess** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **NetHack** — `VERIFIED_NO_ONE_LINER` — source/packages — `—` — No Installation section in root README.
+- **nInvaders** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No one-line installer on upstream page.
+- **nSnake** — `VERIFIED_ONE_LINER` — source build — `make && sudo make install`
+- **nudoku** — `VERIFIED_ONE_LINER` — source build/run — `./configure && make && ./src/nudoku`
+- **onx** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **pokete** — `VERIFIED_ONE_LINER` — PyPI — `pip install pokete`
+- **Rebels in the sky** — `VERIFIED_ONE_LINER` — zero-install SSH — `ssh frittura.org`
+- **snake** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Square Tic Tac Toe** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ssHattrick** — `VERIFIED_ONE_LINER` — zero-install SSH — `ssh frittura.org`
+- **sshtron** — `VERIFIED_ONE_LINER` — zero-install SSH — `ssh sshtron.zachlatta.com`
+- **sssnake** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/AngelJumbo/sssnake.git && cd sssnake && make && sudo make install`
+- **steam-tui** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **sudoku-rs** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **sweeper** — `VERIFIED_ONE_LINER` — Poetry — `pip install poetry && poetry install`
+- **terminal-phase** — `VERIFIED_NO_ONE_LINER` — GitLab/manual — `—` — Upstream page was not safely retrievable.
+- **terminal-pong** — `VERIFIED_ONE_LINER` — source + Cargo run — `git clone https://github.com/IshmamR/terminal.pong.git && cd terminal.pong && cargo run --release`
+- **termrex** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/SATYADAHAL/termrex.git && cd termrex && make -j release && ./build/termrex`
+- **tetro-tui** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **tinytetris** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **tty-solitaire** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **typeinc** — `VERIFIED_ONE_LINER` — PyPI — `pip install typeinc`
+- **typing-game-cli** — `VERIFIED_ONE_LINER` — npm — `npm install --global typing-game-cli`
+- **UniPac** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **wocogo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Wordle** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Zigtris** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Zoridor** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## Libraries
+
+- **Argenta** — `VERIFIED_ONE_LINER` — PyPI — `python -m pip install argenta`
+- **blessed (Python)** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **blessings** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **notcurses** — `VERIFIED_NO_ONE_LINER` — delegated INSTALL — `—` — Root docs delegate build/install to INSTALL.
+- **py_cui** — `VERIFIED_ONE_LINER` — PyPI — `pip install py-cui`
+- **pytermgui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Python Prompt Toolkit** — `VERIFIED_ONE_LINER` — PyPI — `pip install prompt_toolkit`
+- **pyTermTk** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Rich** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **textual** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **UniCurses** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **urwid** — `VERIFIED_ONE_LINER` — PyPI — `pip install urwid`
+- **Vindauga** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **xnano** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **bubbletea** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **gocui** — `VERIFIED_ONE_LINER` — Go dependency — `go get github.com/jroimartin/gocui`
+- **pterm** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **stickers** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tui-go** — `VERIFIED_ONE_LINER` — Go dependency — `go get github.com/marcusolsson/tui-go`
+- **tview** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tcell** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **AnbUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **libuv** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ncurses** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tuibox** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ASCII_Board_Game_Engine** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ConsoleCraftEngine** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **FINAL CUT** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/gansm/finalcut.git && cd finalcut && autoreconf --install --force && ./configure --prefix=/usr && make && su -c "make install"`
+- **FTXUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **GGUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **imtui** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/ggerganov/imtui --recursive && cd imtui && mkdir build && cd build && cmake .. && make`
+- **rang** — `VERIFIED_NO_ONE_LINER` — header-only — `—` — Official first path is to add the header file to the project; no installer command.
+- **termdb** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Tui Widgets** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tvision** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **uvw** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **xtd** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **casciian** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Jexer** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Lanterna** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **TUI4J** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Consolonia** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Elaris.UI** — `VERIFIED_ONE_LINER` — .NET package — `dotnet add package Ambystech.Elaris.UI`
+- **Hex1b** — `VERIFIED_ONE_LINER` — .NET package — `dotnet add package Hex1b`
+- **SharpConsoleUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Spectre.Console** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Terminal.Gui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **iocraft** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Ratatui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tui-input** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tui-rs** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Zaz** — `VERIFIED_NO_ONE_LINER` — Cargo.toml dependency — `—` — Official docs show a Cargo.toml dependency declaration rather than shell install.
+- **Ashen** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **blessed (Node.js)** — `VERIFIED_ONE_LINER` — npm — `npm install blessed`
+- **gum** — `VERIFIED_ONE_LINER` — Homebrew — `brew install gum`
+- **ink** — `VERIFIED_ONE_LINER` — npm — `npm install ink react`
+- **ink-web** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Melker** — `VERIFIED_ONE_LINER` — Deno — `deno install -g -A jsr:@melker/melker`
+- **moulti** — `VERIFIED_ONE_LINER` — pipx — `pipx install moulti; pipx ensurepath`
+- **nimwave** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nocterm** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **OpenTUI** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **php-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **@pierre/diffs** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **@pierre/trees** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **termbox2** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **TermGL** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Thermage** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## Messaging
+
+- **aerc** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **alpine** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **basalt** — `VERIFIED_ONE_LINER` — Cargo — `cargo install basalt-tui`
+- **concord** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Devzat** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **discordo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **endcord** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Gomphotherium** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **gomuks** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **gurk-rs** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is precompiled binary/manual download.
+- **iamb** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **instagram-cli** — `VERIFIED_ONE_LINER` — npm — `npm install -g @i7m/instagram-cli`
+- **irssi** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **marchat** — `VERIFIED_ONE_LINER` — release archive — `wget https://github.com/Cod-e-Codes/marchat/releases/download/v1.3.4/marchat-v1.3.4-linux-amd64.zip && unzip marchat-v1.3.4-linux-amd64.zip && chmod +x marchat-*`
+- **mastui** — `VERIFIED_ONE_LINER` — pipx — `pipx install mastui`
+- **matcha** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **matterhorn** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release download.
+- **mcabber** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **meli** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Mutt** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nchat** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nomadnet** — `VERIFIED_ONE_LINER` — PyPI — `pip install nomadnet`
+- **nostui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nostratui** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/adamm-xyz/nostratui.git && cd nostratui && cargo build`
+- **Profanity** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **sclack** — `VERIFIED_ONE_LINER` — source + pip — `git clone https://github.com/haskellcamargo/sclack.git && cd sclack && pip3 install -r requirements.txt && chmod +x ./app.py`
+- **scli** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **siggo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Slack-term** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual release binary download/move.
+- **sup** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **SuperChat** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/aeolun/superchat/main/install.sh | sh`
+- **Superhighway84** — `VERIFIED_NO_ONE_LINER` — release/manual — `—` — First official path is manual prerequisites/release setup.
+- **tgt** — `VERIFIED_ONE_LINER` — Cargo — `cargo install tgt`
+- **toot** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tuisky** — `VERIFIED_ONE_LINER` — Cargo — `cargo install tuisky`
+- **tuix** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tut** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **twitch-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Weechat** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **zulip-terminal** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install zulip-term`
+
+## Miscellaneous
+
+- **arttime** — `VERIFIED_ONE_LINER` — official installer — `zsh -c '{url="https://gist.githubusercontent.com/poetaman/bdc598ee607e9767fe33da50e993c650/raw/d0146d258a30daacb9aee51deca9410d106e4237/arttime_online_installer.sh"; zsh -c "$(curl -fsSL $url || wget -qO- $url)"}'`
+- **asciiMol** — `VERIFIED_ONE_LINER` — PyPI — `pip install asciimol`
+- **bluetuith** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **bluetui** — `VERIFIED_ONE_LINER` — Cargo — `cargo install bluetui`
+- **Caligula** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+- **Captain's log** — `VERIFIED_ONE_LINER` — source install — `sudo make install`
+- **cava** — `VERIFIED_ONE_LINER` — source build — `make install`
+- **cfdisk** — `VERIFIED_NO_ONE_LINER` — util-linux build/docs — `—` — No standalone cfdisk installer; it ships with util-linux.
+- **cgdisk** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **csvlens** — `VERIFIED_NO_ONE_LINER` — direct download — `—` — First official path is manual direct download.
+- **CrunchyCleaner** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+- **diary** — `VERIFIED_ONE_LINER` — Cargo — `cargo install diary`
+- **DigiSurf** — `VERIFIED_ONE_LINER` — Cargo — `cargo install digisurf`
+- **diskonaut** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official path is manual prebuilt binary download.
+- **distrobox-tui** — `VERIFIED_ONE_LINER` — Go — `go install github.com/phanirithvij/distrobox-tui@main`
+- **ec2-instance-selector** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap aws/tap && brew install ec2-instance-selector`
+- **emu2** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No app installer in root README.
+- **flawz** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked flawz`
+- **fnf** — `VERIFIED_NO_ONE_LINER` — package repositories — `—` — First path is distro package repositories without one universal command.
+- **fzf** — `VERIFIED_ONE_LINER` — apk — `sudo apk add fzf`
+- **gdu** — `VERIFIED_ONE_LINER` — release tarball — `curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz && chmod +x gdu_linux_amd64 && mv gdu_linux_amd64 /usr/bin/gdu`
+- **gif-for-cli** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install --user gif-for-cli`
+- **godap** — `VERIFIED_ONE_LINER` — source + Go — `git clone https://github.com/Macmod/godap && cd godap && go install .`
+- **golazo** — `VERIFIED_ONE_LINER` — Homebrew — `brew install 0xjuanma/tap/golazo`
+- **gpg-tui** — `VERIFIED_ONE_LINER` — Cargo — `cargo install gpg-tui`
+- **HumBLE Explorer** — `VERIFIED_ONE_LINER` — PyPI — `pip install humble-explorer`
+- **IconicFonts** — `VERIFIED_NO_ONE_LINER` — assets/manual — `—` — No application installer in root README.
+- **impala** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is manual binary download.
+- **isw** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **jrnl** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **keydex** — `VERIFIED_ONE_LINER` — official install script — `curl -s https://shikaan.github.io/sup/install | REPO=shikaan/keydex sh -`
+- **lazynginx** — `VERIFIED_ONE_LINER` — release tarball — `LAZYNGINX_VERSION=$(curl -s "https://api.github.com/repos/giacomomasseron/lazynginx/releases/latest" | grep -Po '"tag_name": *"v\K[^"]*') && curl -Lo lazynginx.tar.gz "https://github.com/giacomomasseron/lazynginx/releases/download/v${LAZYNGINX_VERSION}/lazynginx_${LAZYNGINX_VERSION}_linux_amd64.tar.gz" && tar xf lazynginx.tar.gz lazynginx && sudo install lazynginx -D -t /usr/local/bin/`
+- **LearnByExample** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **lnav** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **mac-cleanup-go** — `VERIFIED_ONE_LINER` — Homebrew — `brew install mac-cleanup-go`
+- **mapscii** — `VERIFIED_ONE_LINER` — zero-install telnet — `telnet mapscii.me`
+- **mqttui** — `VERIFIED_ONE_LINER` — apk — `apk add mqttui`
+- **moc** — `VERIFIED_NO_ONE_LINER` — distro package/manual — `—` — Upstream leads with distro packages; no single universal command captured.
+- **moribito** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/ericschmar/moribito/main/scripts/install.sh | bash`
+- **NanoCore** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official path is compiled binary/manual download.
+- **neoss** — `VERIFIED_ONE_LINER` — npm — `npm install -g neoss`
+- **nmtui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **oha** — `VERIFIED_ONE_LINER` — Cargo — `cargo install oha`
+- **packemon** — `VERIFIED_ONE_LINER` — source + Go — `git clone git@github.com:ddddddO/packemon.git && cd packemon && cd tc_program/ && go generate && cd - && go build -o packemon cmd/packemon/*.go && mv packemon /usr/local/bin/`
+- **pass-cli** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap reyamira/homebrew-tap && brew install pass-cli`
+- **PesterExplorer** — `VERIFIED_ONE_LINER` — PowerShell Gallery — `Install-Module PesterExplorer -Scope CurrentUser`
+- **pug** — `VERIFIED_ONE_LINER` — Go — `go install github.com/leg100/pug@latest`
+- **physics-TUI** — `VERIFIED_ONE_LINER` — PyPI/git — `pip install git+https://github.com/ClaudioRMalvino/physics_tui.git`
+- **ncdu** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **redu** — `VERIFIED_ONE_LINER` — Cargo — `cargo install redu --locked`
+- **nemu** — `VERIFIED_ONE_LINER` — apk — `apk add nemu`
+- **recoverpy** — `VERIFIED_ONE_LINER` — uv tool — `uv tool install recoverpy`
+- **rocket.term** — `VERIFIED_ONE_LINER` — setup.py — `./setup.py install --user`
+- **smassh** — `VERIFIED_ONE_LINER` — PyPI — `pip install smassh`
+- **steam_friends_list_tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Systemd-manager-tui** — `VERIFIED_ONE_LINER` — Debian package — `sudo dpkg -i ./systemd-manager-tui_x.x.x-x_amd64.deb`
+- **tcpterm** — `VERIFIED_ONE_LINER` — Go — `go install github.com/sachaos/tcpterm`
+- **tab-pal** — `VERIFIED_ONE_LINER` — pipx — `pipx install tab-pal`
+- **term.everything** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **terminalperiodictable** — `VERIFIED_ONE_LINER` — source build — `sudo make install`
+- **termshark** — `VERIFIED_NO_ONE_LINER` — distro packages — `—` — First official path is package repositories without one universal command.
+- **thokr** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tlock** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tray-tui** — `VERIFIED_NO_ONE_LINER` — Nix configuration — `—` — First official path is declarative Nix config, not a shell one-liner.
+- **tttui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ttyper** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official path is manual prebuilt binary download.
+- **tui-shop** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **tweakcc** — `VERIFIED_ONE_LINER` — npm global — `npm install -g tweakcc` — README shows npx run before persistent install; this is the install command.
+- **typtea** — `VERIFIED_ONE_LINER` — AUR helper — `yay -S typtea`
+- **try-rs** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/tassiovirginio/try-rs.git && cd try-rs && cargo install --path . --bin try-rs`
+- **vortix** — `VERIFIED_ONE_LINER` — Homebrew — `brew install Harry-kp/tap/vortix`
+- **wb** — `VERIFIED_ONE_LINER` — project installer — `chmod 755 INSTALL.sh && ./INSTALL.sh`
+- **wego** — `VERIFIED_ONE_LINER` — Go — `go install github.com/schachmat/wego@latest`
+- **wavemon** — `VERIFIED_ONE_LINER` — source build — `./configure && make && sudo make install`
+- **wifitui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **WG Commander** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **wttr.in** — `VERIFIED_NO_ONE_LINER` — source/server setup — `—` — First install step is system preparation; no single one-line end-user install. Public service itself is zero-install via curl.
+- **WifUI** — `VERIFIED_ONE_LINER` — winget — `winget install wifui`
+- **xplr** — `VERIFIED_ONE_LINER` — Nixpkgs — `nix-env -f https://github.com/NixOS/nixpkgs/tarball/master -iA xplr`
+- **x-cmd** — `VERIFIED_ONE_LINER` — official install script — `eval "$(curl https://get.x-cmd.com)"`
+
+## Multimedia
+
+- **ani-l** — `VERIFIED_ONE_LINER` — Cargo — `cargo install ani-l`
+- **asak** — `VERIFIED_ONE_LINER` — Cargo — `cargo install asak`
+- **bookokrat** — `VERIFIED_ONE_LINER` — Homebrew — `brew install bookokrat`
+- **chafa** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — Official homepage does not present one universal first command.
+- **cmdpxl** — `VERIFIED_ONE_LINER` — PyPI — `pip install cmdpxl`
+- **cmus** — `VERIFIED_ONE_LINER` — apt — `sudo apt-get install cmus`
+- **ctune** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **draw** — `VERIFIED_ONE_LINER` — Go — `go install github.com/maaslalani/draw@latest`
+- **fancy-cat** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **favicon-editor** — `VERIFIED_ONE_LINER` — Go — `go install github.com/xyproto/favicon-editor@latest`
+- **gadacz** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/rareitems/gadacz && cd gadacz && cargo install --path .`
+- **GopherTube** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/KrishnaSSH/GopherTube/main/install.sh | bash`
+- **Gorae** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official path is recommended prebuilt binary/manual download.
+- **image-sorter** — `VERIFIED_ONE_LINER` — Cargo — `cargo install image-sorter`
+- **invidtui** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **jellyfin-tui** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/dhonus/jellyfin-tui && cd jellyfin-tui && cargo install --path .`
+- **kew** — `VERIFIED_NO_ONE_LINER` — delegated official install guide — `—` — Root README delegates to project website.
+- **line** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **MAL-Cli** — `VERIFIED_ONE_LINER` — AUR helper — `yay -S mal-cli`
+- **managarr** — `VERIFIED_ONE_LINER` — Cargo — `cargo install managarr`
+- **manga-tui** — `VERIFIED_ONE_LINER` — Cargo — `cargo install manga-tui --locked`
+- **marstui-audio** — `VERIFIED_ONE_LINER` — source + Cargo — `sudo apt install libdbus-1-dev pkg-config && git clone https://github.com/schooldanlp6/marstui-rustio && cd marstui-rustio && cargo build --release && cd target/release && chmod +x marstui-audio && sudo cp marstui-audio /bin/marstui-audio`
+- **mps-youtube** — `VERIFIED_ONE_LINER` — PyPI (current yewtube) — `pip install yewtube`
+- **mpvc** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **nap** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ncspot** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **pipe-viewer** — `VERIFIED_ONE_LINER` — Perl build — `perl Build.PL && sudo ./Build installdeps && sudo ./Build install`
+- **ostui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **pyradio** — `VERIFIED_NO_ONE_LINER` — distro package — `—` — First official path is distro package availability without one universal command.
+- **RadioGoGo** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Relax-player** — `VERIFIED_ONE_LINER` — Cargo — `cargo install relax-player`
+- **roku-cli** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **rmpc** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **rusty-pipes** — `VERIFIED_NO_ONE_LINER` — release download — `—` — First official path is manual release download.
+- **sonicradio** — `VERIFIED_ONE_LINER` — Go — `go install github.com/dancnb/sonicradio/cmd/sonicradio@latest`
+- **soundcloud2000** — `VERIFIED_ONE_LINER` — macOS deps + gem — `xcode-select --install && brew install portaudio && brew install mpg123 && gem install soundcloud2000`
+- **spotatui** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap LargeModGames/spotatui && brew install spotatui`
+- **spotify-player** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official path is manual prebuilt binary download.
+- **spotui** — `VERIFIED_ONE_LINER` — PyPI — `pip install spotui`
+- **tdf** — `VERIFIED_ONE_LINER` — Cargo/git — `cargo install --git https://github.com/itsjunetime/tdf.git`
+- **terminal-yt** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **termusic** — `VERIFIED_ONE_LINER` — Cargo — `cargo install termusic termusic-server --locked`
+- **textual-paint** — `VERIFIED_ONE_LINER` — pipx — `pip install --upgrade pipx && pipx install textual-paint`
+- **timg** — `VERIFIED_ONE_LINER` — apt — `sudo apt install timg`
+- **tizonia-openmax-il** — `VERIFIED_ONE_LINER` — official install script — `curl -kL https://github.com/tizonia/tizonia-openmax-il/raw/master/tools/install.sh | bash`
+- **tortuise** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Toutui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **Trophy** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **upiano** — `VERIFIED_ONE_LINER` — PyPI — `pip install upiano`
+- **valveFM** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **vlc** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **waves** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **wiremix** — `VERIFIED_ONE_LINER` — Cargo — `cargo install wiremix`
+- **xytz** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ytui-music** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone git@github.com:sudipghimire533/ytui-music && cd ytui-music && git submodule init && MPV_BUILD=mpv-build/ cargo build --all --release --features build_libmpv`
+- **ytdl-tui** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **ytfzf** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/pystardust/ytfzf && cd ytfzf && sudo make install doc`
+- **viu** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/atanunq/viu.git && cd viu && cargo install --path .`
+- **vv** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+
+## Productivity
+
+- **abook** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **agent-deck** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/asheshgoplani/agent-deck/main/install.sh | bash`
+- **awsui** — `VERIFIED_ONE_LINER` — uv — `uv tool install --python 3.13 awsui`
+- **Bagels** — `VERIFIED_ONE_LINER` — uv — `curl -LsSf https://astral.sh/uv/install.sh | sh && source "$HOME/.local/bin/env" && uv tool install --python 3.13 bagels`
+- **Brief** — `VERIFIED_ONE_LINER` — Homebrew — `brew install williamagh/tap/brief`
+- **calcure** — `VERIFIED_ONE_LINER` — pipx — `pipx install calcure`
+- **calcurse** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — Official homepage root has no single one-line first installer.
+- **clipse** — `VERIFIED_ONE_LINER` — Nix — `nix-env -iA nixpkgs.clipse`
+- **Chronos** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Desktop-TUI** — `VERIFIED_ONE_LINER` — Cargo — `cargo install desktop-tui`
+- **doxx** — `VERIFIED_ONE_LINER` — Homebrew — `brew install bgreenwell/tap/doxx`
+- **drako** — `VERIFIED_ONE_LINER` — Go — `go install github.com/lucky7xz/drako@latest`
+- **dvtm** — `VERIFIED_ONE_LINER` — source build — `make && sudo make install`
+- **ekphos** — `VERIFIED_ONE_LINER` — Cargo — `cargo install ekphos`
+- **elia** — `VERIFIED_ONE_LINER` — pipx — `pipx install --python 3.11 elia-chat`
+- **fjira** — `VERIFIED_ONE_LINER` — Homebrew — `brew install fjira`
+- **GeekCalendar** — `VERIFIED_ONE_LINER` — source + Bun — `bun install && bun run build && mkdir -p ~/.local/bin && mv ./geekcalendar ~/.local/bin/`
+- **Glow** — `VERIFIED_ONE_LINER` — Homebrew — `brew install glow`
+- **gocheat** — `VERIFIED_ONE_LINER` — source + Go — `git clone https://github.com/Achno/gocheat && cd gocheat && go build && sudo cp gocheat /usr/local/bin/`
+- **helm** — `VERIFIED_ONE_LINER` — Homebrew — `brew install 0xjuanma/tap/helm`
+- **hledger-ui** — `VERIFIED_NO_ONE_LINER` — suite/package docs — `—` — Root hledger README has no standalone first install command for hledger-ui.
+- **h-m-m** — `VERIFIED_ONE_LINER` — official install script — `wget -q -O - https://raw.githubusercontent.com/nadrad/h-m-m/main/install.sh | sh`
+- **hnjobs** — `VERIFIED_ONE_LINER` — Go — `go install github.com/mwinters0/hnjobs@latest`
+- **hygg** — `VERIFIED_ONE_LINER` — Cargo — `cargo install --locked hygg`
+- **HydroToDo** — `VERIFIED_ONE_LINER` — source checkout — `git clone https://github.com/Henriquehnnm/HydroToDo.git && cd HydroToDo`
+- **HydroFetch** — `VERIFIED_ONE_LINER` — official install script — `curl -sSL https://raw.githubusercontent.com/Henriquehnnm/HydroFetch/main/install.fish | fish`
+- **intelli-shell** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **jiratui** — `VERIFIED_ONE_LINER` — uv — `uv tool install jiratui`
+- **Judo** — `VERIFIED_ONE_LINER` — Cargo — `cargo install judo`
+- **kabmat** — `VERIFIED_ONE_LINER` — source build — `git clone https://github.com/PlankCipher/kabmat.git && cd kabmat && make && sudo make install`
+- **kanban** — `VERIFIED_ONE_LINER` — Cargo — `cargo install kanban-cli` — Current canonical upstream redirects from the justtuit URL.
+- **kanban-python** — `VERIFIED_ONE_LINER` — PyPI — `python -m pip install kanban-python`
+- **khal** — `VERIFIED_ONE_LINER` — apt — `apt install khal`
+- **LazySSH** — `VERIFIED_ONE_LINER` — Homebrew — `brew install Adembc/homebrew-tap/lazyssh`
+- **levite** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **longbridge-terminal** — `VERIFIED_ONE_LINER` — Homebrew cask — `brew install --cask longbridge/tap/longbridge-terminal`
+- **lssh** — `VERIFIED_ONE_LINER` — Homebrew — `brew install blacknon/lssh/lssh`
+- **mcfly** — `VERIFIED_ONE_LINER` — Homebrew — `brew install mcfly`
+- **mynav** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/GianlucaP106/mynav/main/install.bash | bash`
+- **multranslate** — `VERIFIED_ONE_LINER` — npm — `npm install -g multranslate`
+- **nless** — `VERIFIED_ONE_LINER` — pipx — `pipx install nothing-less`
+- **numr** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap nasedkinpv/tap && brew install numr`
+- **openmux** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/monotykamary/openmux/main/scripts/install.sh | bash`
+- **pagerduty-tui** — `VERIFIED_ONE_LINER` — source build — `cargo build`
+- **patat** — `VERIFIED_ONE_LINER` — Cabal — `cabal install patat`
+- **pdiary** — `VERIFIED_ONE_LINER` — PyPI wheel — `pip install https://github.com/manipuladordedados/pdiary/releases/download/1.65/pdiary-1.65-py3-none-any.whl`
+- **pkm** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **pomo** — `VERIFIED_ONE_LINER` — Homebrew cask — `brew install --cask bahaaio/pomo/pomo`
+- **portfolio_rs** — `VERIFIED_ONE_LINER` — Nix shell — `nix-shell -p portfolio_rs` — First official path is a Nix shell, not persistent install.
+- **pream-team** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **presenterm** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **procmux** — `VERIFIED_ONE_LINER` — pipx — `pipx install procmux`
+- **productivity-timer** — `VERIFIED_ONE_LINER` — npm — `npm i -g productivity-timer`
+- **sc-im** — `VERIFIED_ONE_LINER` — source build — `make -C src && make -C src install`
+- **SheetsUI** — `VERIFIED_ONE_LINER` — Nix profile — `nix profile install github:zaphar/sheetsui`
+- **shiki** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official method is release binaries; AUR is shown later.
+- **slides** — `VERIFIED_ONE_LINER` — Homebrew — `brew install slides`
+- **sshm** — `VERIFIED_ONE_LINER` — Homebrew — `brew install Gu1llaum-3/sshm/sshm`
+- **ssh-slides** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Tabiew** — `VERIFIED_ONE_LINER` — official install script — `curl -sS https://raw.githubusercontent.com/shshemi/tabiew/main/install.sh | sh`
+- **taskline** — `VERIFIED_ONE_LINER` — Yarn — `yarn global add @perryrh0dan/taskline`
+- **taskwarrior-tui** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official method is precompiled release/manual download.
+- **television** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://alexpasmantier.github.io/television/install.sh | bash`
+- **tenere** — `VERIFIED_NO_ONE_LINER` — release binary — `—` — First official method is release binaries/manual download.
+- **termscp** — `VERIFIED_ONE_LINER` — official install script — `curl --proto '=https' --tlsv1.2 -sSLf https://termscp.rs/install.sh | sh`
+- **tiki** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/boolean-maybe/tiki/main/install.sh | bash`
+- **tmux** — `VERIFIED_ONE_LINER` — source build — `./configure && make && sudo make install`
+- **tododo** — `VERIFIED_ONE_LINER` — Homebrew — `brew install bmarse/tap/tododo`
+- **todoman** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — No Installation section in root README.
+- **topydo** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install topydo`
+- **ttm** — `VERIFIED_ONE_LINER` — Homebrew — `brew install vst93/tap/ttm`
+- **trx** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://trx.pidev.tech/install.sh | sh`
+- **ttyplot** — `VERIFIED_ONE_LINER` — Snap — `snap install ttyplot`
+- **TUI_ProjectManager** — `VERIFIED_ONE_LINER` — Cargo — `cargo install project_manager`
+- **tuidict** — `VERIFIED_ONE_LINER` — Cargo — `cargo install tuidict`
+- **tui-deck** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **TUIOS** — `VERIFIED_ONE_LINER` — Homebrew — `brew install tuios`
+- **tui-slides** — `VERIFIED_ONE_LINER` — Cargo — `cargo install tui-slides`
+- **tuihub** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **tuimux** — `VERIFIED_ONE_LINER` — zero-install Bun — `bunx tuimux` — First quick-start method; persistent install is shown next.
+- **tuiserial** — `VERIFIED_ONE_LINER` — Cargo — `cargo install tuiserial`
+- **tvterm** — `VERIFIED_ONE_LINER` — source build — `cmake . -B ./build -DCMAKE_BUILD_TYPE=Release && cmake --build ./build`
+- **Visidata** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install visidata`
+- **Walker** — `VERIFIED_ONE_LINER` — source + Cargo — `git clone https://github.com/abenz1267/walker.git && cd walker && cargo build --release`
+- **zellij** — `VERIFIED_NO_ONE_LINER` — OS package/release — `—` — First official path is OS package availability; no single universal command.
+- **zeit** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Toney** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **Tock** — `VERIFIED_ONE_LINER` — Homebrew — `brew install tock`
+
+## Screensavers
+
+- **astroterm** — `VERIFIED_ONE_LINER` — DNF — `sudo dnf install astroterm`
+- **gitlogue** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/unhappychoice/gitlogue/main/install.sh | bash`
+- **neo** — `VERIFIED_ONE_LINER` — source tarball — `tar xzf neo-<VERSION>.tar.gz && cd neo-<VERSION> && ./configure && make && sudo make install`
+- **rxpipes** — `VERIFIED_ONE_LINER` — Cargo — `cargo install rxpipes`
+- **pond** — `VERIFIED_NO_ONE_LINER` — GitLab/source — `—` — No one-line installer safely captured.
+- **weathr** — `VERIFIED_ONE_LINER` — official install script — `curl -fsSL https://raw.githubusercontent.com/Veirt/weathr/main/install.sh | sh`
+
+## Web
+
+- **bombadillo** — `VERIFIED_ONE_LINER` — source build — `git clone https://tildegit.org/sloum/bombadillo && cd bombadillo && sudo make install`
+- **browsh** — `VERIFIED_NO_ONE_LINER` — release/packages — `—` — No end-user first one-line installer in current root README.
+- **bulletty** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official method is prebuilt binaries/manual download.
+- **Canard** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **carbonyl** — `VERIFIED_ONE_LINER` — zero-install Docker — `docker run --rm -ti fathyb/carbonyl https://youtube.com`
+- **castero** — `VERIFIED_ONE_LINER` — PyPI — `pip3 install castero`
+- **CatenaVetus** — `VERIFIED_ONE_LINER` — venv + editable install — `python -m venv venv && source ./venv/bin/activate && pip install -e .`
+- **Chawan** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — Project site does not present one universal first command.
+- **cloudflare-speed-cli** — `VERIFIED_ONE_LINER` — Cargo — `cargo install cloudflare-speed-cli`
+- **DiffsHub** — `VERIFIED_NO_ONE_LINER` — web service — `—` — No local install method on service page.
+- **eilmeldung** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap christo-auer/eilmeldung https://github.com/christo-auer/eilmeldung && brew install eilmeldung`
+- **elinks** — `VERIFIED_NO_ONE_LINER` — delegated INSTALL — `—` — Root README delegates installation to INSTALL file.
+- **hackernews-TUI** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official method is binaries/manual download; Cargo appears later.
+- **haxor-news** — `VERIFIED_ONE_LINER` — PyPI — `pip install haxor-news`
+- **Lagrange** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official method is downloads/prebuilt binaries.
+- **LYNX** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — Project site does not show one universal first install command.
+- **podliner** — `VERIFIED_ONE_LINER` — official install script — `bash <(curl -fsSL https://github.com/timkicker/podliner/releases/latest/download/install.sh)`
+- **newsboat** — `VERIFIED_NO_ONE_LINER` — distro package — `—` — First official method is distro package availability; no universal command.
+- **nyaa** — `VERIFIED_ONE_LINER` — Cargo — `cargo install nyaa`
+- **omaro** — `VERIFIED_ONE_LINER` — Cargo — `cargo install omaro --locked`
+- **rfc_reader** — `VERIFIED_NO_ONE_LINER` — source/manual — `—` — No Installation section in root README.
+- **rtorrent** — `VERIFIED_NO_ONE_LINER` — release/source — `—` — First official method is stable release/source setup, not one-line.
+- **rttt** — `VERIFIED_NO_ONE_LINER` — GitLab/source — `—` — No one-line installer safely captured.
+- **searxngr** — `VERIFIED_ONE_LINER` — uv — `uv tool install https://github.com/scross01/searxngr.git`
+- **Slumber** — `VERIFIED_NO_ONE_LINER` — packages/source — `—` — No Installation section in root README.
+- **stegodon** — `VERIFIED_NO_ONE_LINER` — service/source — `—` — No Installation section in root README.
+- **surge** — `VERIFIED_NO_ONE_LINER` — prebuilt binary — `—` — First official method is prebuilt binary/manual download.
+- **tblogs** — `VERIFIED_ONE_LINER` — Homebrew — `brew tap ezeoleaf/tap && brew install tblogs`
+- **textual-web** — `VERIFIED_ONE_LINER` — pipx — `pipx install textual-web`
+- **twterm** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.
+- **w3m** — `NEEDS_FOLLOWUP` — upstream check incomplete — `—` — No exact first official one-liner was safely captured in this pass; do not infer a package command from this row.

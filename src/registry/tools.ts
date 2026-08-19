@@ -150,6 +150,7 @@ export const tools: Tool[] = [
       "below"
     ],
     "managers": {
+      "dnf": "below",
       "cargo": "below-view"
     }
   },
@@ -163,8 +164,8 @@ export const tools: Tool[] = [
       "binsider"
     ],
     "managers": {
-      "brew": "binsider",
-      "cargo": "binsider"
+      "cargo": "binsider",
+      "brew": "binsider"
     }
   },
   {
@@ -193,9 +194,9 @@ export const tools: Tool[] = [
       "bottom"
     ],
     "managers": {
+      "cargo": "bottom",
       "brew": "bottom",
       "apt": "bottom",
-      "cargo": "bottom",
       "scoop": "bottom",
       "winget": "Clement.bottom"
     }
@@ -210,8 +211,8 @@ export const tools: Tool[] = [
       "bpytop"
     ],
     "managers": {
-      "brew": "bpytop",
-      "pip": "bpytop"
+      "pip": "bpytop",
+      "brew": "bpytop"
     }
   },
   {
@@ -242,7 +243,9 @@ export const tools: Tool[] = [
     "binaries": [
       "bullmq-dash"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "quanghuynt14/tap/bullmq-dash"
+    }
   },
   {
     "id": "cgdb",
@@ -275,7 +278,9 @@ export const tools: Tool[] = [
     "binaries": [
       "cheatshh"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "cheatshh"
+    }
   },
   {
     "id": "claws",
@@ -286,7 +291,9 @@ export const tools: Tool[] = [
     "binaries": [
       "claws"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "clawscli/tap/claws"
+    }
   },
   {
     "id": "cointop",
@@ -346,7 +353,9 @@ export const tools: Tool[] = [
     "binaries": [
       "dashbrew"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/rasjonell/dashbrew/cmd/dashbrew"
+    }
   },
   {
     "id": "dolphie",
@@ -358,8 +367,8 @@ export const tools: Tool[] = [
       "dolphie"
     ],
     "managers": {
-      "brew": "dolphie",
-      "pip": "dolphie"
+      "pip": "dolphie",
+      "brew": "dolphie"
     }
   },
   {
@@ -382,7 +391,9 @@ export const tools: Tool[] = [
     "binaries": [
       "fubar"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "fubar-cli"
+    }
   },
   {
     "id": "gh-dash",
@@ -407,7 +418,9 @@ export const tools: Tool[] = [
     "binaries": [
       "glances"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "cd"
+    }
   },
   {
     "id": "goaccess",
@@ -435,6 +448,7 @@ export const tools: Tool[] = [
       "gobang"
     ],
     "managers": {
+      "brew": "tako8ki/tap/gobang",
       "cargo": "gobang"
     }
   },
@@ -447,7 +461,9 @@ export const tools: Tool[] = [
     "binaries": [
       "gonzo"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/control-theory/gonzo/cmd/gonzo"
+    }
   },
   {
     "id": "gotop",
@@ -540,7 +556,9 @@ export const tools: Tool[] = [
     "binaries": [
       "hwinfo-tui"
     ],
-    "managers": {}
+    "managers": {
+      "winget": "hwinfo-tui"
+    }
   },
   {
     "id": "id-spoofer",
@@ -562,7 +580,9 @@ export const tools: Tool[] = [
     "binaries": [
       "kaskade"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "kaskade"
+    }
   },
   {
     "id": "kmon",
@@ -573,7 +593,9 @@ export const tools: Tool[] = [
     "binaries": [
       "kmon"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "kmon"
+    }
   },
   {
     "id": "kyanos",
@@ -729,7 +751,9 @@ export const tools: Tool[] = [
     "binaries": [
       "psmux"
     ],
-    "managers": {}
+    "managers": {
+      "winget": "psmux"
+    }
   },
   {
     "id": "psnet",
@@ -740,7 +764,9 @@ export const tools: Tool[] = [
     "binaries": [
       "psnet"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "psnet"
+    }
   },
   {
     "id": "pstop",
@@ -751,7 +777,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pstop"
     ],
-    "managers": {}
+    "managers": {
+      "winget": "marlocarlo.pstop"
+    }
   },
   {
     "id": "puffin",
@@ -762,7 +790,9 @@ export const tools: Tool[] = [
     "binaries": [
       "puffin"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "siddhantac/puffin/puffin"
+    }
   },
   {
     "id": "raijin",
@@ -773,7 +803,9 @@ export const tools: Tool[] = [
     "binaries": [
       "raijin"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "Raijin"
+    }
   },
   {
     "id": "rustnet",
@@ -784,7 +816,9 @@ export const tools: Tool[] = [
     "binaries": [
       "rustnet"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "rustnet"
+    }
   },
   {
     "id": "s-tui",
@@ -955,7 +989,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tufw"
     ],
-    "managers": {}
+    "managers": {
+      "apt": "tufw_0.1.0_linux_amd64.deb"
+    }
   },
   {
     "id": "tuicamp",
@@ -977,7 +1013,9 @@ export const tools: Tool[] = [
     "binaries": [
       "updo"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "owloops/tap/updo"
+    }
   },
   {
     "id": "tmd-top",
@@ -999,7 +1037,9 @@ export const tools: Tool[] = [
     "binaries": [
       "wander"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "robinovitch61/tap/wander"
+    }
   },
   {
     "id": "wtf",
@@ -1064,7 +1104,9 @@ export const tools: Tool[] = [
     "binaries": [
       "amtui"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "pehlicd/tap/amtui"
+    }
   },
   {
     "id": "amux",
@@ -1100,7 +1142,9 @@ export const tools: Tool[] = [
     "binaries": [
       "austin-tui"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "austin-tui"
+    }
   },
   {
     "id": "blinkenlights",
@@ -1122,7 +1166,9 @@ export const tools: Tool[] = [
     "binaries": [
       "brows"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "rubysolo/tools/brows"
+    }
   },
   {
     "id": "burf",
@@ -1155,7 +1201,9 @@ export const tools: Tool[] = [
     "binaries": [
       "catalyst"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "PraveenGongada/tap/catalyst"
+    }
   },
   {
     "id": "cntui",
@@ -1177,7 +1225,9 @@ export const tools: Tool[] = [
     "binaries": [
       "chiko"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "felangga/chiko/chiko"
+    }
   },
   {
     "id": "claude-code-bridge",
@@ -1256,7 +1306,9 @@ export const tools: Tool[] = [
     "binaries": [
       "crush"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "charmbracelet/tap/crush"
+    }
   },
   {
     "id": "dbee",
@@ -1303,7 +1355,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ddv"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "ddv"
+    }
   },
   {
     "id": "delta",
@@ -1366,7 +1420,9 @@ export const tools: Tool[] = [
     "binaries": [
       "fast-resume"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "angristan/tap/fast-resume"
+    }
   },
   {
     "id": "feluda",
@@ -1377,7 +1433,9 @@ export const tools: Tool[] = [
     "binaries": [
       "feluda"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "feluda"
+    }
   },
   {
     "id": "froggit",
@@ -1439,6 +1497,7 @@ export const tools: Tool[] = [
       "gitui"
     ],
     "managers": {
+      "pacman": "gitui",
       "brew": "gitui",
       "apt": "gitui",
       "cargo": "gitui",
@@ -1466,7 +1525,9 @@ export const tools: Tool[] = [
     "binaries": [
       "gitv"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "jayanaxhf/taps/gitv"
+    }
   },
   {
     "id": "git-crecord",
@@ -1477,7 +1538,9 @@ export const tools: Tool[] = [
     "binaries": [
       "git-crecord"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "./setup.py"
+    }
   },
   {
     "id": "git-scope",
@@ -1488,7 +1551,9 @@ export const tools: Tool[] = [
     "binaries": [
       "git-scope"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "Bharath-code/tap/git-scope"
+    }
   },
   {
     "id": "grv",
@@ -1526,7 +1591,9 @@ export const tools: Tool[] = [
     "binaries": [
       "hcom"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "aannoo/hcom/hcom"
+    }
   },
   {
     "id": "heretek",
@@ -1537,7 +1604,9 @@ export const tools: Tool[] = [
     "binaries": [
       "heretek"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "heretek"
+    }
   },
   {
     "id": "jqp",
@@ -1591,7 +1660,9 @@ export const tools: Tool[] = [
     "binaries": [
       "lazymake"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "lazymake"
+    }
   },
   {
     "id": "lazysql",
@@ -1638,7 +1709,9 @@ export const tools: Tool[] = [
     "binaries": [
       "logradar"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "."
+    }
   },
   {
     "id": "loglens",
@@ -1649,7 +1722,9 @@ export const tools: Tool[] = [
     "binaries": [
       "loglens"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "Caelrith/loglens/loglens"
+    }
   },
   {
     "id": "logshark",
@@ -1688,7 +1763,9 @@ export const tools: Tool[] = [
     "binaries": [
       "models"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "models"
+    }
   },
   {
     "id": "nap",
@@ -1699,7 +1776,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nap"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/maaslalani/nap@main"
+    }
   },
   {
     "id": "nodebro",
@@ -1783,7 +1862,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pproftui"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/Oloruntobi1/pproftui"
+    }
   },
   {
     "id": "proxymock",
@@ -1833,7 +1914,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pyautogit"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "pyautogit"
+    }
   },
   {
     "id": "qo",
@@ -1844,7 +1927,9 @@ export const tools: Tool[] = [
     "binaries": [
       "qo"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "kiki-ki/tap/qo"
+    }
   },
   {
     "id": "qrypad",
@@ -1880,7 +1965,9 @@ export const tools: Tool[] = [
     "binaries": [
       "regex-tui"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/vitor-mariano/regex-tui"
+    }
   },
   {
     "id": "resterm",
@@ -1891,7 +1978,9 @@ export const tools: Tool[] = [
     "binaries": [
       "resterm"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "resterm"
+    }
   },
   {
     "id": "runme",
@@ -1917,7 +2006,9 @@ export const tools: Tool[] = [
     "binaries": [
       "scope"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "scope-monitor"
+    }
   },
   {
     "id": "sabiql",
@@ -1928,7 +2019,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sabiql"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "riii111/sabiql/sabiql"
+    }
   },
   {
     "id": "sls-dev-tools",
@@ -1963,7 +2056,9 @@ export const tools: Tool[] = [
     "binaries": [
       "stu"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "stu"
+    }
   },
   {
     "id": "termdbms",
@@ -1987,7 +2082,9 @@ export const tools: Tool[] = [
     "binaries": [
       "terraform-tui"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "idoavrah/homebrew/tftui"
+    }
   },
   {
     "id": "toad",
@@ -2042,7 +2139,9 @@ export const tools: Tool[] = [
     "binaries": [
       "serie"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "serie"
+    }
   },
   {
     "id": "soft-serve",
@@ -2090,7 +2189,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sq"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/sheenazien8/sq"
+    }
   },
   {
     "id": "tig",
@@ -2230,7 +2331,9 @@ export const tools: Tool[] = [
     "binaries": [
       "dtop"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "dtop"
+    }
   },
   {
     "id": "dive",
@@ -2258,8 +2361,8 @@ export const tools: Tool[] = [
       "dockly"
     ],
     "managers": {
-      "brew": "dockly",
-      "npm": "dockly"
+      "npm": "dockly",
+      "brew": "dockly"
     }
   },
   {
@@ -2271,7 +2374,9 @@ export const tools: Tool[] = [
     "binaries": [
       "dockmate"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "shubh-io/tap/dockmate"
+    }
   },
   {
     "id": "docker-dash",
@@ -2282,7 +2387,9 @@ export const tools: Tool[] = [
     "binaries": [
       "docker-dash"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "GustavoCaso/tap/docker-dash"
+    }
   },
   {
     "id": "dockup",
@@ -2330,7 +2437,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ducker"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "ducker"
+    }
   },
   {
     "id": "e1s",
@@ -2356,6 +2465,7 @@ export const tools: Tool[] = [
       "eks-node-viewer"
     ],
     "managers": {
+      "brew": "aws/tap/eks-node-viewer",
       "go": "github.com/awslabs/eks-node-viewer/cmd/eks-node-viewer"
     }
   },
@@ -2444,6 +2554,7 @@ export const tools: Tool[] = [
       "kubetui"
     ],
     "managers": {
+      "brew": "kubetui",
       "cargo": "kubetui"
     }
   },
@@ -2456,7 +2567,9 @@ export const tools: Tool[] = [
     "binaries": [
       "lazycontainer"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "lazycontainer"
+    }
   },
   {
     "id": "lazydocker",
@@ -2482,7 +2595,9 @@ export const tools: Tool[] = [
     "binaries": [
       "lazytrivy"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "owenrumney/tools/lazytrivy"
+    }
   },
   {
     "id": "oxker",
@@ -2494,8 +2609,8 @@ export const tools: Tool[] = [
       "oxker"
     ],
     "managers": {
-      "brew": "oxker",
-      "cargo": "oxker"
+      "cargo": "oxker",
+      "brew": "oxker"
     }
   },
   {
@@ -2507,7 +2622,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pocker"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "pocker-tui"
+    }
   },
   {
     "id": "podman-tui",
@@ -2532,7 +2649,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sen"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "&&"
+    }
   },
   {
     "id": "swarmcli",
@@ -2543,7 +2662,9 @@ export const tools: Tool[] = [
     "binaries": [
       "swarmcli"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "eldara-tech/tap/swarmcli"
+    }
   },
   {
     "id": "talos-pilot",
@@ -2589,7 +2710,9 @@ export const tools: Tool[] = [
     "binaries": [
       "durdraw"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "git"
+    }
   },
   {
     "id": "edit",
@@ -2838,7 +2961,9 @@ export const tools: Tool[] = [
     "binaries": [
       "zee"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "zee"
+    }
   },
   {
     "id": "pnana",
@@ -2860,7 +2985,9 @@ export const tools: Tool[] = [
     "binaries": [
       "adbtuifm"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/darkhz/adbtuifm"
+    }
   },
   {
     "id": "broot",
@@ -2886,7 +3013,9 @@ export const tools: Tool[] = [
     "binaries": [
       "deletor"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/pashkov256/deletor"
+    }
   },
   {
     "id": "far2l",
@@ -2944,9 +3073,9 @@ export const tools: Tool[] = [
       "lf"
     ],
     "managers": {
+      "go": "github.com/gokcehan/lf",
       "brew": "lf",
       "apt": "lf",
-      "go": "github.com/gokcehan/lf",
       "scoop": "lf"
     }
   },
@@ -3067,7 +3196,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tuifimanager"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "tuifimanager"
+    }
   },
   {
     "id": "vifm",
@@ -3120,7 +3251,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tui-2048"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "tui-2048"
+    }
   },
   {
     "id": "awkaster",
@@ -3211,7 +3344,9 @@ export const tools: Tool[] = [
     "binaries": [
       "chess-tui"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "thomas-mauran/tap/chess-tui"
+    }
   },
   {
     "id": "clidle",
@@ -3310,7 +3445,9 @@ export const tools: Tool[] = [
     "binaries": [
       "maze"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "itchyny/tap/maze"
+    }
   },
   {
     "id": "maze-tui",
@@ -3474,7 +3611,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pokete"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "pokete"
+    }
   },
   {
     "id": "rebels-in-the-sky",
@@ -3653,7 +3792,9 @@ export const tools: Tool[] = [
     "binaries": [
       "typeinc"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "typeinc"
+    }
   },
   {
     "id": "typing-game-cli",
@@ -3664,7 +3805,9 @@ export const tools: Tool[] = [
     "binaries": [
       "typing-game-cli"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "typing-game-cli"
+    }
   },
   {
     "id": "unipac",
@@ -3729,7 +3872,9 @@ export const tools: Tool[] = [
     "category": "libraries",
     "subcategory": "python",
     "binaries": [],
-    "managers": {}
+    "managers": {
+      "pip": "argenta"
+    }
   },
   {
     "id": "blessed",
@@ -3930,7 +4075,9 @@ export const tools: Tool[] = [
     "category": "libraries",
     "subcategory": "go",
     "binaries": [],
-    "managers": {}
+    "managers": {
+      "go": "github.com/marcusolsson/tui-go"
+    }
   },
   {
     "id": "tview",
@@ -4347,7 +4494,9 @@ export const tools: Tool[] = [
     "category": "libraries",
     "subcategory": "other",
     "binaries": [],
-    "managers": {}
+    "managers": {
+      "pip": "moulti;"
+    }
   },
   {
     "id": "nimwave",
@@ -4459,7 +4608,9 @@ export const tools: Tool[] = [
     "binaries": [
       "basalt"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "basalt-tui"
+    }
   },
   {
     "id": "concord",
@@ -4567,7 +4718,9 @@ export const tools: Tool[] = [
     "binaries": [
       "instagram-cli"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "@i7m/instagram-cli"
+    }
   },
   {
     "id": "irssi",
@@ -4605,7 +4758,9 @@ export const tools: Tool[] = [
     "binaries": [
       "mastui"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "mastui"
+    }
   },
   {
     "id": "matcha",
@@ -4693,7 +4848,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nomadnet"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "nomadnet"
+    }
   },
   {
     "id": "nostui",
@@ -4715,7 +4872,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nostratui"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "git"
+    }
   },
   {
     "id": "profanity",
@@ -4740,7 +4899,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sclack"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "git"
+    }
   },
   {
     "id": "scli",
@@ -4819,7 +4980,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tgt"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "tgt"
+    }
   },
   {
     "id": "toot",
@@ -4844,7 +5007,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tuisky"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "tuisky"
+    }
   },
   {
     "id": "tuix",
@@ -4934,7 +5099,9 @@ export const tools: Tool[] = [
     "binaries": [
       "asciimol"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "asciimol"
+    }
   },
   {
     "id": "bluetuith",
@@ -4956,7 +5123,9 @@ export const tools: Tool[] = [
     "binaries": [
       "bluetui"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "bluetui"
+    }
   },
   {
     "id": "caligula",
@@ -5055,7 +5224,9 @@ export const tools: Tool[] = [
     "binaries": [
       "diary"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "diary"
+    }
   },
   {
     "id": "digisurf",
@@ -5066,7 +5237,9 @@ export const tools: Tool[] = [
     "binaries": [
       "digisurf"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "digisurf"
+    }
   },
   {
     "id": "diskonaut",
@@ -5091,7 +5264,9 @@ export const tools: Tool[] = [
     "binaries": [
       "distrobox-tui"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/phanirithvij/distrobox-tui@main"
+    }
   },
   {
     "id": "ec2-instance-selector",
@@ -5103,6 +5278,7 @@ export const tools: Tool[] = [
       "ec2-instance-selector"
     ],
     "managers": {
+      "brew": "aws/tap/ec2-instance-selector",
       "go": "github.com/aws/amazon-ec2-instance-selector/v2/cli"
     }
   },
@@ -5126,7 +5302,9 @@ export const tools: Tool[] = [
     "binaries": [
       "flawz"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "flawz"
+    }
   },
   {
     "id": "fnf",
@@ -5182,7 +5360,9 @@ export const tools: Tool[] = [
     "binaries": [
       "gif-for-cli"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "gif-for-cli"
+    }
   },
   {
     "id": "godap",
@@ -5193,7 +5373,9 @@ export const tools: Tool[] = [
     "binaries": [
       "godap"
     ],
-    "managers": {}
+    "managers": {
+      "go": "git"
+    }
   },
   {
     "id": "golazo",
@@ -5204,7 +5386,9 @@ export const tools: Tool[] = [
     "binaries": [
       "golazo"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "0xjuanma/tap/golazo"
+    }
   },
   {
     "id": "gpg-tui",
@@ -5216,8 +5400,8 @@ export const tools: Tool[] = [
       "gpg-tui"
     ],
     "managers": {
-      "brew": "gpg-tui",
-      "cargo": "gpg-tui"
+      "cargo": "gpg-tui",
+      "brew": "gpg-tui"
     }
   },
   {
@@ -5229,7 +5413,9 @@ export const tools: Tool[] = [
     "binaries": [
       "humble-explorer"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "humble-explorer"
+    }
   },
   {
     "id": "iconicfonts",
@@ -5336,7 +5522,9 @@ export const tools: Tool[] = [
     "binaries": [
       "mac-cleanup-go"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "mac-cleanup-go"
+    }
   },
   {
     "id": "mapscii",
@@ -5410,7 +5598,9 @@ export const tools: Tool[] = [
     "binaries": [
       "neoss"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "neoss"
+    }
   },
   {
     "id": "nmtui",
@@ -5436,8 +5626,8 @@ export const tools: Tool[] = [
       "oha"
     ],
     "managers": {
-      "brew": "oha",
-      "cargo": "oha"
+      "cargo": "oha",
+      "brew": "oha"
     }
   },
   {
@@ -5449,7 +5639,9 @@ export const tools: Tool[] = [
     "binaries": [
       "packemon"
     ],
-    "managers": {}
+    "managers": {
+      "go": "git"
+    }
   },
   {
     "id": "pass-cli",
@@ -5460,7 +5652,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pass-cli"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "reyamira/homebrew-tap/pass-cli"
+    }
   },
   {
     "id": "pesterexplorer",
@@ -5483,8 +5677,8 @@ export const tools: Tool[] = [
       "pug"
     ],
     "managers": {
-      "brew": "pug",
-      "go": "github.com/leg100/pug"
+      "go": "github.com/leg100/pug",
+      "brew": "pug"
     }
   },
   {
@@ -5496,7 +5690,9 @@ export const tools: Tool[] = [
     "binaries": [
       "physics-tui"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "git+https://github.com/ClaudioRMalvino/physics_tui.git"
+    }
   },
   {
     "id": "ncdu",
@@ -5523,7 +5719,9 @@ export const tools: Tool[] = [
     "binaries": [
       "redu"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "redu"
+    }
   },
   {
     "id": "nemu",
@@ -5556,7 +5754,9 @@ export const tools: Tool[] = [
     "binaries": [
       "rocket-term"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "./setup.py"
+    }
   },
   {
     "id": "smassh",
@@ -5567,7 +5767,9 @@ export const tools: Tool[] = [
     "binaries": [
       "smassh"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "smassh"
+    }
   },
   {
     "id": "steam-friends-list-tui",
@@ -5589,7 +5791,9 @@ export const tools: Tool[] = [
     "binaries": [
       "systemd-manager-tui"
     ],
-    "managers": {}
+    "managers": {
+      "apt": "dpkg"
+    }
   },
   {
     "id": "tcpterm",
@@ -5600,7 +5804,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tcpterm"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/sachaos/tcpterm"
+    }
   },
   {
     "id": "tab-pal",
@@ -5611,7 +5817,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tab-pal"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "tab-pal"
+    }
   },
   {
     "id": "term-everything",
@@ -5727,7 +5935,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tweakcc"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "tweakcc"
+    }
   },
   {
     "id": "typtea",
@@ -5749,7 +5959,9 @@ export const tools: Tool[] = [
     "binaries": [
       "try-rs"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "git"
+    }
   },
   {
     "id": "vortix",
@@ -5760,7 +5972,9 @@ export const tools: Tool[] = [
     "binaries": [
       "vortix"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "Harry-kp/tap/vortix"
+    }
   },
   {
     "id": "wb",
@@ -5783,8 +5997,8 @@ export const tools: Tool[] = [
       "wego"
     ],
     "managers": {
-      "brew": "wego",
-      "go": "github.com/schachmat/wego"
+      "go": "github.com/schachmat/wego",
+      "brew": "wego"
     }
   },
   {
@@ -5843,7 +6057,9 @@ export const tools: Tool[] = [
     "binaries": [
       "wifui"
     ],
-    "managers": {}
+    "managers": {
+      "winget": "wifui"
+    }
   },
   {
     "id": "xplr",
@@ -5880,7 +6096,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ani-l"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "ani-l"
+    }
   },
   {
     "id": "asak",
@@ -5891,7 +6109,9 @@ export const tools: Tool[] = [
     "binaries": [
       "asak"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "asak"
+    }
   },
   {
     "id": "bookokrat",
@@ -5902,7 +6122,9 @@ export const tools: Tool[] = [
     "binaries": [
       "bookokrat"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "bookokrat"
+    }
   },
   {
     "id": "chafa",
@@ -5929,7 +6151,9 @@ export const tools: Tool[] = [
     "binaries": [
       "cmdpxl"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "cmdpxl"
+    }
   },
   {
     "id": "cmus",
@@ -5941,8 +6165,8 @@ export const tools: Tool[] = [
       "cmus"
     ],
     "managers": {
-      "brew": "cmus",
       "apt": "cmus",
+      "brew": "cmus",
       "dnf": "cmus",
       "pacman": "cmus"
     }
@@ -5967,7 +6191,9 @@ export const tools: Tool[] = [
     "binaries": [
       "draw"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/maaslalani/draw"
+    }
   },
   {
     "id": "fancy-cat",
@@ -5989,7 +6215,9 @@ export const tools: Tool[] = [
     "binaries": [
       "favicon-editor"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/xyproto/favicon-editor"
+    }
   },
   {
     "id": "gadacz",
@@ -6000,7 +6228,9 @@ export const tools: Tool[] = [
     "binaries": [
       "gadacz"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "git"
+    }
   },
   {
     "id": "gophertube",
@@ -6033,7 +6263,9 @@ export const tools: Tool[] = [
     "binaries": [
       "image-sorter"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "image-sorter"
+    }
   },
   {
     "id": "invidtui",
@@ -6055,7 +6287,9 @@ export const tools: Tool[] = [
     "binaries": [
       "jellyfin-tui"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "git"
+    }
   },
   {
     "id": "kew",
@@ -6114,7 +6348,9 @@ export const tools: Tool[] = [
     "binaries": [
       "manga-tui"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "manga-tui"
+    }
   },
   {
     "id": "marstui-audio",
@@ -6125,7 +6361,9 @@ export const tools: Tool[] = [
     "binaries": [
       "marstui-audio"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "apt"
+    }
   },
   {
     "id": "mps-youtube",
@@ -6160,7 +6398,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nap-2"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/maaslalani/nap@main"
+    }
   },
   {
     "id": "ncspot",
@@ -6233,7 +6473,9 @@ export const tools: Tool[] = [
     "binaries": [
       "relax-player"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "relax-player"
+    }
   },
   {
     "id": "roku-cli",
@@ -6280,7 +6522,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sonicradio"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/dancnb/sonicradio/cmd/sonicradio"
+    }
   },
   {
     "id": "soundcloud2000",
@@ -6302,7 +6546,9 @@ export const tools: Tool[] = [
     "binaries": [
       "spotatui"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "LargeModGames/spotatui/spotatui"
+    }
   },
   {
     "id": "spotify-player",
@@ -6327,7 +6573,9 @@ export const tools: Tool[] = [
     "binaries": [
       "spotui"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "spotui"
+    }
   },
   {
     "id": "tdf",
@@ -6338,7 +6586,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tdf"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "https://github.com/itsjunetime/tdf.git"
+    }
   },
   {
     "id": "terminal-yt",
@@ -6361,8 +6611,8 @@ export const tools: Tool[] = [
       "termusic"
     ],
     "managers": {
-      "brew": "termusic",
-      "cargo": "termusic"
+      "cargo": "termusic",
+      "brew": "termusic"
     }
   },
   {
@@ -6374,7 +6624,9 @@ export const tools: Tool[] = [
     "binaries": [
       "textual-paint"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "pipx"
+    }
   },
   {
     "id": "timg",
@@ -6386,8 +6638,8 @@ export const tools: Tool[] = [
       "timg"
     ],
     "managers": {
-      "brew": "timg",
       "apt": "timg",
+      "brew": "timg",
       "dnf": "timg"
     }
   },
@@ -6444,7 +6696,9 @@ export const tools: Tool[] = [
     "binaries": [
       "upiano"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "upiano"
+    }
   },
   {
     "id": "valvefm",
@@ -6494,7 +6748,9 @@ export const tools: Tool[] = [
     "binaries": [
       "wiremix"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "wiremix"
+    }
   },
   {
     "id": "xytz",
@@ -6516,7 +6772,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ytui-music"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "git"
+    }
   },
   {
     "id": "ytdl-tui",
@@ -6552,8 +6810,8 @@ export const tools: Tool[] = [
       "viu"
     ],
     "managers": {
-      "brew": "viu",
-      "cargo": "viu"
+      "cargo": "viu",
+      "brew": "viu"
     }
   },
   {
@@ -6623,7 +6881,9 @@ export const tools: Tool[] = [
     "binaries": [
       "brief"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "williamagh/tap/brief"
+    }
   },
   {
     "id": "calcure",
@@ -6687,7 +6947,9 @@ export const tools: Tool[] = [
     "binaries": [
       "desktop-tui"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "desktop-tui"
+    }
   },
   {
     "id": "doxx",
@@ -6698,7 +6960,9 @@ export const tools: Tool[] = [
     "binaries": [
       "doxx"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "bgreenwell/tap/doxx"
+    }
   },
   {
     "id": "drako",
@@ -6709,7 +6973,9 @@ export const tools: Tool[] = [
     "binaries": [
       "drako"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/lucky7xz/drako"
+    }
   },
   {
     "id": "dvtm",
@@ -6733,7 +6999,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ekphos"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "ekphos"
+    }
   },
   {
     "id": "elia",
@@ -6797,7 +7065,9 @@ export const tools: Tool[] = [
     "binaries": [
       "gocheat"
     ],
-    "managers": {}
+    "managers": {
+      "go": "git"
+    }
   },
   {
     "id": "helm",
@@ -6808,7 +7078,9 @@ export const tools: Tool[] = [
     "binaries": [
       "helm"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "0xjuanma/tap/helm"
+    }
   },
   {
     "id": "hledger-ui",
@@ -6844,7 +7116,9 @@ export const tools: Tool[] = [
     "binaries": [
       "hnjobs"
     ],
-    "managers": {}
+    "managers": {
+      "go": "github.com/mwinters0/hnjobs"
+    }
   },
   {
     "id": "hygg",
@@ -6855,7 +7129,9 @@ export const tools: Tool[] = [
     "binaries": [
       "hygg"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "hygg"
+    }
   },
   {
     "id": "hydrotodo",
@@ -6910,7 +7186,9 @@ export const tools: Tool[] = [
     "binaries": [
       "judo"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "judo"
+    }
   },
   {
     "id": "kabmat",
@@ -6932,7 +7210,9 @@ export const tools: Tool[] = [
     "binaries": [
       "kanban"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "kanban-cli"
+    }
   },
   {
     "id": "kanban-python",
@@ -6943,7 +7223,9 @@ export const tools: Tool[] = [
     "binaries": [
       "kanban-python"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "kanban-python"
+    }
   },
   {
     "id": "khal",
@@ -6955,6 +7237,7 @@ export const tools: Tool[] = [
       "khal"
     ],
     "managers": {
+      "apt": "khal",
       "brew": "khal",
       "pip": "khal"
     }
@@ -6968,7 +7251,9 @@ export const tools: Tool[] = [
     "binaries": [
       "lazyssh"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "Adembc/homebrew-tap/lazyssh"
+    }
   },
   {
     "id": "levite",
@@ -6990,7 +7275,9 @@ export const tools: Tool[] = [
     "binaries": [
       "longbridge-terminal"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "longbridge/tap/longbridge-terminal"
+    }
   },
   {
     "id": "lssh",
@@ -7001,7 +7288,9 @@ export const tools: Tool[] = [
     "binaries": [
       "lssh"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "blacknon/lssh/lssh"
+    }
   },
   {
     "id": "mcfly",
@@ -7038,7 +7327,9 @@ export const tools: Tool[] = [
     "binaries": [
       "multranslate"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "multranslate"
+    }
   },
   {
     "id": "nless",
@@ -7049,7 +7340,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nless"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "nothing-less"
+    }
   },
   {
     "id": "numr",
@@ -7060,7 +7353,9 @@ export const tools: Tool[] = [
     "binaries": [
       "numr"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "nasedkinpv/tap/numr"
+    }
   },
   {
     "id": "openmux",
@@ -7108,7 +7403,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pdiary"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "https://github.com/manipuladordedados/pdiary/releases/download/1.65/pdiary-1.65-py3-none-any.whl"
+    }
   },
   {
     "id": "pkm",
@@ -7130,7 +7427,9 @@ export const tools: Tool[] = [
     "binaries": [
       "pomo"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "bahaaio/pomo/pomo"
+    }
   },
   {
     "id": "portfolio-rs",
@@ -7178,6 +7477,7 @@ export const tools: Tool[] = [
       "procmux"
     ],
     "managers": {
+      "pip": "procmux",
       "go": "github.com/napisani/procmux"
     }
   },
@@ -7190,7 +7490,9 @@ export const tools: Tool[] = [
     "binaries": [
       "productivity-timer"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "productivity-timer"
+    }
   },
   {
     "id": "sc-im",
@@ -7240,7 +7542,9 @@ export const tools: Tool[] = [
     "binaries": [
       "sshm"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "Gu1llaum-3/sshm/sshm"
+    }
   },
   {
     "id": "ssh-slides",
@@ -7273,7 +7577,9 @@ export const tools: Tool[] = [
     "binaries": [
       "taskline"
     ],
-    "managers": {}
+    "managers": {
+      "npm": "@perryrh0dan/taskline"
+    }
   },
   {
     "id": "taskwarrior-tui",
@@ -7369,7 +7675,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tododo"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "bmarse/tap/tododo"
+    }
   },
   {
     "id": "todoman",
@@ -7408,7 +7716,9 @@ export const tools: Tool[] = [
     "binaries": [
       "ttm"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "vst93/tap/ttm"
+    }
   },
   {
     "id": "trx",
@@ -7444,7 +7754,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tui-projectmanager"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "project_manager"
+    }
   },
   {
     "id": "tuidict",
@@ -7455,7 +7767,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tuidict"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "tuidict"
+    }
   },
   {
     "id": "tui-deck",
@@ -7479,7 +7793,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tuios"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "tuios"
+    }
   },
   {
     "id": "tui-slides",
@@ -7490,7 +7806,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tui-slides"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "tui-slides"
+    }
   },
   {
     "id": "tuihub",
@@ -7514,7 +7832,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tuiserial"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "tuiserial"
+    }
   },
   {
     "id": "tvterm",
@@ -7537,9 +7857,9 @@ export const tools: Tool[] = [
       "visidata"
     ],
     "managers": {
+      "pip": "visidata",
       "brew": "visidata",
-      "apt": "visidata",
-      "pip": "visidata"
+      "apt": "visidata"
     }
   },
   {
@@ -7604,7 +7924,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tock"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "tock"
+    }
   },
   {
     "id": "astroterm",
@@ -7615,7 +7937,9 @@ export const tools: Tool[] = [
     "binaries": [
       "astroterm"
     ],
-    "managers": {}
+    "managers": {
+      "dnf": "astroterm"
+    }
   },
   {
     "id": "gitlogue",
@@ -7648,7 +7972,9 @@ export const tools: Tool[] = [
     "binaries": [
       "rxpipes"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "rxpipes"
+    }
   },
   {
     "id": "pond",
@@ -7755,7 +8081,9 @@ export const tools: Tool[] = [
     "binaries": [
       "catenavetus"
     ],
-    "managers": {}
+    "managers": {
+      "pip": "python"
+    }
   },
   {
     "id": "chawan",
@@ -7777,7 +8105,9 @@ export const tools: Tool[] = [
     "binaries": [
       "cloudflare-speed-cli"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "cloudflare-speed-cli"
+    }
   },
   {
     "id": "eilmeldung",
@@ -7788,7 +8118,9 @@ export const tools: Tool[] = [
     "binaries": [
       "eilmeldung"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "christo-auer/eilmeldung/eilmeldung"
+    }
   },
   {
     "id": "elinks",
@@ -7898,7 +8230,9 @@ export const tools: Tool[] = [
     "binaries": [
       "nyaa"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "nyaa"
+    }
   },
   {
     "id": "omaro",
@@ -7909,7 +8243,9 @@ export const tools: Tool[] = [
     "binaries": [
       "omaro"
     ],
-    "managers": {}
+    "managers": {
+      "cargo": "omaro"
+    }
   },
   {
     "id": "rfc-reader",
@@ -8005,7 +8341,9 @@ export const tools: Tool[] = [
     "binaries": [
       "tblogs"
     ],
-    "managers": {}
+    "managers": {
+      "brew": "ezeoleaf/tap/tblogs"
+    }
   },
   {
     "id": "textual-web",
