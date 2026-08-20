@@ -447,6 +447,23 @@ function DetailPane(props: { tool: Tool | undefined; showAll: boolean; platform:
   );
 }
 
+function FavBar(props: { favs: Tool[]; onLaunch: (t: Tool) => void }) {
+  if (props.favs.length === 0) return null;
+  return (
+    <box flexDirection="row" alignItems="center" border={["bottom"]} borderColor={C.border} paddingX={1} paddingY={0} gap={2}>
+      <text content="★" fg={C.accent} attributes={TextAttributes.BOLD} />
+      {props.favs.slice(0, 9).map((t, i) => (
+        <text
+          key={t.id}
+          content={`${i + 1}:${t.name}`}
+          fg={C.dim}
+          onMouseDown={() => props.onLaunch(t)}
+        />
+      ))}
+    </box>
+  );
+}
+
 function SessionsOverlay(props: {
   sessions: SessionInfo[];
   sel: number;
@@ -511,6 +528,7 @@ function Footer(props: { status: string }) {
         <text content="x remove" fg={C.muted} />
         <text content="r session" fg={C.muted} />
         <text content="f fav" fg={C.muted} />
+        <text content="1-9 fav" fg={C.muted} />
         <text content="a cmds" fg={C.muted} />
       </box>
     </box>
@@ -536,6 +554,7 @@ function HelpOverlay() {
     ["r", "run in session (detach C-b d)"],
     ["S", "sessions (running apps)"],
     ["f", "toggle favourite"],
+    ["1-9", "launch favourite"],
     ["t", "cycle theme (dark/colorful/light)"],
     ["a", "toggle all install commands"],
     ["?", "close this help"],
@@ -584,6 +603,10 @@ function App() {
 
   const platform = useMemo(() => detectPlatform(), []);
   const favSet = useMemo(() => new Set(favourites), [favourites]);
+  const favTools = useMemo(
+    () => favourites.map((id) => tools.find((t) => t.id === id)).filter((t): t is Tool => t !== undefined),
+    [favourites],
+  );
 
   // Load favourites once at startup.
   useEffect(() => {
@@ -688,6 +711,35 @@ function App() {
         setStatus(`${verb} failed: ${outcome.error}`);
       } else {
         setStatus(`${verb} ${name} failed (exit ${outcome.code ?? outcome.signal ?? "?"})`);
+      }
+    });
+  };
+
+  const launchTool = (t: Tool | undefined) => {
+    if (!t) {
+      setStatus("No tool selected");
+      return;
+    }
+    const bin = t.binaries[0];
+    if (!bin) {
+      setStatus(`No binary to launch for ${t.name}`);
+      return;
+    }
+    binaryExists(bin).then(async (ok) => {
+      if (!ok) {
+        setStatus(`${t.name} is not installed — press i to install it`);
+        return;
+      }
+      setBusy(true);
+      try {
+        const name = await launchSession(t, bin);
+        setStatus(`Launched ${t.name} — detach with C-b d`);
+        await runInTerminal(renderer, attachCommand(name));
+        setStatus(`Detached — ${t.name} still running`);
+      } catch (err) {
+        setStatus(`Failed to launch ${t.name}: ${err instanceof Error ? err.message : String(err)}`);
+      } finally {
+        setBusy(false);
       }
     });
   };
@@ -888,36 +940,20 @@ function App() {
         runAction("remove", bestCommand(t, "remove", platform)?.command, t.name);
         break;
       }
-      case "r": {
-        const t = filtered[toolSel];
-        if (!t) {
-          setStatus("No tool selected");
-          break;
-        }
-        const bin = t.binaries[0];
-        if (!bin) {
-          setStatus(`No binary to launch for ${t.name}`);
-          break;
-        }
-        binaryExists(bin).then(async (ok) => {
-          if (!ok) {
-            setStatus(`${t.name} is not installed — press i to install it`);
-            return;
-          }
-          setBusy(true);
-          try {
-            const name = await launchSession(t, bin);
-            setStatus(`Launched ${t.name} — detach with C-b d`);
-            await runInTerminal(renderer, attachCommand(name));
-            setStatus(`Detached — ${t.name} still running`);
-          } catch (err) {
-            setStatus(`Failed to launch ${t.name}: ${err instanceof Error ? err.message : String(err)}`);
-          } finally {
-            setBusy(false);
-          }
-        });
+      case "r":
+        launchTool(filtered[toolSel]);
         break;
-      }
+      case "1":
+      case "2":
+      case "3":
+      case "4":
+      case "5":
+      case "6":
+      case "7":
+      case "8":
+      case "9":
+        launchTool(favTools[Number(e.name) - 1]);
+        break;
       case "escape":
         setSearch("");
         break;
@@ -929,6 +965,7 @@ function App() {
   return (
     <box flexDirection="column" flexGrow={1} backgroundColor={C.bg}>
       <Header search={search} searchMode={searchMode} />
+      <FavBar favs={favTools} onLaunch={launchTool} />
       {showHelp ? (
         <HelpOverlay />
       ) : showSessions ? (
